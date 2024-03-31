@@ -1,6 +1,5 @@
 import BaseSlogan from "@/components/BaseSlogan";
 import BaseText from "@/components/BaseText";
-import ButtonNavigate from "@/components/ButtonNavigate";
 import Abstract from "public/icons/Abstract";
 
 export default function BannerAuthor() {
