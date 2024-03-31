@@ -3,7 +3,7 @@ import BaseText from "@/components/BaseText";
 import LinkSocialNetwork from "@/modules/LinkSocialNetwork";
 
 export default function Footer() {
-  const routers = {
+  const routers: { [key: string]: string[] } = {
     Home: ["ROUTER1", "ROUTER1", "ROUTER1", "ROUTER1"],
     Home1: ["ROUTER1", "ROUTER1", "ROUTER1", "ROUTER1"],
     Home2: ["ROUTER1", "ROUTER1", "ROUTER1", "ROUTER1"],
@@ -21,12 +21,13 @@ export default function Footer() {
         </div>
         <div className="px-[80px] py-[100px] flex grow justify-between">
           {Object.keys(routers).map((key) => {
+            const items = routers[key] ?? [];
             return (
               <div key={key}>
                 <BaseText className="text-[20px] text-textColorSecond pb-6">
                   {key}
                 </BaseText>
-                {routers[key]?.map((item, index) => {
+                {items.map((item, index) => {
                   return (
                     <BaseText
                       className="text-[20px] underline pb-3"

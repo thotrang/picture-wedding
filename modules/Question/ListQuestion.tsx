@@ -57,13 +57,18 @@ export default function ListQuestion() {
     },
   ];
   const questionConvertToShow = useMemo(() => {
-    const list: any = {
-      0: [],
-      1: [],
+    const list: {
+      [key: string]: {
+        title: string;
+        description: string;
+      }[];
+    } = {
+      '0': [],
+      '1': [],
     };
     questions.forEach((q, index) => {
-      if (index % 2 === 0) list[0].push(q);
-      else list[1].push(q);
+      if (index % 2 === 0) list[0]?.push(q);
+      else list[1]?.push(q);
     });
     return list;
   }, questions);
@@ -88,13 +93,13 @@ export default function ListQuestion() {
                   index === 0,
               })}
             >
-              {questionConvertToShow[key].map((q, index) => {
+              {questionConvertToShow[key]?.map((q, index) => {
                 return (
                   <QuestionItem
                     key={index}
                     item={q}
                     showBottomLine={
-                      index < questionConvertToShow[key].length - 1
+                      index < (questionConvertToShow[key]?.length ?? 0) - 1
                     }
                   />
                 );
