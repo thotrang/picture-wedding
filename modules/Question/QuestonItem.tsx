@@ -20,8 +20,8 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
       'border-b-0': !showBottomLine
     })}>
       <div>
-        <BaseText tag="h1" className="font-[600] text-[20px] pb-6">{title}</BaseText>
-        {openCollap && <BaseText className="text-[18px] font-normal">{description}</BaseText>}
+        <BaseText tag="h1" size="XS" className="font-semibold pb-6">{title}</BaseText>
+        {openCollap && <BaseText size="S" className=" font-normal">{description}</BaseText>}
       </div>
       <div>
         <BaseIconButton onClick={() => setOpenCollap(!openCollap)} className="!bg-background border-borderColor h-12 w-12">

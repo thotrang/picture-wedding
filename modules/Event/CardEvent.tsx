@@ -14,12 +14,12 @@ export default function CardEvent() {
     <div className="grid md:grid-cols-2 gap-8">
       <div>
         <div className="pb-5">
-          <BaseText tag="h1" className="inline text-[44px] font-[600] text-textColorSecond pr-3">
+          <BaseText tag="h1" className="inline text-[44px] font-semibold text-textColorSecond pr-3">
             EVENTS
           </BaseText>
           <ButtonNavigate />
         </div>
-        <BaseText className="text-textColorSecond text-[18px]">
+        <BaseText size="S" className="text-textColorSecond ">
           Our event photography service is dedicated to capturing the magic of
           your special occasions. Whether it's a wedding, corporate event, or
           milestone celebration, we're there to document every heartfelt moment.
@@ -27,7 +27,7 @@ export default function CardEvent() {
           reflect the emotions of the day.
         </BaseText>
         <div className="pt-[50px]">
-          <BaseText className="text-[20px] font-medium pb-2">Service Highlights</BaseText>
+          <BaseText size="XS" className="font-medium pb-2">Service Highlights</BaseText>
           <div>
             {highlights.map((item, index) => {
               return (
@@ -36,7 +36,7 @@ export default function CardEvent() {
                   key={index}
                 >
                   <StarEightIcon className="fill-textColorSecond" />
-                  <BaseText className="text-textColorSecond text-[18px]">{item}</BaseText>
+                  <BaseText size="S" className="text-textColorSecond ">{item}</BaseText>
                 </div>
               );
             })}

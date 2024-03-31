@@ -16,12 +16,13 @@ export default function CardMedia() {
             <StarFourIcon className="fill-primary" />
             <BaseText
               tag="span"
-              className="text-[30px] font-[500] text-textColorSecond"
+              size="M"
+              className="font-bold text-textColorSecond"
             >
               Giới thiệu
             </BaseText>
           </div>
-          <BaseText className="text-textColorSecond text-[18px]">
+          <BaseText size="S" className="text-textColorSecond ">
             My journey as a photographer has been a lifelong quest to capture
             the extraordinary in the ordinary, to freeze fleeting moments in
             time, and to share the world's beauty as I see it. Based in the
@@ -36,19 +37,28 @@ export default function CardMedia() {
             <StarFourIcon className="fill-primary" />
             <BaseText
               tag="span"
-              className="text-[30px] font-[500] text-textColorSecond"
+              size="M"
+              className="font-bold text-textColorSecond"
             >
               Thồng tin liên hệ
             </BaseText>
           </div>
           <div className="grid grid-cols-2 pb-[40px]">
             <div>
-              <BaseText className="text-[18px] font-medium pb-2">{"Email"}</BaseText>
-              <BaseText className="text-[20px] text-textColorSecond">nguyenanhtuan@gmail.com</BaseText>
+              <BaseText size="S" className=" font-medium pb-2">
+                {"Email"}
+              </BaseText>
+              <BaseText size="XS" className=" text-textColorSecond">
+                nguyenanhtuan@gmail.com
+              </BaseText>
             </div>
             <div>
-              <BaseText  className="text-[18px] pb-2 font-medium">Phone Number</BaseText>
-              <BaseText className="text-[20px] text-textColorSecond">+00000000000</BaseText>
+              <BaseText size="S" className=" pb-2 font-medium">
+                Phone Number
+              </BaseText>
+              <BaseText size="XS" className=" text-textColorSecond">
+                +00000000000
+              </BaseText>
             </div>
           </div>
           <div className="flex justify-between">
@@ -57,7 +67,9 @@ export default function CardMedia() {
               <BaseButton className="mr-3 w-[210px]" onClick={() => {}}>
                 Liên hệ
               </BaseButton>
-              <BaseButton className="w-[210px]" onClick={() => {}}>Download CV</BaseButton>
+              <BaseButton className="w-[210px]" onClick={() => {}}>
+                Download CV
+              </BaseButton>
             </div>
           </div>
         </div>

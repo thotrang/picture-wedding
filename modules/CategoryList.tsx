@@ -1,3 +1,4 @@
+import BaseText from "@/components/BaseText";
 import StarEightIcon from "public/icons/StarEightIcon";
 import { useEffect } from "react";
 interface ICategoryList {
@@ -39,9 +40,9 @@ export default function CategoryList({ index }: ICategoryList) {
         return (
           <div key={index} className="inline-block py-[20px] pr-12">
             <StarEightIcon className="fill-primary" />
-            <span className="text-primary text-lg pl-2 ">
+            <BaseText tag="span" className="text-primary pl-2" size="S">
               {item.toUpperCase()}
-            </span>
+            </BaseText>
           </div>
         );
       })}

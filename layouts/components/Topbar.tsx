@@ -1,4 +1,5 @@
 import BaseButton from "@/components/BaseButton";
+import BaseText from "@/components/BaseText";
 import classNames from "classnames";
 import { useState } from "react";
 
@@ -21,7 +22,9 @@ export default function Topbar() {
                 }
               )}
             >
-              <span className="text-white font-medium text-lg">{item}</span>
+              <BaseText className="font-medium" size="S">
+                {item}
+              </BaseText>
             </div>
           );
         })}

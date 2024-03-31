@@ -3,10 +3,12 @@ import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
 
 export interface IBaseText
   extends DetailedHTMLProps<
-    HTMLAttributes<HTMLParagraphElement>,
-    HTMLParagraphElement
-  >, PropsWithChildren {
+      HTMLAttributes<HTMLParagraphElement>,
+      HTMLParagraphElement
+    >,
+    PropsWithChildren {
   tag?: "p" | "span" | "h1" | "h2" | "h3" | "h4";
+  size?: "S" | "XS" | "M" | "XM" | "L" | "XL";
   content?: string;
 }
 export default function BaseText({
@@ -14,11 +16,26 @@ export default function BaseText({
   content,
   className,
   children,
+  size,
   ...props
 }: IBaseText) {
   const Tag = tag ?? "p";
   return (
-    <Tag {...props} className={classNames(`text-textColor m-0`, className)}>
+    <Tag
+      {...props}
+      className={classNames(
+        `text-textColor m-0`,
+        {
+          "2xl:text-m sm:text-xs text-s": size === "S",
+          "2xl:text-xm sm:text-m text-xs": size === "XS",
+          "2xl:text-xl sm:text-l text-xm": size === "M",
+          "2xl:text-3xl sm:text-2xl text-xl": size === "XM",
+          "2xl:text-5xl sm:text-4xl text-xl": size === "L",
+          "2xl:text-3max sm:text-2max text-max": size === "XL",
+        },
+        className
+      )}
+    >
       {content ?? children}
     </Tag>
   );

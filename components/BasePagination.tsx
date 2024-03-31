@@ -28,12 +28,14 @@ export default function BasePagination({
       <div>
         <BaseText
           tag="span"
-          className="font-[600] text-[20px] text-textColorSecond"
+          size="XS"
+          className="font-semibold text-textColorSecond"
           content={title.toUpperCase()}
         ></BaseText>
         <BaseText
           tag="h1"
-          className="font-[600] text-[58px] pt-2"
+          size="L"
+          className="font-semibold  pt-2"
           content={content.toUpperCase()}
         ></BaseText>
       </div>
@@ -44,7 +46,7 @@ export default function BasePagination({
               <ChevronLeft />
             </BaseIconButton>
             <BaseIconButton onClick={preClick}>
-              <ChevronRight className="pl-2"/>
+              <ChevronRight className="pl-2" />
             </BaseIconButton>
           </div>
         )}

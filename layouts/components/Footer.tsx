@@ -14,7 +14,7 @@ export default function Footer() {
       <div></div>
       <div className=" max-w-screen-2xl mx-auto flex border-solid border-x border-y-0 border-borderColor">
         <div className="px-[80px] py-[100px]  border-solid border-l-0 border-r border-y-0 border-borderColor">
-          <BaseText className="text-textColorSecond text-[20px] pb-[60px]">
+          <BaseText size="XS" className="text-textColorSecond pb-[60px]">
             A more meaningful home for photography
           </BaseText>
           <BaseSlogan />
@@ -24,15 +24,12 @@ export default function Footer() {
             const items = routers[key] ?? [];
             return (
               <div key={key}>
-                <BaseText className="text-[20px] text-textColorSecond pb-6">
+                <BaseText size="XS" className="text-textColorSecond pb-6">
                   {key}
                 </BaseText>
                 {items.map((item, index) => {
                   return (
-                    <BaseText
-                      className="text-[20px] underline pb-3"
-                      key={index}
-                    >
+                    <BaseText size="XS" className="underline pb-3" key={index}>
                       {item}
                     </BaseText>
                   );

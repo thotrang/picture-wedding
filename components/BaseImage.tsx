@@ -29,7 +29,7 @@ function BaseImage({
         height={0}
         loading="lazy"
         sizes="100vw"
-        className={`h-auto w-full ${className}`}
+        className={`h-auto w-full rounded-xl ${className}`}
         alt={alt ?? ""}
         src={srcImg}
         onError={setErrorImg}

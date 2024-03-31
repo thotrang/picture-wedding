@@ -7,8 +7,8 @@ export default function CardFeedback() {
     <div className="border border-solid border-borderColor rounded-xl p-[30px]">
       <div className="flex justify-between items-center pb-6">
         <div>
-          <BaseText className="text-[20px]">Emily Johnson</BaseText>
-          <BaseText className="text-[18px] text-textColorSecond">
+          <BaseText size="XS" className="">Emily Johnson</BaseText>
+          <BaseText size="S" className=" text-textColorSecond">
             USA, California
           </BaseText>
         </div>
@@ -17,7 +17,7 @@ export default function CardFeedback() {
       <div className="pb-6">
         <BaseRating />
       </div>
-      <BaseText className="text-[20px]">
+      <BaseText size="XS" className="">
         Damien's photography doesn't just capture moments; it captures emotions.
         Hes work is simply mesmerizing.
       </BaseText>

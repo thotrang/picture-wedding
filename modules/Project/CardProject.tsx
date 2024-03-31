@@ -22,15 +22,15 @@ export default function CardProject({ item }: ICardProject) {
       </div>
       <div className="flex justify-between pt-4">
         <div>
-          <BaseText className="text-[20px] font-medium" tag="span">
+          <BaseText size="XS" className=" font-medium" tag="span">
             {title}
           </BaseText>
-          <BaseText className="text-[18px] text-textColorSecond pt-2">
+          <BaseText size="S" className=" text-textColorSecond pt-2">
             {created}
           </BaseText>
         </div>
         <div>
-          <BaseTextButton className="font-medium text-[18px] flex items-center py-1">
+          <BaseTextButton size="S" className="font-medium  flex items-center py-1">
             <BaseText tag="span">VIEW PROJECT</BaseText>
             <ArrowRightTop className="h-6 w-6 align-middle"/>
           </BaseTextButton>

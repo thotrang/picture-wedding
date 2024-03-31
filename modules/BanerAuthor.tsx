@@ -13,12 +13,13 @@ export default function BannerAuthor() {
             content="Stunning Photography by"
           ></BaseText>
           <BaseText
-            className="m-0 font-[600] text-[80px]"
+            size="XL"
+            className="m-0 font-semibold"
             content="GOLDENSTAR MEDIA"
           ></BaseText>
         </div>
         <div className="z-10">
-          <BaseSlogan/>
+          <BaseSlogan />
         </div>
       </div>
       <div className="absolute h-full w-full flex justify-center z-0 top-0">
