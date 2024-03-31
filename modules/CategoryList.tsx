@@ -1,4 +1,4 @@
-import StartEightIcon from "public/icons/StartEightIcon";
+import StarEightIcon from "public/icons/StarEightIcon";
 import { useEffect } from "react";
 interface ICategoryList {
   index: any;
@@ -38,7 +38,7 @@ export default function CategoryList({ index }: ICategoryList) {
       {categores.map((item, index) => {
         return (
           <div key={index} className="inline-block py-[20px] pr-12">
-            <StartEightIcon className="fill-primary" />
+            <StarEightIcon className="fill-primary" />
             <span className="text-primary text-lg pl-2 ">
               {item.toUpperCase()}
             </span>

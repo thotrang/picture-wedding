@@ -12,7 +12,8 @@ export const theme = {
       secondary: "#1C1C21",
       borderColor: "red",
       background: "#131316",
-      textColor: 'white'
+      textColor: 'white',
+      textColorSecond: '#AFB0B6'
     },
     borderWidth: {
       12: "12px",

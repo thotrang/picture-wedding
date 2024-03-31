@@ -1,8 +1,7 @@
-import BaseButton from "@/components/BaseButton";
+import BaseSlogan from "@/components/BaseSlogan";
 import BaseText from "@/components/BaseText";
 import ButtonNavigate from "@/components/ButtonNavigate";
 import Abstract from "public/icons/Abstract";
-import ArrowRightTop from "public/icons/ArrowRightTop";
 
 export default function BannerAuthor() {
   return (
@@ -11,7 +10,7 @@ export default function BannerAuthor() {
         <div className="z-10">
           <BaseText
             tag="p"
-            className="m-0 text-2xl font-medium"
+            className="m-0 text-2xl font-medium text-textColorSecond"
             content="Stunning Photography by"
           ></BaseText>
           <BaseText
@@ -20,19 +19,7 @@ export default function BannerAuthor() {
           ></BaseText>
         </div>
         <div className="z-10">
-          <div>
-            <BaseText
-              tag="span"
-              className="m-0 text-[58px] font-medium"
-              content="Let`s "
-            />
-           <ButtonNavigate/>
-          </div>
-          <BaseText
-            tag="span"
-            className="m-0 text-[58px] font-medium"
-            content=" Work Together"
-          />
+          <BaseSlogan/>
         </div>
       </div>
       <div className="absolute h-full w-full flex justify-center z-0 top-0">
