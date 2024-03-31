@@ -1,5 +1,6 @@
 import BasePagination from "@/components/BasePagination";
 import CardProject from "./CardProject";
+import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 
 export default function ListProject() {
   const list = [
@@ -20,21 +21,23 @@ export default function ListProject() {
     },
   ];
   return (
-    <div className="w-full max-w-screen-2xl mx-auto pt-[200px]">
-      <BasePagination
-        size={1}
-        title="Portfolio"
-        content="Explore My photography work."
-        titleButton="View All Services"
-        showMoreClick={() => {}}
-        nextClick={() => {}}
-        preClick={() => {}}
-      ></BasePagination>
-      <div className="grid grid-cols-3 gap-8 pt-[60px]">
-        {list.map((item, index) => {
-          return <CardProject item={item} key={index} />;
-        })}
+    <BaseLayoutWraper>
+      <div className="pt-[200px]">
+        <BasePagination
+          size={1}
+          title="Portfolio"
+          content="Explore My photography work."
+          titleButton="View All Services"
+          showMoreClick={() => {}}
+          nextClick={() => {}}
+          preClick={() => {}}
+        ></BasePagination>
+        <div className="grid grid-cols-3 gap-8 pt-[60px]">
+          {list.map((item, index) => {
+            return <CardProject item={item} key={index} />;
+          })}
+        </div>
       </div>
-    </div>
+    </BaseLayoutWraper>
   );
 }

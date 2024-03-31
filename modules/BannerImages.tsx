@@ -1,4 +1,5 @@
 import BaseImage from "@/components/BaseImage";
+import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 export default function BannerImages() {
   const images = [
     "/images/image-1.png",
@@ -9,25 +10,27 @@ export default function BannerImages() {
     "/images/cced55cb3406e6412c8875b644ed6aa1.png",
   ];
   return (
-    <div className="h-[512px] max-w-screen-2xl relative overflow-hidden mx-auto">
-      <div>
-        <BaseImage src={images[0] ?? ""} alt={""} className="!h-36 !w-36"/>
+    <BaseLayoutWraper>
+      <div className="h-[512px] relative overflow-hidden">
+        <div>
+          <BaseImage src={images[0] ?? ""} alt={""} className="!h-36 !w-36" />
+        </div>
+        <div>
+          <BaseImage src={images[1] ?? ""} alt={""} />
+        </div>
+        <div>
+          <BaseImage src={images[2] ?? ""} alt={""} />
+        </div>
+        <div>
+          <BaseImage src={images[3] ?? ""} alt={""} />
+        </div>
+        <div>
+          <BaseImage src={images[4] ?? ""} alt={""} />
+        </div>
+        <div>
+          <BaseImage src={images[5] ?? ""} alt={""} />
+        </div>
       </div>
-      <div>
-        <BaseImage src={images[1] ?? ""} alt={""}/>
-      </div>
-      <div>
-        <BaseImage src={images[2] ?? ""} alt={""}/>
-      </div>
-      <div>
-        <BaseImage src={images[3] ?? ""} alt={""}/>
-      </div>
-      <div>
-        <BaseImage src={images[4] ?? ""} alt={""}/>
-      </div>
-      <div>
-        <BaseImage src={images[5] ?? ""} alt={""}/>
-      </div>
-    </div>
+    </BaseLayoutWraper>
   );
 }

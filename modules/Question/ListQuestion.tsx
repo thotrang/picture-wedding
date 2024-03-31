@@ -2,6 +2,7 @@ import BasePagination from "@/components/BasePagination";
 import { useMemo } from "react";
 import QuestionItem from "./QuestonItem";
 import classNames from "classnames";
+import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 
 export default function ListQuestion() {
   const questions = [
@@ -63,8 +64,8 @@ export default function ListQuestion() {
         description: string;
       }[];
     } = {
-      '0': [],
-      '1': [],
+      "0": [],
+      "1": [],
     };
     questions.forEach((q, index) => {
       if (index % 2 === 0) list[0]?.push(q);
@@ -73,41 +74,43 @@ export default function ListQuestion() {
     return list;
   }, questions);
   return (
-    <div className="w-full max-w-screen-2xl mx-auto pt-[200px]">
-      <BasePagination
-        size={1}
-        title="FAQ’s"
-        content="Câu hỏi thường gặp"
-        titleButton="View All Services"
-        showMoreClick={() => {}}
-        nextClick={() => {}}
-        preClick={() => {}}
-      ></BasePagination>
-      <div className="grid grid-cols-2">
-        {Object.keys(questionConvertToShow).map((key, index) => {
-          return (
-            <div
-              key={key}
-              className={classNames(" py-[20px]", {
-                "border border-borderColor border-solid border-l-0 border-y-0":
-                  index === 0,
-              })}
-            >
-              {questionConvertToShow[key]?.map((q, index) => {
-                return (
-                  <QuestionItem
-                    key={index}
-                    item={q}
-                    showBottomLine={
-                      index < (questionConvertToShow[key]?.length ?? 0) - 1
-                    }
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
+    <BaseLayoutWraper>
+      <div className="pt-[200px]">
+        <BasePagination
+          size={1}
+          title="FAQ’s"
+          content="Câu hỏi thường gặp"
+          titleButton="View All Services"
+          showMoreClick={() => {}}
+          nextClick={() => {}}
+          preClick={() => {}}
+        ></BasePagination>
+        <div className="grid grid-cols-2">
+          {Object.keys(questionConvertToShow).map((key, index) => {
+            return (
+              <div
+                key={key}
+                className={classNames(" py-[20px]", {
+                  "border border-borderColor border-solid border-l-0 border-y-0":
+                    index === 0,
+                })}
+              >
+                {questionConvertToShow[key]?.map((q, index) => {
+                  return (
+                    <QuestionItem
+                      key={index}
+                      item={q}
+                      showBottomLine={
+                        index < (questionConvertToShow[key]?.length ?? 0) - 1
+                      }
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </BaseLayoutWraper>
   );
 }

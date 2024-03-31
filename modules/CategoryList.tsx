@@ -34,7 +34,7 @@ export default function CategoryList({ index }: ICategoryList) {
   return (
     <div
       id={`category-list-${index}`}
-      className="none-scrollbar bg-secondary overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor gap-20 w-full whitespace-nowrap"
+      className="none-scrollbar bg-backgroundSecond overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor gap-20 w-full whitespace-nowrap"
     >
       {categores.map((item, index) => {
         return (

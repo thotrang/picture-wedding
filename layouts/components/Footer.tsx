@@ -45,7 +45,7 @@ export default function Footer() {
             <BaseText className="text-textColorSecond" tag="span">
               Terms & Conditions
             </BaseText>
-            <div className="h-5 mx-2 w-[2px] bg-secondary inline-block"></div>
+            <div className="h-5 mx-2 w-[2px] bg-buttonColor inline-block"></div>
             <BaseText className="text-textColorSecond" tag="span">
               Privacy Policy
             </BaseText>

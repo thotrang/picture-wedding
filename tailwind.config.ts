@@ -9,9 +9,10 @@ export const theme = {
   extend: {
     colors: {
       primary: "#D6D0FB",
-      secondary: "#1C1C21",
+      buttonColor: "#1C1C21",
       borderColor: "#1C1C21",
-      background: "#131316",
+      background: "#0E0E10",
+      backgroundSecond: '#131316',
       textColor: "white",
       textColorSecond: "#AFB0B6",
     },
@@ -19,7 +20,9 @@ export const theme = {
       12: "12px",
     },
     maxWidth: {
-      "screen-xl": "1120px",
+      'screen-s': '400px',
+      "screen-l": "1280px",
+      'screen-xl': '1440px',
       "screen-2xl": "1596px",
       "screen-3xl": "1920px",
     },
