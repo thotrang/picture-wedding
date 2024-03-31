@@ -35,7 +35,6 @@
       }
     ],
     "paths": {
-      "@/helpers/*": ["helpers/*"],
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
@@ -44,8 +43,7 @@
       "@/types": ["types/index"],
       "@/types/*": ["types/*"],
       "@/store/*": ["store/*"],
-      "@/modules/*": ["modules/*"],
-      "@/stories/*": ["stories/*"]
+      "@/modules/*": ["modules/*"]
     }
   },
   "exclude": ["./node_modules/**/*", "cypress/**/*.ts"],
