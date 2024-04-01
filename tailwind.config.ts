@@ -10,6 +10,7 @@ export const theme = {
     colors: {
       primary: "#D6D0FB",
       buttonColor: "#1C1C21",
+      buttonNavigate: '#4A2CED',
       borderColor: "#1C1C21",
       background: "#0E0E10",
       backgroundSecond: '#131316',

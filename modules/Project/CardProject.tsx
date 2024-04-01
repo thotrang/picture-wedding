@@ -1,6 +1,6 @@
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
-import BaseTextButton from "@/components/BaseTextButton";
+import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import ArrowRightTop from "public/icons/ArrowRightTop";
 interface ICardProject {
   item: {
@@ -30,10 +30,15 @@ export default function CardProject({ item }: ICardProject) {
           </BaseText>
         </div>
         <div>
-          <BaseTextButton size="S" className="font-medium  flex items-center py-1">
-            <BaseText tag="span">VIEW PROJECT</BaseText>
-            <ArrowRightTop className="h-6 w-6 align-middle"/>
-          </BaseTextButton>
+          <BaseTextButtonNavigate
+            className="font-medium flex items-center py-1 gap-2"
+            onClick={() => {}}
+          >
+            <BaseText size="S" tag="span">
+              VIEW PROJECT
+            </BaseText>
+            <ArrowRightTop className="h-6 w-6 align-middle" />
+          </BaseTextButtonNavigate>
         </div>
       </div>
     </div>

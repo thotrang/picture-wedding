@@ -4,7 +4,7 @@ import BaseRating from "@/components/BaseRating";
 
 export default function CardFeedback() {
   return (
-    <div className="border border-solid border-borderColor rounded-xl p-[30px]">
+    <div className="border border-solid border-borderColor rounded-xl 2xl:p-10 md:p-8 p-5">
       <div className="flex justify-between items-center pb-6">
         <div>
           <BaseText size="XS" className="">Emily Johnson</BaseText>

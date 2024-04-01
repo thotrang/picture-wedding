@@ -24,7 +24,7 @@ export default function BasePagination({
   preClick,
 }: IBasePagination) {
   return (
-    <div className="w-full flex justify-between items-end border-solid border-b border-t-0 pb-[50px] border-borderColor border-x-0">
+    <div className="w-full flex justify-between items-end border-solid border-b border-t-0 pb-[50px] border-borderColor border-x-0 max-lg:flex-col max-lg:justify-start max-lg:items-start gap-4">
       <div>
         <BaseText
           tag="span"
@@ -51,7 +51,7 @@ export default function BasePagination({
           </div>
         )}
         <div className="flex items-center">
-          <BaseButton onClick={showMoreClick}>
+          <BaseButton onClick={showMoreClick} className="flex justify-center items-center gap-2">
             <BaseText tag="span" content={titleButton}></BaseText>
             <ArrowRight className="h-4 w-4" />
           </BaseButton>

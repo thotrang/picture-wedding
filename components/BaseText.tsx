@@ -26,12 +26,12 @@ export default function BaseText({
       className={classNames(
         `text-textColor m-0`,
         {
-          "2xl:text-m sm:text-xs text-s": size === "S",
-          "2xl:text-xm sm:text-m text-xs": size === "XS",
-          "2xl:text-xl sm:text-l text-xm": size === "M",
-          "2xl:text-3xl sm:text-2xl text-xl": size === "XM",
-          "2xl:text-5xl sm:text-4xl text-xl": size === "L",
-          "2xl:text-3max sm:text-2max text-max": size === "XL",
+          "2xl:text-m md:text-xs text-s": size === "S",
+          "2xl:text-xm md:text-m text-xs": size === "XS",
+          "2xl:text-xl md:text-l text-xm": size === "M",
+          "2xl:text-3xl md:text-2xl text-xl": size === "XM",
+          "2xl:text-5xl md:text-4xl text-xl": size === "L",
+          "2xl:text-3max md:text-2max text-max": size === "XL",
         },
         className
       )}

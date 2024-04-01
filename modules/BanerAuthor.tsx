@@ -6,12 +6,13 @@ import Abstract from "public/icons/Abstract";
 export default function BannerAuthor() {
   return (
     <BaseLayoutWraper>
-      <div className="h-[328px] relative">
-        <div className="flex gap-20 items-center h-full justify-between">
+      <div className="relative">
+        <div className="2xl:py-20 lg:py-16 py-10 flex gap-10 items-center h-full justify-between max-lg:flex-col max-lg:items-start">
           <div className="z-10">
             <BaseText
               tag="p"
-              className="m-0 text-2xl font-medium text-textColorSecond"
+              size="M"
+              className="m-0 font-medium text-textColorSecond"
               content="Stunning Photography by"
             ></BaseText>
             <BaseText
@@ -25,7 +26,7 @@ export default function BannerAuthor() {
           </div>
         </div>
         <div className="absolute h-full w-full flex justify-center z-0 top-0">
-          <Abstract className="h-full" />
+          <Abstract className="h-full aspect-square" />
         </div>
       </div>
     </BaseLayoutWraper>

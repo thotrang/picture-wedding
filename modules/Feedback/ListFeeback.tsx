@@ -15,7 +15,7 @@ export default function ListFeedback() {
           nextClick={() => {}}
           preClick={() => {}}
         ></BasePagination>
-        <div className="pt-[60px] grid grid-cols-3 gap-8">
+        <div className="2xl:pt-16 lg:pt-12 pt-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
           <CardFeedback />
           <CardFeedback />
           <CardFeedback />

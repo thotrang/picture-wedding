@@ -85,13 +85,13 @@ export default function ListQuestion() {
           nextClick={() => {}}
           preClick={() => {}}
         ></BasePagination>
-        <div className="grid grid-cols-2">
+        <div className="grid lg:grid-cols-2 grid-cols-1">
           {Object.keys(questionConvertToShow).map((key, index) => {
             return (
               <div
                 key={key}
                 className={classNames(" py-[20px]", {
-                  "border border-borderColor border-solid border-l-0 border-y-0":
+                  "border border-borderColor border-solid border-l-0 border-y-0 max-lg:border-r-0":
                     index === 0,
                 })}
               >

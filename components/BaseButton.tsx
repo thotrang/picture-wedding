@@ -15,9 +15,9 @@ export default function BaseButton({
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.95, opacity: 0.3 }}
       className={classNames(
-        "text-white bg-buttonColor py-4 px-6 border-solid border border-black/30 overflow-hidden border-gradient-to-br rounded-xl text-base",
+        "text-white cursor-pointer bg-buttonColor py-4 px-6 border-solid border border-black/30 overflow-hidden border-gradient-to-br rounded-xl text-base",
         className
       )}
       onClick={onClick}

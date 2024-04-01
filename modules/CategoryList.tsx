@@ -38,9 +38,9 @@ export default function CategoryList({ index }: ICategoryList) {
     >
       {categores.map((item, index) => {
         return (
-          <div key={index} className="inline-block py-[20px] pr-12">
-            <StarEightIcon className="fill-primary" />
-            <BaseText tag="span" className="text-primary pl-2" size="S">
+          <div key={index} className="inline-block py-4 pr-12">
+            <StarEightIcon className="fill-primary pb-1" />
+            <BaseText tag="span" className="!text-primary pl-2" size="S">
               {item.toUpperCase()}
             </BaseText>
           </div>

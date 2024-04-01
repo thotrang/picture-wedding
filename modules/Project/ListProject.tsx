@@ -32,7 +32,7 @@ export default function ListProject() {
           nextClick={() => {}}
           preClick={() => {}}
         ></BasePagination>
-        <div className="grid grid-cols-3 gap-8 pt-[60px]">
+        <div className="grid sm:grid-cols-3 grid-cols-1 gap-8 pt-[60px]">
           {list.map((item, index) => {
             return <CardProject item={item} key={index} />;
           })}

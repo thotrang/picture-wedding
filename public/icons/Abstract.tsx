@@ -2,8 +2,6 @@ const Abstract = ({ ...props }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="346"
-      height="328"
       viewBox="0 0 346 328"
       fill="none"
       {...props}
