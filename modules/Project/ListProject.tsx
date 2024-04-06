@@ -1,6 +1,7 @@
 import BasePagination from "@/components/BasePagination";
 import CardProject from "./CardProject";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import BaseWraper from "@/components/BaseWraper";
 
 export default function ListProject() {
   const list = [
@@ -22,7 +23,7 @@ export default function ListProject() {
   ];
   return (
     <BaseLayoutWraper>
-      <div className="pt-[200px]">
+      <BaseWraper gutters={[["padding", 200, 'top']]}>
         <BasePagination
           size={1}
           title="Portfolio"
@@ -42,7 +43,7 @@ export default function ListProject() {
             );
           }}
         ></BasePagination>
-      </div>
+      </BaseWraper>
     </BaseLayoutWraper>
   );
 }

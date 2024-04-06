@@ -1,11 +1,12 @@
 import BasePagination from "@/components/BasePagination";
 import CardEvent from "./CardEvent";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import BaseWraper from "@/components/BaseWraper";
 
 export default function ListEvent() {
   return (
     <BaseLayoutWraper>
-      <div className="pt-[200px]">
+      <BaseWraper gutters={[["padding", 200, 'top']]}>
         <BasePagination
           size={3}
           title="Services"
@@ -17,7 +18,7 @@ export default function ListEvent() {
           listItemData={[1, 2, 3]}
           renderItem={() => <CardEvent />}
         ></BasePagination>
-      </div>
+      </BaseWraper>
     </BaseLayoutWraper>
   );
 }

@@ -1,11 +1,12 @@
 import BasePagination from "@/components/BasePagination";
 import CardMedia from "./CardMedia";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import BaseWraper from "@/components/BaseWraper";
 
 export default function ListMedia() {
   return (
     <BaseLayoutWraper>
-      <div className="pt-[200px]">
+      <BaseWraper gutters={[['padding', 200, 'top']]}>
         <BasePagination
           size={1}
           title="Giới thiệu"
@@ -19,8 +20,7 @@ export default function ListMedia() {
           }}
           listItemData={[1, 2, 3]}
         ></BasePagination>
-        <div className="pt-[60px]"></div>
-      </div>
+      </BaseWraper>
     </BaseLayoutWraper>
   );
 }

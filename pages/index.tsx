@@ -1,3 +1,4 @@
+import BaseWraper from "@/components/BaseWraper";
 import BannerAuthor from "@/modules/BanerAuthor";
 import BannerImages from "@/modules/BannerImages";
 import CategoryList from "@/modules/CategoryList";
@@ -19,9 +20,9 @@ export default function Home() {
       <ListProject />
       <ListQuestion />
       <ListFeedback />
-      <div className="pt-[200px]">
+      <BaseWraper gutters={[["padding", 200, "top"]]}>
         <CategoryList index={2} />
-      </div>
+      </BaseWraper>
     </Layout>
   );
 }

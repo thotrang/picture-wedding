@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import QuestionItem from "./QuestonItem";
 import classNames from "classnames";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import BaseWraper from "@/components/BaseWraper";
 
 export default function ListQuestion() {
   const questions = [
@@ -75,7 +76,7 @@ export default function ListQuestion() {
   }, questions);
   return (
     <BaseLayoutWraper>
-      <div className="pt-[200px]">
+      <BaseWraper gutters={[["padding", 200, "top"]]}>
         <BasePagination
           size={1}
           title="FAQ’s"
@@ -84,33 +85,39 @@ export default function ListQuestion() {
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
-        ></BasePagination>
-        <div className="grid lg:grid-cols-2 grid-cols-1">
-          {Object.keys(questionConvertToShow).map((key, index) => {
+          listItemData={[1]}
+          renderItem={() => {
             return (
-              <div
-                key={key}
-                className={classNames(" py-[20px]", {
-                  "border border-borderColor border-solid border-l-0 border-y-0 max-lg:border-r-0":
-                    index === 0,
-                })}
-              >
-                {questionConvertToShow[key]?.map((q, index) => {
+              <div className="grid lg:grid-cols-2 grid-cols-1">
+                {Object.keys(questionConvertToShow).map((key, index) => {
                   return (
-                    <QuestionItem
-                      key={index}
-                      item={q}
-                      showBottomLine={
-                        index < (questionConvertToShow[key]?.length ?? 0) - 1
-                      }
-                    />
+                    <div
+                      key={key}
+                      className={classNames(" py-[20px]", {
+                        "border border-borderColor border-solid border-l-0 border-y-0 max-lg:border-r-0":
+                          index === 0,
+                      })}
+                    >
+                      {questionConvertToShow[key]?.map((q, index) => {
+                        return (
+                          <QuestionItem
+                            key={index}
+                            item={q}
+                            showBottomLine={
+                              index <
+                              (questionConvertToShow[key]?.length ?? 0) - 1
+                            }
+                          />
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </div>
             );
-          })}
-        </div>
-      </div>
+          }}
+        ></BasePagination>
+      </BaseWraper>
     </BaseLayoutWraper>
   );
 }
