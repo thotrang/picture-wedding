@@ -7,17 +7,18 @@ export default function ListEvent() {
     <BaseLayoutWraper>
       <div className="pt-[200px]">
         <BasePagination
-          size={1}
+          size={3}
           title="Services"
           content="My Photography Services"
           titleButton="View All Services"
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
-        ></BasePagination>
-        <div className="pt-[60px]">
-          <CardEvent />
-        </div>
+        >
+          <div className="pt-[60px]">
+            <CardEvent />
+          </div>
+        </BasePagination>
       </div>
     </BaseLayoutWraper>
   );

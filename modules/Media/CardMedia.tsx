@@ -3,14 +3,39 @@ import BaseText from "@/components/BaseText";
 import StarFourIcon from "public/icons/StarFour";
 import LinkSocialNetwork from "../LinkSocialNetwork";
 import BaseButton from "@/components/BaseButton";
+import BaseWraper from "@/components/BaseWraper";
 
 export default function CardMedia() {
   return (
     <div className="grid md:grid-cols-2 gap-8">
-      <div>
+      <BaseWraper gutters={[
+        {
+          type: "margin",
+          size: 500,
+          direction: "bottom",
+        },
+        {
+          type: "margin",
+          size: 500,
+          direction: "top",
+        },
+      ]}>
         <BaseImage src="/images/2197ef21088292b2d8ba67bc7a698f5f.png" alt="" />
-      </div>
-      <div className="border-solid border rounded-xl border-borderColor my-[50px]">
+      </BaseWraper>
+      <BaseWraper
+        className="border-solid border rounded-xl border-borderColor"
+        gutters={[
+          {
+            type: "margin",
+            size: 50,
+          },
+          {
+            type: "margin",
+            size: 100,
+            direction: "top",
+          },
+        ]}
+      >
         <div className="border-solid p-[40px] border-borderColor border-x-0 border-t-0 border-b">
           <div className="flex items-center gap-2 pb-3">
             <StarFourIcon className="fill-primary" />
@@ -73,7 +98,7 @@ export default function CardMedia() {
             </div>
           </div>
         </div>
-      </div>
+      </BaseWraper>
     </div>
   );
 }
