@@ -14,10 +14,12 @@ export default function ListMedia() {
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
+          renderItem={() => {
+            return <CardMedia />;
+          }}
+          listItemData={[1, 2, 3]}
         ></BasePagination>
-        <div className="pt-[60px]">
-          <CardMedia />
-        </div>
+        <div className="pt-[60px]"></div>
       </div>
     </BaseLayoutWraper>
   );

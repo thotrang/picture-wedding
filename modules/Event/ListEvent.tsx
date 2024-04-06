@@ -14,11 +14,9 @@ export default function ListEvent() {
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
-        >
-          <div className="pt-[60px]">
-            <CardEvent />
-          </div>
-        </BasePagination>
+          listItemData={[1, 2, 3]}
+          renderItem={() => <CardEvent />}
+        ></BasePagination>
       </div>
     </BaseLayoutWraper>
   );

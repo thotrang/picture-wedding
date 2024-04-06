@@ -31,12 +31,17 @@ export default function ListProject() {
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
+          listItemData={[1, 2, 3]}
+          renderItem={() => {
+            return (
+              <div className="grid md:grid-cols-3 grid-cols-1 gap-8 pt-[60px]">
+                {list.map((item, index) => {
+                  return <CardProject item={item} key={index} />;
+                })}
+              </div>
+            );
+          }}
         ></BasePagination>
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-8 pt-[60px]">
-          {list.map((item, index) => {
-            return <CardProject item={item} key={index} />;
-          })}
-        </div>
       </div>
     </BaseLayoutWraper>
   );
