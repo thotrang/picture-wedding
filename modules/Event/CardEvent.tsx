@@ -1,5 +1,6 @@
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
+import BaseWraper from "@/components/BaseWraper";
 import ButtonNavigate from "@/components/ButtonNavigate";
 import StarEightIcon from "public/icons/StarEightIcon";
 
@@ -11,10 +12,18 @@ export default function CardEvent() {
     "Coverage for weddings, parties, corporate functions, and more.",
   ];
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <BaseWraper
+      className="grid lg:grid-cols-2"
+      gutters={[["gap", 50]]}
+      percentageShrink={[0.8, 0.6]}
+    >
       <div>
-        <div className="pb-5">
-          <BaseText tag="h1" className="inline text-[44px] font-semibold text-textColorSecond pr-3">
+        <div className="pb-3">
+          <BaseText
+            tag="h1"
+            className="inline font-semibold text-textColorSecond pr-3"
+            size="XM"
+          >
             EVENTS
           </BaseText>
           <ButtonNavigate />
@@ -26,26 +35,35 @@ export default function CardEvent() {
           We blend into the background, ensuring natural and candid shots that
           reflect the emotions of the day.
         </BaseText>
-        <div className="pt-[50px]">
-          <BaseText size="XS" className="font-medium pb-2">Service Highlights</BaseText>
+        <BaseWraper gutters={[["padding", 50, "top"]]}>
+          <BaseText size="XS" className="font-medium pb-2">
+            Service Highlights
+          </BaseText>
           <div>
             {highlights.map((item, index) => {
               return (
-                <div
-                  className="border-solid border rounded-xl border-borderColor p-5 gap-3 flex items-center mt-2"
+                <BaseWraper
+                  className="border-solid border rounded-xl border-borderColor gap-3 flex items-center mt-2"
                   key={index}
+                  gutters={[["padding", 20]]}
                 >
                   <StarEightIcon className="fill-textColorSecond" />
-                  <BaseText size="S" className="text-textColorSecond ">{item}</BaseText>
-                </div>
+                  <BaseText size="S" className="text-textColorSecond ">
+                    {item}
+                  </BaseText>
+                </BaseWraper>
               );
             })}
           </div>
-        </div>
+        </BaseWraper>
       </div>
-      <div>
-        <BaseImage src="/images/a70682303511006ba1a401c7848021b1.png" alt="" className="h-full" />
+      <div className="max-lg:order-first">
+        <BaseImage
+          src="/images/a70682303511006ba1a401c7848021b1.png"
+          alt=""
+          className="h-full"
+        />
       </div>
-    </div>
+    </BaseWraper>
   );
 }

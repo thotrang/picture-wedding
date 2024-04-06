@@ -7,37 +7,22 @@ import BaseWraper from "@/components/BaseWraper";
 
 export default function CardMedia() {
   return (
-    <div className="grid md:grid-cols-2 gap-8">
-      <BaseWraper gutters={[
-        {
-          type: "margin",
-          size: 500,
-          direction: "bottom",
-        },
-        {
-          type: "margin",
-          size: 500,
-          direction: "top",
-        },
-      ]}>
+    <BaseWraper className="grid lg:grid-cols-2" gutters={[["gap", 20]]}>
+      <BaseWraper gutters={[]}>
         <BaseImage src="/images/2197ef21088292b2d8ba67bc7a698f5f.png" alt="" />
       </BaseWraper>
-      <BaseWraper
-        className="border-solid border rounded-xl border-borderColor"
-        gutters={[
-          {
-            type: "margin",
-            size: 50,
-          },
-          {
-            type: "margin",
-            size: 100,
-            direction: "top",
-          },
-        ]}
-      >
-        <div className="border-solid p-[40px] border-borderColor border-x-0 border-t-0 border-b">
-          <div className="flex items-center gap-2 pb-3">
+      <div className="border-solid border rounded-xl border-borderColor">
+        <BaseWraper
+          gutters={[["padding", 40]]}
+          className="border-solid border-borderColor border-x-0 border-t-0 border-b"
+        >
+          <BaseWraper
+            className="flex items-center"
+            gutters={[
+              ["gap", 10],
+              ["padding", 10, "bottom"],
+            ]}
+          >
             <StarFourIcon className="fill-primary" />
             <BaseText
               tag="span"
@@ -46,7 +31,7 @@ export default function CardMedia() {
             >
               Giới thiệu
             </BaseText>
-          </div>
+          </BaseWraper>
           <BaseText size="S" className="text-textColorSecond ">
             My journey as a photographer has been a lifelong quest to capture
             the extraordinary in the ordinary, to freeze fleeting moments in
@@ -56,9 +41,15 @@ export default function CardMedia() {
             visual odyssey, where each photograph tells a story, and every frame
             is a piece of my heart.
           </BaseText>
-        </div>
-        <div className="p-[40px]">
-          <div className="flex items-center gap-2 pb-[40px]">
+        </BaseWraper>
+        <BaseWraper gutters={[["padding", 40]]}>
+          <BaseWraper
+            className="flex items-center"
+            gutters={[
+              ["gap", 10],
+              ["padding", 40, "bottom"],
+            ]}
+          >
             <StarFourIcon className="fill-primary" />
             <BaseText
               tag="span"
@@ -67,13 +58,19 @@ export default function CardMedia() {
             >
               Thồng tin liên hệ
             </BaseText>
-          </div>
-          <div className="grid grid-cols-2 pb-[40px]">
+          </BaseWraper>
+          <BaseWraper
+            className="grid grid-cols-2 max-lg:grid-cols-1 gap-5"
+            gutters={[["padding", 40, "bottom"]]}
+          >
             <div>
               <BaseText size="S" className=" font-medium pb-2">
                 {"Email"}
               </BaseText>
-              <BaseText size="XS" className=" text-textColorSecond">
+              <BaseText
+                size="XS"
+                className=" text-textColorSecond line-clamp-1"
+              >
                 nguyenanhtuan@gmail.com
               </BaseText>
             </div>
@@ -85,20 +82,44 @@ export default function CardMedia() {
                 +00000000000
               </BaseText>
             </div>
-          </div>
-          <div className="flex justify-between">
-            <LinkSocialNetwork />
-            <div>
-              <BaseButton className="mr-3 w-[210px]" onClick={() => {}}>
-                Liên hệ
-              </BaseButton>
-              <BaseButton className="w-[210px]" onClick={() => {}}>
-                Download CV
-              </BaseButton>
+          </BaseWraper>
+          <div className="flex justify-between max-lg:flex-col lg:gap-10 gap-5">
+            <div className="col-span-1">
+              <LinkSocialNetwork />
+            </div>
+            <div className="flex justify-end max-xl:flex-col gap-2 w-full">
+              <BaseWraper
+                gutters={[["maxWidth", 210]]}
+                percentageShrink={[0.8, 0.8]}
+                className="w-full"
+              >
+                <BaseButton
+                  className="w-full h-full max-2xl:py-3 max-2xl:px-5"
+                  onClick={() => {}}
+                >
+                  <BaseText size="S" tag="span">
+                    Liên hệ
+                  </BaseText>
+                </BaseButton>
+              </BaseWraper>
+              <BaseWraper
+                gutters={[["maxWidth", 210]]}
+                percentageShrink={[0.8, 0.8]}
+                className="w-full"
+              >
+                <BaseButton
+                  className="w-full h-full max-2xl:py-3 max-2xl:px-5"
+                  onClick={() => {}}
+                >
+                  <BaseText size="S" tag="span">
+                    Download CV
+                  </BaseText>
+                </BaseButton>
+              </BaseWraper>
             </div>
           </div>
-        </div>
-      </BaseWraper>
-    </div>
+        </BaseWraper>
+      </div>
+    </BaseWraper>
   );
 }

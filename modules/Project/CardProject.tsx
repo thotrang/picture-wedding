@@ -1,6 +1,7 @@
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
+import BaseWraper from "@/components/BaseWraper";
 import ArrowRightTop from "public/icons/ArrowRightTop";
 interface ICardProject {
   item: {
@@ -12,7 +13,7 @@ interface ICardProject {
 export default function CardProject({ item }: ICardProject) {
   const { image, title, created } = item;
   return (
-    <div>
+    <BaseWraper className="flex flex-col" gutters={[["gap", 20]]}>
       <div>
         <BaseImage
           className="aspect-square object-cover"
@@ -20,7 +21,7 @@ export default function CardProject({ item }: ICardProject) {
           src={image}
         ></BaseImage>
       </div>
-      <div className="flex justify-between pt-4">
+      <div className="flex justify-between">
         <div>
           <BaseText size="XS" className=" font-medium" tag="span">
             {title}
@@ -41,6 +42,6 @@ export default function CardProject({ item }: ICardProject) {
           </BaseTextButtonNavigate>
         </div>
       </div>
-    </div>
+    </BaseWraper>
   );
 }

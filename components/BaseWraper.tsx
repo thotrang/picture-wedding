@@ -1,32 +1,41 @@
 import { DetailedHTMLProps, HTMLAttributes, useMemo } from "react";
 import styled from "styled-components";
-
-interface Gutter {
-  size: number;
-  direction?: "top" | "left" | "right" | "bottom";
-  type: "padding" | "margin" | "height" | "width";
-}
-interface IBaseWraper
+type Type =
+  | "padding"
+  | "margin"
+  | "height"
+  | "width"
+  | "gap"
+  | "minWidth"
+  | "maxWidth"
+  | "minHeight"
+  | "maxHeight";
+type Direction = "top" | "left" | "right" | "bottom";
+type Size = number;
+export type Gutter = [Type, Size, Direction?];
+export interface IBaseWraper
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   gutters?: Gutter[];
+  percentageShrink?: [number, number];
 }
 export default function BaseWraper({
   children,
   gutters,
+  percentageShrink = [0.75, 0.5],
   ...props
 }: IBaseWraper) {
   const styles = useMemo(() => {
     let xl = "",
       md = "",
       sm = "";
-    gutters?.forEach(({ size, direction, type }) => {
+    gutters?.forEach(([type, size, direction]) => {
       const property =
         (type === "padding" || type === "margin") && direction
           ? `${type}-${direction}`
           : type;
       xl += `${property}: ${size}px;`;
-      md += `${property}: ${(size * 3) / 4}px;`;
-      sm += `${property}: ${(size * 1) / 2}px;`;
+      md += `${property}: ${size * percentageShrink[0]}px;`;
+      sm += `${property}: ${size * percentageShrink[1]}px;`;
     });
     return `
       @media only screen and (max-width: 768px) {${sm}}

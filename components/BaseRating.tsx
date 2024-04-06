@@ -11,15 +11,16 @@ export default function BaseRating({ total = 5, rate = 5 }: IBaseRating) {
     let i = 0;
     while (i < total) {
       stars.push(
-        <Star className={`h-6 w-6 pr-2 ${i < rate ? "text-[#FFCE22]" : "text-gray-500"}`} />
+        <Star
+          key={i}
+          className={`h-6 w-6 pr-2 ${
+            i < rate ? "text-[#FFCE22]" : "text-gray-500"
+          }`}
+        />
       );
-      i++
+      i++;
     }
-    return stars
+    return stars;
   }, [total]);
-  return (
-    <div className="flex items-center">
-      {rateDisplay}
-    </div>
-  );
+  return <div className="flex items-center">{rateDisplay}</div>;
 }

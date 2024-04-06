@@ -3,6 +3,7 @@ import BaseButton from "./BaseButton";
 import BaseText from "./BaseText";
 import { PropsWithChildren } from "react";
 import RightLeftButtons from "./RightLeftButtons";
+import BaseWraper from "./BaseWraper";
 
 interface IBasePagination extends PropsWithChildren {
   titleButton: string;
@@ -25,7 +26,10 @@ export default function BasePagination({
 }: IBasePagination) {
   return (
     <div>
-      <div className="w-full flex justify-between items-end border-solid border-b border-t-0 pb-[50px] border-borderColor border-x-0 max-lg:flex-col max-lg:justify-start max-lg:items-start gap-4">
+      <BaseWraper
+        gutters={[["padding", 50, "bottom"]]}
+        className="w-full flex justify-between items-end border-solid border-b border-t-0 border-borderColor border-x-0 max-lg:flex-col max-lg:justify-start max-lg:items-start gap-4"
+      >
         <div>
           <BaseText
             tag="span"
@@ -41,28 +45,32 @@ export default function BasePagination({
           ></BaseText>
         </div>
         <div className="flex gap-6">
-          <div className="max-lg:hidden">
-            {size > 1 && (
-              <RightLeftButtons preClick={preClick} nextClick={nextClick} />
-            )}
-          </div>
-          <div className="flex items-center">
+          {size > 1 && (
+            <RightLeftButtons
+              className="max-lg:hidden"
+              preClick={preClick}
+              nextClick={nextClick}
+            />
+          )}
+          <BaseWraper gutters={[["padding", 8, "bottom"], ["padding", 8, "top"]]}>
             <BaseButton
               onClick={showMoreClick}
-              className="flex justify-center items-center gap-2"
+              className="flex justify-center items-center gap-2 h-full"
             >
               <BaseText tag="span" content={titleButton}></BaseText>
               <ArrowRight className="h-4 w-4" />
             </BaseButton>
-          </div>
+          </BaseWraper>
         </div>
-      </div>
+      </BaseWraper>
       {children}
-      <div className="lg:hidden text-center pt-10">
-        {size > 1 && (
-          <RightLeftButtons preClick={preClick} nextClick={nextClick} />
-        )}
-      </div>
+      {size > 1 && (
+        <RightLeftButtons
+          className="lg:hidden pt-10"
+          preClick={preClick}
+          nextClick={nextClick}
+        />
+      )}
     </div>
   );
 }

@@ -1,13 +1,22 @@
 import ArrowRightTop from "public/icons/ArrowRightTop";
 import BaseButton from "./BaseButton";
+import BaseWraper from "./BaseWraper";
 
 export default function ButtonNavigate() {
   return (
-    <BaseButton
-      onClick={() => {}}
-      className="2xl:px-12 2xl:py-4 lg:py-3 py-2 lg:px-10 px-8 !rounded-full !bg-buttonNavigate shadow-inner"
+    <BaseWraper
+      gutters={[
+        ["height", 66],
+        ["width", 130],
+      ]}
+      className="inline-block"
     >
-      <ArrowRightTop className="w-[30px] h-[30px] pt-1" />
-    </BaseButton>
+      <BaseButton
+        onClick={() => {}}
+        className="h-full w-full !rounded-full !bg-buttonNavigate shadow-inner flex justify-center items-center"
+      >
+        <ArrowRightTop className="w-[30px] h-[30px]" />
+      </BaseButton>
+    </BaseWraper>
   );
 }

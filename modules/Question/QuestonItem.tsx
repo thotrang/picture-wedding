@@ -1,5 +1,6 @@
 import BaseIconButton from "@/components/BaseIconButton";
 import BaseText from "@/components/BaseText";
+import BaseWraper from "@/components/BaseWraper";
 import classNames from "classnames";
 import ChevronBottom from "public/icons/ChevronBottom";
 import ChevronTop from "public/icons/ChevronTop";
@@ -14,20 +15,45 @@ interface IQuestionItem {
 }
 export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
   const { title, description } = item;
-  const [openCollap, setOpenCollap] = useState(false) 
+  const [openCollap, setOpenCollap] = useState(false);
   return (
-    <div className={classNames("border border-solid border-x-0 border-t-0 border-borderColor py-[30px] px-[50px] flex gap-6 justify-between", {
-      'border-b-0': !showBottomLine
-    })}>
-      <div>
-        <BaseText tag="h1" size="XS" className="font-semibold pb-6">{title}</BaseText>
-        {openCollap && <BaseText size="S" className=" font-normal">{description}</BaseText>}
+    <BaseWraper
+      gutters={[
+        ["padding", 50, "left"],
+        ["padding", 50, "right"],
+        ["padding", 30, "top"],
+        ["padding", 30, "bottom"],
+        ["gap", 30],
+      ]}
+      className={classNames(
+        "border border-solid border-x-0 border-t-0 border-borderColor flex justify-between",
+        {
+          "border-b-0": !showBottomLine,
+        }
+      )}
+    >
+      <div className="flex gap-6 flex-col justify-center">
+        <BaseText tag="h1" size="XS" className="font-semibold">
+          {title}
+        </BaseText>
+        {openCollap && (
+          <BaseText size="S" className=" font-normal">
+            {description}
+          </BaseText>
+        )}
       </div>
       <div>
-        <BaseIconButton onClick={() => setOpenCollap(!openCollap)} className="!bg-background border-borderColor h-12 w-12">
-          {!openCollap ? <ChevronTop className="h-8 w-8"/> : <ChevronBottom className="h-8 w-8"/>}
+        <BaseIconButton
+          onClick={() => setOpenCollap(!openCollap)}
+          className="!bg-background border-borderColor"
+        >
+          {!openCollap ? (
+            <ChevronTop className="2xl:h-8 2xl:w-8 h-7 w-7" />
+          ) : (
+            <ChevronBottom className="2xl:h-8 2xl:w-8 h-7 w-7" />
+          )}
         </BaseIconButton>
       </div>
-    </div>
+    </BaseWraper>
   );
 }

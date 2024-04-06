@@ -10,7 +10,7 @@ function ChevronBottom({ ...props }: React.SVGProps<SVGSVGElement>) {
       viewBox="0 0 25 24"
       {...props}
     >
-      <path d="M18.5 9L12.5 15L6.5 9" stroke="white" stroke-width="2" />
+      <path d="M18.5 9L12.5 15L6.5 9" stroke="white" strokeWidth="2" />
     </svg>
   );
 }

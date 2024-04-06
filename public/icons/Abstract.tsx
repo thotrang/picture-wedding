@@ -6,7 +6,7 @@ const Abstract = ({ ...props }: React.SVGProps<SVGSVGElement>) => {
       fill="none"
       {...props}
     >
-      <g clip-path="url(#clip0_83_2153)">
+      <g clipPath="url(#clip0_83_2153)">
         <mask
           id="mask0_83_2153"
           maskUnits="userSpaceOnUse"
