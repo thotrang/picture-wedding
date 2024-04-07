@@ -11,7 +11,11 @@ export default function Topbar() {
   const [selected, setSelected] = useState(0);
   return (
     <div className="bg-background border-solid border-borderColor border-x-0 border-t-0 border-b px-4">
-      <BaseLayoutWraper className="2xl:h-[120px] h-[90px] flex justify-center items-end relative  border-solid border-borderColor border-x border-y-0 px-4">
+      <BaseLayoutWraper
+        className="flex justify-center items-end relative  border-solid border-borderColor border-x border-y-0 px-4"
+        gutters={[["height", 120]]}
+        percentageShrink={[0.75, 11 / 12]}
+      >
         <div className="max-lg:hidden h-3/4 w-[660px] grid grid-cols-4 rounded-t-xl border-x border-t border-b-0 border-solid border-borderColor border-collapse overflow-hidden">
           {itemRoutes.map((item, index) => {
             return (

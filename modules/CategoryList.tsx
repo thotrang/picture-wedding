@@ -1,5 +1,5 @@
 import BaseText from "@/components/BaseText";
-import StarEightIcon from "public/icons/StarEightIcon";
+import BaseWraper from "@/components/BaseWraper";
 import { useEffect } from "react";
 interface ICategoryList {
   index: any;
@@ -21,7 +21,7 @@ export default function CategoryList({ index }: ICategoryList) {
       scrollContainer.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         scrollContainer.scrollBy({
-          left: evt.deltaY < 0 ? -30 : 30,
+          left: evt.deltaY < 0 ? -10 : 10,
         });
       });
     }
@@ -32,20 +32,29 @@ export default function CategoryList({ index }: ICategoryList) {
   }, []);
 
   return (
-    <div
+    <BaseWraper
       id={`category-list-${index}`}
-      className="none-scrollbar bg-backgroundSecond overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor gap-20 w-full whitespace-nowrap"
+      className="none-scrollbar bg-backgroundSecond overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor w-full whitespace-nowrap"
     >
       {categores.map((item, index) => {
         return (
-          <div key={index} className="inline-block py-4 pr-12">
-            <StarEightIcon className="fill-primary pb-1" />
+          <BaseWraper
+            key={index}
+            className="inline-block"
+            gutters={[
+              ["padding", 16, "bottom"],
+              ["padding", 16, "top"],
+              ["padding", 48, "left"],
+              ["padding", 48, "right"],
+            ]}
+          >
+            {/* <StarEightIcon className="fill-primary pb-1" /> */}
             <BaseText tag="span" className="!text-primary pl-2" size="S">
               {item.toUpperCase()}
             </BaseText>
-          </div>
+          </BaseWraper>
         );
       })}
-    </div>
+    </BaseWraper>
   );
 }

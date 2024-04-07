@@ -10,7 +10,13 @@ type Type =
   | "maxWidth"
   | "minHeight"
   | "maxHeight";
-type Direction = "top" | "left" | "right" | "bottom";
+type Direction =
+  | "top"
+  | "left"
+  | "right"
+  | "bottom"
+  | "vertical"
+  | "horizontal";
 type Size = number;
 export type Gutter = [Type, Size, Direction?];
 export interface IBaseWraper
@@ -25,23 +31,45 @@ export default function BaseWraper({
   ...props
 }: IBaseWraper) {
   const styles = useMemo(() => {
-    let xl = "",
-      md = "",
-      sm = "";
+    const generateStyle = (type: Type, size: Size, direction?: Direction) => {
+      if ((type === "padding" || type === "margin") && direction) {
+        if (direction === "vertical") {
+          return `${type}-top: ${size}px; ${type}-bottom: ${size}px;`;
+        } else if (direction === "horizontal") {
+          return `${type}-left: ${size}px; ${type}-right: ${size}px;`;
+        } else {
+          return `${type}-${direction}: ${size}px;`;
+        }
+      } else {
+        return `${type}: ${size}px;`;
+      }
+    };
+
+    const generateMediaQuery = (styles: string, minWidth: number) => {
+      return `@media only screen and (min-width: ${minWidth}px) {${styles}}`;
+    };
+
+    let xlStyles = "",
+      mdStyles = "",
+      smStyles = "";
+
     gutters?.forEach(([type, size, direction]) => {
-      const property =
-        (type === "padding" || type === "margin") && direction
-          ? `${type}-${direction}`
-          : type;
-      xl += `${property}: ${size}px;`;
-      md += `${property}: ${size * percentageShrink[0]}px;`;
-      sm += `${property}: ${size * percentageShrink[1]}px;`;
+      const xlSize = size;
+      const mdSize = size * percentageShrink[0];
+      const smSize = size * percentageShrink[1];
+
+      xlStyles += generateStyle(type, xlSize, direction);
+      mdStyles += generateStyle(type, mdSize, direction);
+      smStyles += generateStyle(type, smSize, direction);
     });
-    return `
-      @media only screen and (max-width: 768px) {${sm}}
-      @media only screen and (min-width: 768px) {${md}}
-      @media only screen and (min-width: 1536px) {${xl}}
-      `;
+
+    const mediaQueries = `
+      ${generateMediaQuery(smStyles, 768)}
+      ${generateMediaQuery(mdStyles, 768)}
+      ${generateMediaQuery(xlStyles, 1536)}
+    `;
+
+    return mediaQueries;
   }, [gutters]);
 
   const Div = styled.div`

@@ -2,6 +2,7 @@ import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseSlogan from "@/components/BaseSlogan";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
+import BaseWraper from "@/components/BaseWraper";
 import LinkSocialNetwork from "@/modules/LinkSocialNetwork";
 
 export default function Footer() {
@@ -15,7 +16,14 @@ export default function Footer() {
     <div className="max-w-screen-3xl">
       <BaseLayoutWraper>
         <div className="flex max-lg:flex-col border-solid border-x border-y-0 border-borderColor">
-          <div className="2xl:px-20 2xl:py-24 lg:px-14 lg:py-20 px-5 py-10 border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor">
+          <BaseWraper
+            className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor"
+            gutters={[
+              ["padding", 100, "vertical"],
+              ["padding", 80, "horizontal"],
+            ]}
+            percentageShrink={[0.75, 0.3]}
+          >
             <BaseText
               size="XS"
               className="text-textColorSecond 2xl:pb-16 lg:pb-12 pb-5"
@@ -23,13 +31,23 @@ export default function Footer() {
               A more meaningful home for photography
             </BaseText>
             <BaseSlogan />
-          </div>
-          <div className="2xl:px-20 2xl:py-24 lg:px-14 lg:py-20 px-5 py-10 grid grid-cols-4 max-sm:grid-cols-2 grow justify-between">
+          </BaseWraper>
+          <BaseWraper
+            className="grid grid-cols-4 max-sm:grid-cols-2 grow justify-between"
+            gutters={[
+              ["padding", 100, "vertical"],
+              ["padding", 80, "horizontal"],
+            ]}
+            percentageShrink={[0.75, 0.3]}
+          >
             {Object.keys(routers).map((key) => {
               const items = routers[key] ?? [];
               return (
                 <div key={key}>
-                  <BaseText size="XS" className="text-textColorSecond mb-6 px-1">
+                  <BaseText
+                    size="XS"
+                    className="text-textColorSecond mb-6 px-1"
+                  >
                     {key}
                   </BaseText>
                   {items.map((item, index) => {
@@ -48,7 +66,7 @@ export default function Footer() {
                 </div>
               );
             })}
-          </div>
+          </BaseWraper>
         </div>
       </BaseLayoutWraper>
       <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
