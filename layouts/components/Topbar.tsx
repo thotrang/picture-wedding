@@ -1,7 +1,7 @@
 import BaseButton from "@/components/BaseButton";
 import BaseIconButton from "@/components/BaseIconButton";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import BaseText from "@/components/BaseText";
+import BaseTextButton from "@/components/BaseTextButton";
 import classNames from "classnames";
 import Menu from "public/icons/Menu";
 import { useState } from "react";
@@ -30,9 +30,9 @@ export default function Topbar() {
                   }
                 )}
               >
-                <BaseText className="font-medium" size="S">
+                <BaseTextButton className="font-medium" size="S">
                   {item}
-                </BaseText>
+                </BaseTextButton>
               </div>
             );
           })}

@@ -1,7 +1,8 @@
-import classNames from 'classnames';
+import classNames from "classnames";
 
-import { PropsWithChildren } from 'react';
-import BaseText, { IBaseText } from './BaseText';
+import { PropsWithChildren } from "react";
+import BaseText, { IBaseText } from "./BaseText";
+import { motion } from "framer-motion";
 
 interface ButtonProps extends PropsWithChildren, IBaseText {
   isHover?: boolean;
@@ -15,20 +16,25 @@ export default function BaseTextButton({
   ...props
 }: ButtonProps) {
   return (
-    <BaseText
-      onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={() => {}}
-      className={classNames(
-        {
-          'cursor-pointer text-primary': true,
-        },
-        className
-      )}
-      {...props}
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95, opacity: 0.3 }}
     >
-      {children}
-    </BaseText>
+      <BaseText
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={() => {}}
+        className={classNames(
+          {
+            "cursor-pointer text-primary": true,
+          },
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </BaseText>
+    </motion.div>
   );
 }

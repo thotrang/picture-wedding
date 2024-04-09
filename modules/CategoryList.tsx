@@ -1,4 +1,4 @@
-import BaseText from "@/components/BaseText";
+import BaseTextButton from "@/components/BaseTextButton";
 import BaseWraper from "@/components/BaseWraper";
 import { useEffect } from "react";
 interface ICategoryList {
@@ -21,7 +21,7 @@ export default function CategoryList({ index }: ICategoryList) {
       scrollContainer.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         scrollContainer.scrollBy({
-          left: evt.deltaY < 0 ? -10 : 10,
+          left: evt.deltaY < 0 ? -20 : 20,
         });
       });
     }
@@ -42,16 +42,14 @@ export default function CategoryList({ index }: ICategoryList) {
             key={index}
             className="inline-block"
             gutters={[
-              ["padding", 16, "bottom"],
-              ["padding", 16, "top"],
-              ["padding", 48, "left"],
-              ["padding", 48, "right"],
+              ["padding", 16, "vertical"],
+              ["padding", 48, "horizontal"],
             ]}
           >
             {/* <StarEightIcon className="fill-primary pb-1" /> */}
-            <BaseText tag="span" className="!text-primary pl-2" size="S">
+            <BaseTextButton tag="span" className="!text-primary pl-2" size="S">
               {item.toUpperCase()}
-            </BaseText>
+            </BaseTextButton>
           </BaseWraper>
         );
       })}

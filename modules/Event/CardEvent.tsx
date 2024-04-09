@@ -18,7 +18,7 @@ export default function CardEvent() {
       percentageShrink={[0.8, 0.6]}
     >
       <div>
-        <div className="pb-3">
+        <div className="pb-3 pt-1">
           <BaseText
             tag="h1"
             className="inline font-semibold text-textColorSecond pr-3"
