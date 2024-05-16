@@ -3,7 +3,7 @@ import "swiper/css";
 import ArrowRight from "public/icons/ArrowRight";
 import BaseButton from "./BaseButton";
 import BaseText from "./BaseText";
-import { PropsWithChildren, useRef, useState } from "react";
+import { PropsWithChildren, useRef } from "react";
 import RightLeftButtons from "./RightLeftButtons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
