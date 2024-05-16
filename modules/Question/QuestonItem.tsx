@@ -1,6 +1,5 @@
 import BaseIconButton from "@/components/BaseIconButton";
 import BaseText from "@/components/BaseText";
-import BaseWraper from "@/components/BaseWraper";
 import classNames from "classnames";
 import ChevronBottom from "public/icons/ChevronBottom";
 import ChevronTop from "public/icons/ChevronTop";

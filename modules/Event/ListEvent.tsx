@@ -8,7 +8,6 @@ export default function ListEvent() {
     <BaseLayoutWraper>
       <BaseWraper gutters={[["padding", 200, 'top']]}>
         <BasePagination
-          size={3}
           subTitle="Services"
           title="My Photography Services"
           titleButton="View All Services"

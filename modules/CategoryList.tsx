@@ -1,7 +1,6 @@
 import BaseTextButton from "@/components/BaseTextButton";
 import BaseWraper from "@/components/BaseWraper";
 import Dot from "public/icons/Dot";
-import StarEightIcon from "public/icons/StarEightIcon";
 import { useEffect } from "react";
 interface ICategoryList {
   index: any;

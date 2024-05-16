@@ -1,9 +1,7 @@
-import BasePagination from "@/components/BasePagination";
 import { useMemo } from "react";
 import QuestionItem from "./QuestonItem";
 import classNames from "classnames";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import BaseWraper from "@/components/BaseWraper";
 import BaseText from "@/components/BaseText";
 
 export default function ListQuestion() {
