@@ -1,16 +1,13 @@
 import BasePagination from "@/components/BasePagination";
 import CardMedia from "./CardMedia";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import BaseWraper from "@/components/BaseWraper";
 
 export default function ListMedia() {
   return (
-    <BaseLayoutWraper>
-      <BaseWraper gutters={[['padding', 200, 'top']]}>
+    <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
         <BasePagination
-          size={1}
-          title="Giới thiệu"
-          content="GIỚI THIỆU GOLDEN STAR MEDIA"
+          subTitle="Giới thiệu"
+          title="GIỚI THIỆU GOLDEN STAR MEDIA"
           titleButton="Tìm hiểu thêm"
           showMoreClick={() => {}}
           nextClick={() => {}}
@@ -18,9 +15,8 @@ export default function ListMedia() {
           renderItem={() => {
             return <CardMedia />;
           }}
-          listItemData={[1, 2, 3]}
+          listItemData={[1]}
         ></BasePagination>
-      </BaseWraper>
     </BaseLayoutWraper>
   );
 }

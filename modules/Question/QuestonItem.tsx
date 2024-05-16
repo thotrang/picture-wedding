@@ -17,16 +17,10 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
   const { title, description } = item;
   const [openCollap, setOpenCollap] = useState(false);
   return (
-    <BaseWraper
-      gutters={[
-        ["padding", 50, "left"],
-        ["padding", 50, "right"],
-        ["padding", 30, "top"],
-        ["padding", 30, "bottom"],
-        ["gap", 30],
-      ]}
+    <div
       className={classNames(
         "border border-solid border-x-0 border-t-0 border-borderColor flex justify-between",
+        "2xl:px-base50 2xl:py-base30 2xl:gap-base30 lg:px-base40 lg:py-base20 lg:gap-base20 px-base30 py-4 gap-4",
         {
           "border-b-0": !showBottomLine,
         }
@@ -54,6 +48,6 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
           )}
         </BaseIconButton>
       </div>
-    </BaseWraper>
+    </div>
   );
 }

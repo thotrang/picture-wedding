@@ -9,8 +9,8 @@ export default function ListEvent() {
       <BaseWraper gutters={[["padding", 200, 'top']]}>
         <BasePagination
           size={3}
-          title="Services"
-          content="My Photography Services"
+          subTitle="Services"
+          title="My Photography Services"
           titleButton="View All Services"
           showMoreClick={() => {}}
           nextClick={() => {}}

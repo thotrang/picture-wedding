@@ -8,9 +8,8 @@ export default function ListFeedback() {
     <BaseLayoutWraper>
       <BaseWraper gutters={[['padding', 200, 'top']]}>
         <BasePagination
-          size={1}
-          title="Testimonials"
-          content="Khách Hàng nói gì về chúng tôi"
+          subTitle="Testimonials"
+          title="Khách Hàng nói gì về chúng tôi"
           titleButton="View All Testimonials"
           showMoreClick={() => {}}
           nextClick={() => {}}

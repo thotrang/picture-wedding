@@ -5,113 +5,116 @@ import BaseButton from "./BaseButton";
 import BaseText from "./BaseText";
 import { PropsWithChildren, useRef, useState } from "react";
 import RightLeftButtons from "./RightLeftButtons";
-import BaseWraper from "./BaseWraper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
-import { Autoplay } from 'swiper/modules';
+import { Autoplay } from "swiper/modules";
 
 interface IBasePagination extends PropsWithChildren {
-  titleButton: string;
+  titleButton?: string;
+  subTitle: string;
   title: string;
-  content: string;
-  size: number;
-  listItemData: any;
-  renderItem: (data: any) => JSX.Element;
-  showMoreClick: () => void;
-  nextClick: () => void;
-  preClick: () => void;
+  listItemData?: any;
+  renderItem?: (data?: any, index?: number) => JSX.Element;
+  showMoreClick?: () => void;
+  nextClick?: (index: number) => void;
+  preClick?: (index: number) => void;
+  slidesPerView?: number;
+  showButton?: boolean;
 }
 export default function BasePagination({
-  content,
+  subTitle,
   title,
   titleButton,
-  size,
   listItemData,
-  showMoreClick,
-  nextClick,
-  preClick,
-  renderItem,
+  showMoreClick = () => {},
+  nextClick = () => {},
+  preClick = () => {},
+  renderItem = () => <div />,
+  slidesPerView = 1,
+  showButton = true,
 }: IBasePagination) {
   const swiperRef = useRef<any>(null);
 
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const handleDotClick = (index: number) => {
+  const handleDotClick = (num: number) => {
     if (swiperRef.current && swiperRef.current.swiper) {
+      const index = swiperRef.current.swiper.activeIndex + num;
       swiperRef.current.swiper.slideTo(index);
-      setCurrentIdx(currentIdx + index);
+      num > 0 ? nextClick(index) : preClick(index);
     }
   };
+  const size = listItemData.length - slidesPerView;
   return (
     <div>
-      <BaseWraper
-        gutters={[
-          ["padding", 50, "bottom"],
-          ["margin", 50, "bottom"],
-        ]}
-        className="w-full flex justify-between items-end border-solid border-b border-t-0 border-borderColor border-x-0 max-lg:flex-col max-lg:justify-start max-lg:items-start gap-4"
+      <div
+        className={classNames(
+          "w-full flex justify-between 2xl:items-center gap-4 flex-col lg:flex-row",
+          "2xl:pb-base50 2xl:mb-base80 lg:pb-base40 lg:mb-base60 pb-base20 mb-base40",
+          "border-solid border-b border-t-0 border-borderColor border-x-0"
+        )}
       >
         <div>
           <BaseText
             tag="span"
             size="XS"
             className="font-semibold text-textColorSecond"
-            content={title.toUpperCase()}
+            content={subTitle.toUpperCase()}
           ></BaseText>
           <BaseText
             tag="h1"
             size="L"
             className="font-semibold  pt-2"
-            content={content.toUpperCase()}
+            content={title.toUpperCase()}
           ></BaseText>
         </div>
-        <div className="flex gap-6">
-          {size > 1 && (
-            <RightLeftButtons
-              className="max-lg:hidden"
-              preClick={() => handleDotClick(1)}
-              nextClick={() => handleDotClick(-1)}
-            />
-          )}
-          <BaseWraper
-            gutters={[
-              ["padding", 8, "bottom"],
-              ["padding", 8, "top"],
-            ]}
-          >
+        {showButton && (
+          <div className="flex items-center lg:gap-6">
+            {size > 1 && (
+              <RightLeftButtons
+                className="max-lg:hidden"
+                preClick={() => handleDotClick(1)}
+                nextClick={() => handleDotClick(-1)}
+              />
+            )}
             <BaseButton
               onClick={showMoreClick}
-              className="flex justify-center items-center gap-2 h-full"
+              className="flex justify-center items-center gap-2 2xl:h-[60px] h-[50px]"
             >
-              <BaseText tag="span" content={titleButton}></BaseText>
+              <BaseText
+                tag="span"
+                size="S"
+                content={titleButton}
+                className="truncate "
+              ></BaseText>
               <ArrowRight className="h-4 w-4" />
             </BaseButton>
-          </BaseWraper>
-        </div>
-      </BaseWraper>
+          </div>
+        )}
+      </div>
       <Swiper
         autoplay={{
-          delay: 2500,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={slidesPerView}
         ref={swiperRef}
       >
         {(listItemData ?? [])?.map((item: string, i: number) => {
           return (
             <SwiperSlide key={i} className={classNames({})} onClick={() => {}}>
-              {renderItem(item)}
+              {renderItem(item, i)}
             </SwiperSlide>
           );
         })}
       </Swiper>
-      {size > 1 && (
-        <RightLeftButtons
-          className="lg:hidden pt-10"
-          preClick={preClick}
-          nextClick={nextClick}
-        />
+      {showButton && size > 1 && (
+        <div className="lg:hidden mt-10 flex justify-center">
+          <RightLeftButtons
+            preClick={() => handleDotClick(1)}
+            nextClick={() => handleDotClick(-1)}
+          />
+        </div>
       )}
     </div>
   );

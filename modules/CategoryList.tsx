@@ -1,5 +1,7 @@
 import BaseTextButton from "@/components/BaseTextButton";
 import BaseWraper from "@/components/BaseWraper";
+import Dot from "public/icons/Dot";
+import StarEightIcon from "public/icons/StarEightIcon";
 import { useEffect } from "react";
 interface ICategoryList {
   index: any;
@@ -36,21 +38,18 @@ export default function CategoryList({ index }: ICategoryList) {
       id={`category-list-${index}`}
       className="none-scrollbar bg-backgroundSecond overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor w-full whitespace-nowrap"
     >
-      {categores.map((item, index) => {
+      {categores.map((item) => {
         return (
-          <BaseWraper
-            key={index}
-            className="inline-block"
-            gutters={[
-              ["padding", 16, "vertical"],
-              ["padding", 48, "horizontal"],
-            ]}
-          >
-            {/* <StarEightIcon className="fill-primary pb-1" /> */}
-            <BaseTextButton tag="span" className="!text-primary pl-2" size="S">
+          <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block">
+            <BaseTextButton
+              tag="span"
+              className="!text-textNavigate pl-2 flex justify-center items-center gap-8"
+              size="S"
+            >
+              <Dot />
               {item.toUpperCase()}
             </BaseTextButton>
-          </BaseWraper>
+          </div>
         );
       })}
     </BaseWraper>

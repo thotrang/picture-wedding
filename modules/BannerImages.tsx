@@ -11,24 +11,48 @@ export default function BannerImages() {
   ];
   return (
     <BaseLayoutWraper>
-      <div className="h-[512px] relative overflow-hidden">
-        <div>
-          <BaseImage src={images[0] ?? ""} alt={""} className="!h-36 !w-36" />
+      <div className="grid grid-cols-12 w-full 2xl:auto-rows-banner-l lg:auto-rows-banner-m auto-rows-banner-s lg: 2xl:gap-5 lg:gap-4 gap-1">
+        <div className="col-span-4 grid grid-rows-12  2xl:gap-5 lg:gap-4 gap-1">
+          <div className="row-span-9">
+            <BaseImage
+              src={images[0] ?? ""}
+              alt={""}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="row-span-3">
+            <BaseImage
+              src={images[1] ?? ""}
+              alt={""}
+              className="h-full aspect-[3/2] !w-auto object-cover"
+            />
+          </div>
         </div>
-        <div>
-          <BaseImage src={images[1] ?? ""} alt={""} />
+
+        <div className="grid col-span-5 grid-rows-12">
+          <div className="row-span-12">
+            <BaseImage
+              src={images[2] ?? ""}
+              alt={""}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
-        <div>
-          <BaseImage src={images[2] ?? ""} alt={""} />
-        </div>
-        <div>
-          <BaseImage src={images[3] ?? ""} alt={""} />
-        </div>
-        <div>
-          <BaseImage src={images[4] ?? ""} alt={""} />
-        </div>
-        <div>
-          <BaseImage src={images[5] ?? ""} alt={""} />
+        <div className="grid col-span-3 grid-rows-12 2xl:gap-5 lg:gap-4 gap-1">
+          <div className="row-span-8">
+            <BaseImage
+              src={images[3] ?? ""}
+              alt={""}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="row-span-4">
+            <BaseImage
+              src={images[4] ?? ""}
+              alt={""}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </BaseLayoutWraper>

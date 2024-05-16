@@ -2,6 +2,7 @@ import BaseSlogan from "@/components/BaseSlogan";
 import BaseText from "@/components/BaseText";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import Abstract from "public/icons/Abstract";
+import Abstract_2 from "public/icons/Abstract_2";
 
 export default function BannerAuthor() {
   return (
@@ -25,8 +26,8 @@ export default function BannerAuthor() {
             <BaseSlogan />
           </div>
         </div>
-        <div className="absolute h-full w-full flex justify-center z-0 top-0">
-          <Abstract className="h-full aspect-square" />
+        <div className="absolute h-full w-full sm:flex justify-center z-0 top-0 hidden">
+          <Abstract_2 className="h-full aspect-square" />
         </div>
       </div>
     </BaseLayoutWraper>

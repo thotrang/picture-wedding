@@ -11,7 +11,7 @@ function getWindowDimensions() {
   return { width: 0, height: 0 };
 }
 
-export default function useWindowSize() {
+export function useWindowSize() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -26,4 +26,27 @@ export default function useWindowSize() {
   }, []);
 
   return windowDimensions;
+}
+
+export function useScreenSize() {
+  const [size, setSize] = useState("2xl");
+
+  useEffect(() => {
+    function handleResize() {
+      const { width } = getWindowDimensions();
+      setSize(() => {
+        if (width >= 1536) return "2xl";
+        else if (width >= 1280) return "xl";
+        else if (width >= 1024) return "lg";
+        else if (width >= 768) return "md";
+        else if (width >= 640) return "sm";
+        return "xs";
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return { size };
 }
