@@ -1,11 +1,11 @@
 import BannerAuthor from "@/modules/BanerAuthor";
 import BannerImages from "@/modules/BannerImages";
 import CategoryList from "@/modules/CategoryList";
-import ListEvent from "@/modules/Event/ListEvent";
 // import ListFeedback from "@/modules/Feedback/ListFeeback";
 import ListMedia from "@/modules/Media/ListMedia";
 import ListProject from "@/modules/Project/ListProject";
 import ListQuestion from "@/modules/Question/ListQuestion";
+import ListService from "@/modules/Service/ListService";
 import Layout from "layouts";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <CategoryList index={1} />
       <BannerImages />
       <ListMedia />
-      <ListEvent />
+      <ListService />
       <ListProject />
       <ListQuestion />
       {/* <ListFeedback /> */}

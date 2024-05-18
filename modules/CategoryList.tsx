@@ -1,5 +1,4 @@
 import BaseTextButton from "@/components/BaseTextButton";
-import BaseWraper from "@/components/BaseWraper";
 import Dot from "public/icons/Dot";
 import { useEffect } from "react";
 interface ICategoryList {
@@ -33,13 +32,13 @@ export default function CategoryList({ index }: ICategoryList) {
   }, []);
 
   return (
-    <BaseWraper
+    <div
       id={`category-list-${index}`}
       className="none-scrollbar bg-backgroundSecond overflow-auto none-scrollbar border-solid border-y border-x-0 border-borderColor w-full whitespace-nowrap"
     >
-      {categores.map((item) => {
+      {categores.map((item, i) => {
         return (
-          <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block">
+          <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
             <BaseTextButton
               tag="span"
               className="!text-textNavigate pl-2 flex justify-center items-center gap-8"
@@ -51,6 +50,6 @@ export default function CategoryList({ index }: ICategoryList) {
           </div>
         );
       })}
-    </BaseWraper>
+    </div>
   );
 }
