@@ -24,7 +24,7 @@ export default function BannerImages() {
             <BaseImage
               src={images[1] ?? ""}
               alt={""}
-              className="h-full aspect-[3/2] !w-auto object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>
