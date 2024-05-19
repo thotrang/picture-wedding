@@ -1,68 +1,26 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import QuestionItem from "./QuestonItem";
 import classNames from "classnames";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseText from "@/components/BaseText";
+import QuestionRepository from "apis/repositories/question";
+import { IQuestion } from "@/types/faq";
 
 export default function ListQuestion() {
-  const questions = [
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-    {
-      title: "What type of photography do you specialize in?",
-      description:
-        "I specialize in [Portrait, Landscape, Event, etc.] photography, capturing moments that tell unique stories.",
-    },
-  ];
+  const [questions, setQuestions] = useState<IQuestion[] | []>([]);
+  const initData = async () => {
+    const res = await QuestionRepository.get({
+      populate: "*",
+    });
+    setQuestions(res);
+  };
+  useEffect(() => {
+    initData();
+  }, []);
+  
   const questionConvertToShow = useMemo(() => {
     const list: {
-      [key: string]: {
-        title: string;
-        description: string;
-      }[];
+      [key: string]: IQuestion[];
     } = {
       "0": [],
       "1": [],
@@ -72,7 +30,8 @@ export default function ListQuestion() {
       else list[1]?.push(q);
     });
     return list;
-  }, questions);
+  }, [questions]);
+  
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s 2xl:pb-">
       <div className="2xl:pb-base50 lg:pb-base40 pb-base20">
@@ -100,7 +59,8 @@ export default function ListQuestion() {
             <div
               key={key}
               className={classNames("", {
-                "border-0 border-borderColor border-solid lg:border-r max-lg:border-b": index === 0,
+                "border-0 border-borderColor border-solid lg:border-r max-lg:border-b":
+                  index === 0,
               })}
             >
               {questionConvertToShow[key]?.map((q, index) => {

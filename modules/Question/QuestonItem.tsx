@@ -1,19 +1,18 @@
 import BaseIconButton from "@/components/BaseIconButton";
 import BaseText from "@/components/BaseText";
+import { IQuestion } from "@/types/faq";
 import classNames from "classnames";
 import ChevronBottom from "public/icons/ChevronBottom";
 import ChevronTop from "public/icons/ChevronTop";
 import { useState } from "react";
 
 interface IQuestionItem {
-  item: {
-    title: string;
-    description: string;
-  };
+  item: IQuestion;
   showBottomLine: boolean;
 }
 export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
-  const { title, description } = item;
+  const { attributes } = item;
+  
   const [openCollap, setOpenCollap] = useState(false);
   return (
     <div
@@ -27,11 +26,11 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
     >
       <div className="flex gap-6 flex-col justify-center">
         <BaseText tag="h1" size="XS" className="font-semibold">
-          {title}
+          {attributes.question}
         </BaseText>
         {openCollap && (
           <BaseText size="S" className=" font-normal">
-            {description}
+            {attributes.answer}
           </BaseText>
         )}
       </div>

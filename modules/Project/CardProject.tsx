@@ -2,32 +2,32 @@ import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import BaseWraper from "@/components/BaseWraper";
+import { IPortfolio } from "@/types/portfolio";
+import { get } from "lodash-es";
 import ArrowRightTop from "public/icons/ArrowRightTop";
 interface ICardProject {
-  item: {
-    image: string;
-    title: string;
-    created: string;
-  };
+  item: IPortfolio;
 }
 export default function CardProject({ item }: ICardProject) {
-  const { image, title, created } = item;
+  const { attributes } = item;
+  console.log(attributes.thumbnail?.data.attributes.url);
+
   return (
     <BaseWraper className="flex flex-col" gutters={[["gap", 20]]}>
       <div>
         <BaseImage
           className="aspect-square object-cover"
           alt=""
-          src={image}
+          src={get(attributes, "thumbnail.data.attributes.url", "")}
         ></BaseImage>
       </div>
       <div className="flex justify-between">
         <div>
           <BaseText size="XS" className=" font-medium" tag="span">
-            {title}
+            {attributes.title}
           </BaseText>
           <BaseText size="S" className=" text-textColorSecond pt-2">
-            {created}
+            {attributes.createdAt}
           </BaseText>
         </div>
         <div>

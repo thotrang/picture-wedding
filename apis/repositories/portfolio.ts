@@ -1,6 +1,6 @@
 import { Repository, apiUrl } from "apis";
 
-const url = `${apiUrl}/portfolio`;
+const url = `${apiUrl}portfolios`;
 const PortfolioRepository = {
   ...Repository(url),
 };
