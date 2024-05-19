@@ -75,18 +75,20 @@ export default function BasePagination({
                 nextClick={() => handleDotClick(-1)}
               />
             )}
-            <BaseButton
-              onClick={showMoreClick}
-              className="flex justify-center items-center gap-2 2xl:h-[60px] h-[50px]"
-            >
-              <BaseText
-                tag="span"
-                size="S"
-                content={titleButton}
-                className="truncate "
-              ></BaseText>
-              <ArrowRight className="h-4 w-4" />
-            </BaseButton>
+            {titleButton && (
+              <BaseButton
+                onClick={showMoreClick}
+                className="flex justify-center items-center gap-2 2xl:h-[60px] h-[50px]"
+              >
+                <BaseText
+                  tag="span"
+                  size="S"
+                  content={titleButton}
+                  className="truncate "
+                ></BaseText>
+                <ArrowRight className="h-4 w-4" />
+              </BaseButton>
+            )}
           </div>
         )}
       </div>
@@ -100,7 +102,7 @@ export default function BasePagination({
         slidesPerView={slidesPerView}
         ref={swiperRef}
       >
-        {(listItemData ?? [])?.map((item: string, i: number) => {
+        {(listItemData ?? [])?.map((item: any, i: number) => {
           return (
             <SwiperSlide key={i} className={classNames({})} onClick={() => {}}>
               {renderItem(item, i)}

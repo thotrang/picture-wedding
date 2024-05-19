@@ -10,7 +10,6 @@ interface ICardProject {
 }
 export default function CardProject({ item }: ICardProject) {
   const { attributes } = item;
-  console.log(attributes.thumbnail?.data.attributes.url);
 
   return (
     <BaseWraper className="flex flex-col" gutters={[["gap", 20]]}>

@@ -16,6 +16,7 @@ export const theme = {
 
       background: "#131316",
       backgroundSecond: "#0E0E10",
+      backgroundGray: '#1C1C21',
 
       textColor: "white",
       textColorSecond: "#AFB0B6",
@@ -76,6 +77,9 @@ export const theme = {
       'base50': '50px',
       'base60': '60px',
       'base80': '80px',
+      'base90': '90px',
+      'base100': '100px',
+      'base120': '120px',
     }
 
   },

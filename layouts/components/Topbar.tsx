@@ -16,7 +16,7 @@ export default function Topbar() {
         className="flex justify-center items-end relative  border-solid border-borderColor border-x border-y-0 px-4 2xl:h-topbar-l lg:h-topbar-m h-topbar-s"
       >
         <div className="absolute h-full left-0 items-center flex mx-4">
-          <BaseImage src="/images/Logo.png" alt="" className="2xl:h-logo-l lg:h-logo-m !h-logo-s w-auto !rounded-none" />
+          <BaseImage src="/images/Logo.png" alt="" className="2xl:h-logo-l lg:h-logo-m h-logo-s w-auto !rounded-none" />
         </div>
         <div className="hidden h-3/4 w-[660px] lg:grid grid-cols-4 rounded-t-xl border-x border-t border-b-0 border-solid border-borderColor border-collapse overflow-hidden">
           {itemRoutes.map((item, index) => {
