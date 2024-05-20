@@ -6,7 +6,7 @@ import { IService } from "@/types/service";
 import ServiceRepository from "apis/repositories/service";
 
 export default function ListService() {
-  const [listService, setListService] = useState<IService | []>([]);
+  const [listService, setListService] = useState<IService[] | []>([]);
   const initData = async () => {
     const res = await ServiceRepository.get({
       populate: "*",

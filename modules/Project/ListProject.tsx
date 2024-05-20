@@ -1,15 +1,15 @@
 import BasePagination from "@/components/BasePagination";
 import CardProject from "./CardProject";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import { useScreenSize } from "hooks/useWindowSize";
+import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
 import { useEffect, useMemo, useState } from "react";
 import PortfolioRepository from "apis/repositories/portfolio";
 
 export default function ListProject() {
   const { size } = useScreenSize();
   const slidesPerView = useMemo(() => {
-    if (size === "md") return 2;
-    if (size === "sm" || size === "xs") return 1;
+    if (size === ESizeScreen.MD) return 2;
+    if (size === ESizeScreen.SM || size === ESizeScreen.XS) return 1;
     return 3;
   }, [size]);
   const [portfolios, setPortfolios] = useState<[]>([]);
@@ -22,7 +22,7 @@ export default function ListProject() {
   useEffect(() => {
     initData();
   }, []);
-  
+
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
       <BasePagination

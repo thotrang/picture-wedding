@@ -44,7 +44,7 @@ export default function Footer() {
     ],
   };
   return (
-    <div className="max-w-screen-3xl">
+    <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
       <BaseLayoutWraper>
         <div className="flex max-md:flex-col border-solid border-x border-y-0 border-borderColor">
           <div className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor 2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 px-base20">

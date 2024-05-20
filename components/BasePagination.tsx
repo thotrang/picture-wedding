@@ -34,7 +34,7 @@ export default function BasePagination({
   showButton = true,
 }: IBasePagination) {
   const swiperRef = useRef<any>(null);
-
+  
   const handleDotClick = (num: number) => {
     if (swiperRef.current && swiperRef.current.swiper) {
       const index = swiperRef.current.swiper.activeIndex + num;

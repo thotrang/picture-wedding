@@ -80,6 +80,7 @@ export const theme = {
       'base90': '90px',
       'base100': '100px',
       'base120': '120px',
+      'base150': '150px',
     }
 
   },

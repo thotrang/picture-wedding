@@ -27,20 +27,27 @@ export function useWindowSize() {
 
   return windowDimensions;
 }
-
+export enum ESizeScreen {
+  XXL = "XXL",
+  XL = "XL",
+  LG = "LG",
+  MD = "MD",
+  SM = "SM",
+  XS = "XS",
+}
 export function useScreenSize() {
-  const [size, setSize] = useState("2xl");
+  const [size, setSize] = useState(ESizeScreen.XXL);
 
   useEffect(() => {
     function handleResize() {
       const { width } = getWindowDimensions();
       setSize(() => {
-        if (width >= 1536) return "2xl";
-        else if (width >= 1280) return "xl";
-        else if (width >= 1024) return "lg";
-        else if (width >= 768) return "md";
-        else if (width >= 640) return "sm";
-        return "xs";
+        if (width >= 1536) return ESizeScreen.XXL;
+        else if (width >= 1280) return ESizeScreen.XL;
+        else if (width >= 1024) return ESizeScreen.LG;
+        else if (width >= 768) return ESizeScreen.MD;
+        else if (width >= 640) return ESizeScreen.SM;
+        return ESizeScreen.XS;
       });
     }
 
