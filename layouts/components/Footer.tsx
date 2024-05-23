@@ -4,25 +4,39 @@ import BaseSlogan from "@/components/BaseSlogan";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import LinkSocialNetwork from "@/modules/LinkSocialNetwork";
+import { IService } from "@/types/service";
 import classNames from "classnames";
-function ListItemFooter({ items }: { items?: string[] }) {
+import { motion } from "framer-motion";
+import { get } from "lodash-es";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { ERouter } from "routers";
+import { RootState } from "stores/store";
+function ListItemFooter({ items }: { items?: any[] }) {
+  const router = useRouter();
+
   return (
     <div className="h-full w-full">
       {(items ?? []).map((item, index) => {
         if (index === 0)
           return (
-            <BaseText size="XS" className="text-textColorSecond mb-6 px-1">
-              {item}
-            </BaseText>
+            <BaseTextButtonNavigate
+              size="XS"
+              className="text-textColorSecond mb-6"
+              onClick={() => router.push(item.link)}
+            >
+              {item.title}
+            </BaseTextButtonNavigate>
           );
         return (
           <div key={index}>
             <BaseTextButtonNavigate
               size="XS"
               className="mb-3 text-left"
-              onClick={() => {}}
+              onClick={() => item.link && router.push(item.link)}
             >
-              {item}
+              {item.title.toUpperCase()}
             </BaseTextButtonNavigate>
           </div>
         );
@@ -31,30 +45,46 @@ function ListItemFooter({ items }: { items?: string[] }) {
   );
 }
 export default function Footer() {
-  const routers: { [key: string]: string[] } = {
-    0: ["TRANG CHỦ", "VỀ CHÚNG TÔI", "PORTFOLIO", "LIÊN HỆ"],
-    1: [
-      "DỊCH VỤ",
-      "QUẢNG CÁO DOANH NGHIỆP",
-      "NỘI THẤT - KIẾN TRÚC",
-      "CHÂN DUNG",
-      "NHÀ HÀNG - ĐỒ ĂN",
-      "SỰ KIỆN",
-      "SẢN PHẨM - THỜI TRANG",
-    ],
-  };
+  const { services } = useSelector((s: RootState) => s.data_store);
+
+  const routers: { [key: string]: any } = useMemo(() => {
+    return {
+      0: [
+        { title: "TRANG CHỦ", link: ERouter.HOME },
+        { title: "VỀ CHÚNG TÔI", link: ERouter.ABOUT_US },
+        { title: "PORTFOLIO", link: ERouter.PORTFOLIO },
+        { title: "LIÊN HỆ", link: null },
+      ],
+      1: [
+        { title: "DỊCH VỤ", link: ERouter.SERVICE },
+        ...(services ?? []).map((item: IService) => {
+          return {
+            title: get(item, "attributes.title", ""),
+            link: null, // item.id
+          };
+        }),
+      ],
+    };
+  }, [services]);
+  const router = useRouter();
+
   return (
     <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
       <BaseLayoutWraper>
         <div className="flex max-md:flex-col border-solid border-x border-y-0 border-borderColor">
-          <div className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor 2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 px-base20">
-            <BaseImage
-              src="/images/Logo.png"
-              alt=""
-              className="2xl:h-logo-l lg:h-logo-m h-logo-s !w-auto !rounded-none 2xl:pb-base60 lg:pb-base40 pb-base20"
-            />
+          <motion.div className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor 2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 px-base20">
+            <motion.div
+              whileTap={{ scale: 0.95, opacity: 0.3 }}
+              onClick={() => router.push(ERouter.HOME)}
+            >
+              <BaseImage
+                src="/images/Logo.png"
+                alt=""
+                className="2xl:h-logo-l lg:h-logo-m h-logo-s !w-auto !rounded-none 2xl:pb-base60 lg:pb-base40 pb-base20"
+              />
+            </motion.div>
             <BaseSlogan />
-          </div>
+          </motion.div>
           <div
             className={classNames(
               "grid lg:grid-cols-3 grid-cols-2 grow justify-between",

@@ -1,7 +1,7 @@
 import ChevronLeft from "public/icons/ChevronLeft";
-import BaseIconButton from "./BaseIconButton";
 import ChevronRight from "public/icons/ChevronRight";
 import classNames from "classnames";
+import BaseButton from "./BaseButton";
 interface IRightLeftButtons {
   nextClick: () => void;
   preClick: () => void;
@@ -20,12 +20,18 @@ export default function RightLeftButtons({
           className
         )}
       >
-        <BaseIconButton onClick={nextClick} classWrapper="2xl:top-[12%] 2xl:left-[10%]">
+        <BaseButton
+          onClick={nextClick}
+          className="2xl:!h-[60px] !h-[50px] aspect-square flex justify-center items-center !p-0 !rounded-full"
+        >
           <ChevronLeft className="2xl:h-9 2xl:w-9 h-7 w-7 " />
-        </BaseIconButton>
-        <BaseIconButton onClick={preClick} classWrapper="2xl:top-[12%] 2xl:left-[15%]">
+        </BaseButton>
+        <BaseButton
+          onClick={preClick}
+          className="2xl:!h-[60px] !h-[50px] aspect-square flex justify-center items-center !p-0 !rounded-full"
+        >
           <ChevronRight className="2xl:h-9 2xl:w-9 h-7 w-7" />
-        </BaseIconButton>
+        </BaseButton>
       </div>
     </div>
   );

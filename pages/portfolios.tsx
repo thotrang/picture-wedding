@@ -7,8 +7,8 @@ import { Dispatch } from "stores/store";
 import ListPortfolio from "@/modules/Portfolio/ListPortfolio";
 
 export default function Portfolios() {
-  const { stores } = useDispatch<Dispatch>();
-  const { getPortfolios } = stores;
+  const { data_store } = useDispatch<Dispatch>();
+  const { getPortfolios } = data_store;
   useEffect(() => {
     getPortfolios({});
   }, []);

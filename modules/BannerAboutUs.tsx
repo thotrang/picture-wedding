@@ -21,7 +21,7 @@ export default function BannerAboutUs() {
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base60">
       <div className="relative">
-        <div className="w-full z-0">
+        <div className="w-full z-0 aspect-[2/1]">
           <BaseImage src={image} alt="" className="h-full w-full !rounded-[60px]" />
         </div>
         <div className="lg:absolute top-0 bg-background w-full pb-10 max-lg:pt-base30">

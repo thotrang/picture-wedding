@@ -7,8 +7,8 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "stores/store";
 
 export default function Services() {
-  const { stores } = useDispatch<Dispatch>();
-  const { getServices } = stores;
+  const { data_store } = useDispatch<Dispatch>();
+  const { getServices } = data_store;
 
   useEffect(() => {
     getServices({});

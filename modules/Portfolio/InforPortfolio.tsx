@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 
 export default function InforPortfolio() {
-  const { portfolioDetail } = useSelector((s: RootState) => s.stores);
+  const { portfolioDetail } = useSelector((s: RootState) => s.data_store);
   const { attributes } = portfolioDetail;
 
   return (

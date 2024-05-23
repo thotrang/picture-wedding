@@ -3,16 +3,15 @@ import BaseImage from "@/components/BaseImage";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseText from "@/components/BaseText";
 import RightLeftButtons from "@/components/RightLeftButtons";
+import { IClient } from "@/types/client";
 import classNames from "classnames";
-import { useMemo, useRef } from "react";
-const listFileName: string[] = (require as any)
-  .context("@/public/logo_customers", false, /\.png$/)
-  .keys();
-
+import { get } from "lodash-es";
+import { useRef } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
 export default function ListCustomer() {
-  const listCustomer = useMemo(() => {
-    return listFileName.filter((item) => !item.includes("public/"));
-  }, []);
+  const { clients } = useSelector((s: RootState) => s.data_store);
+
   const horizontalScrollRef = useRef<HTMLDivElement>(null);
   const scrollHandle = (type: "next" | "previos") => {
     horizontalScrollRef.current?.scrollBy({
@@ -50,15 +49,16 @@ export default function ListCustomer() {
       <BaseHorizontalScroll
         horizontalScrollRef={horizontalScrollRef}
         className="bg-backgroundGray"
-        listItemData={listCustomer}
-        renderItem={(fileName, index) => {
+        listItemData={clients}
+        renderItem={(client: IClient, index) => {
+          const img = get(
+            client,
+            "attributes.thumbnail.data.attributes.url",
+            ""
+          );
           return (
             <div className="lg:py-base20 lg:px-base30 p-base10" key={index}>
-              <BaseImage
-                src={`/logo_customers/${fileName}`}
-                alt=""
-                className="!h-9 lg:h-16 2xl:h-20"
-              />
+              <BaseImage src={img} alt="" className="!h-9 lg:h-16 2xl:h-20" />
             </div>
           );
         }}

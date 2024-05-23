@@ -1,8 +1,8 @@
 import { Models } from "@rematch/core";
-import { stores } from "./models/stores";
+import { data_store } from "./models/data_store";
 
 export interface RootModel extends Models<RootModel> {
-  stores: typeof stores;
+  data_store: typeof data_store;
 }
 
-export const models: RootModel = { stores };
+export const models: RootModel = { data_store };

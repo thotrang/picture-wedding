@@ -70,7 +70,7 @@ function ListImageGrid({ type = "type_1", imgUrls }: IImageGrid) {
   );
 }
 export default function GridImagePortfolio({}: IGridImagePortfolio) {
-  const { portfolioDetail } = useSelector((s: RootState) => s.stores);
+  const { portfolioDetail } = useSelector((s: RootState) => s.data_store);
   const { attributes } = portfolioDetail;
   const listImages = useMemo(() => {
     return (attributes?.gallery?.data ?? []).map((item) => {

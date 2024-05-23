@@ -23,7 +23,7 @@ export default function BaseHorizontalScroll({
     evt.preventDefault();
     scrollRef.current?.scrollBy({
       left: evt.deltaY < 0 ? -scrollX : scrollX,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
   useEffect(() => {
@@ -37,20 +37,19 @@ export default function BaseHorizontalScroll({
   }, []);
 
   return (
-    <div
-      ref={scrollRef}
-      className={classNames(
-        "overflow-auto none-scrollbar w-full whitespace-nowrap",
-        className
-      )}
-    >
-      {(listItemData ?? []).map((item: any, i: number) => {
-        return (
-          <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
-            {renderItem(item, i)}
-          </div>
-        );
-      })}
+    <div className={classNames("w-full text-center", className)}>
+      <div
+        ref={scrollRef}
+        className={classNames("overflow-auto none-scrollbar whitespace-nowrap")}
+      >
+        {(listItemData ?? []).map((item: any, i: number) => {
+          return (
+            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+              {renderItem(item, i)}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

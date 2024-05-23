@@ -13,7 +13,7 @@ export default function BannerAuthor() {
               tag="p"
               size="M"
               className="m-0 font-medium text-textColorSecond"
-              content="Stunning Photography by"
+              content="SÁNG TẠO - CHUYÊN NGHIỆP - TẬN TÂM"
             ></BaseText>
             <BaseText
               size="XL"

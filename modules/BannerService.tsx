@@ -13,14 +13,14 @@ export default function BannerService() {
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base60">
       <div className="relative">
-        <div>
+      <div className="w-full aspect-[2/1] relative overflow-hidden lg:rounded-3xl rounded-xl">
           <BaseImage
             src={data.image}
             alt=""
-            className="h-full w-full !rounded-3xl"
+            className="absolute h-[110%] w-full lg:!rounded-3xl object-cover"
           />
         </div>
-        <div className="bg-background w-[85%] lg:absolute right-0 top-0 pt-base30 lg:pl-base30 2xl:py-base30 xl:py-base20 lg:py-base10 pb-6 rounded-bl-3xl">
+        <div className="bg-background w-[82%] lg:absolute right-0 top-0 pt-base30 lg:pl-base30 2xl:py-base30 xl:py-base20 lg:py-base10 pb-6 rounded-bl-3xl">
           <BaseText
             tag="h3"
             size="S"
@@ -41,7 +41,7 @@ export default function BannerService() {
             </BaseText>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 bg-background rounded-tl-3xl p-base40 max-lg:hidden">
+        <div className="absolute bottom-0 right-0 bg-background rounded-tl-3xl 2xl:p-base50 lg:p-base40 max-lg:hidden w-[10%] 2xl:!pl-base60">
           <BaseText
             tag="span"
             size="S"

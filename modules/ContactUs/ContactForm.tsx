@@ -9,7 +9,7 @@ import StarEightIcon from "@/public/icons/StarEightIcon";
 import ButtonNavigate from "@/components/ButtonNavigate";
 
 export default function ContactForm() {
-  const { services } = useSelector((s: RootState) => s.stores);
+  const { services } = useSelector((s: RootState) => s.data_store);
 
   const data = {
     description:

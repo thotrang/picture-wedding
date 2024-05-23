@@ -34,11 +34,10 @@ export default function CardService({
     >
       <div
         className={classNames({
-          "order-last": reverseElement,
           "2xl:col-span-3": largeImage,
         })}
       >
-        <div className="pb-3 pt-1">
+        <div className="pb-3 pt-1 flex flex-row items-center">
           <BaseText
             tag="h1"
             className="inline font-semibold text-textColorSecond pr-3"
@@ -52,7 +51,7 @@ export default function CardService({
           {attributes.description}
         </BaseText>
         <div className="2xl:pt-base50 lg:pt-base40 pt-base30">
-          <BaseText size="XS" className="font-medium pb-2">
+          <BaseText size="XS" className="font-medium pb-2 text-textColorSecond">
             Service Highlights
           </BaseText>
           <div>
@@ -88,6 +87,7 @@ export default function CardService({
       <div
         className={classNames("max-lg:order-first", {
           "2xl:col-span-4 2xl:h-[80%]": largeImage,
+          "order-first": reverseElement,
         })}
       >
         <BaseImage
@@ -102,7 +102,7 @@ export default function CardService({
             "lg:rounded-bl-[80px]": !reverseElement,
           })}
         />
-        <div className="py-base40"></div>
+        {/* <div className="py-base40"></div> */}
       </div>
     </div>
   );

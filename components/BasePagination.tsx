@@ -94,7 +94,7 @@ export default function BasePagination({
       </div>
       <Swiper
         autoplay={{
-          delay: 6000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}

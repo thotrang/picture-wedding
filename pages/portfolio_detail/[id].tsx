@@ -9,8 +9,8 @@ import BannerPortfolioDetail from "@/modules/BannerPortfolioDetail";
 import GridImagePortfolio from "@/modules/Portfolio/GridImagePortfolio";
 
 export default function PortfolioDetail() {
-  const { stores } = useDispatch<Dispatch>();
-  const { getPortfolio } = stores;
+  const { data_store } = useDispatch<Dispatch>();
+  const { getPortfolio } = data_store;
   const router = useRouter();
   const portfolioId = router.query.id;
   useEffect(() => {

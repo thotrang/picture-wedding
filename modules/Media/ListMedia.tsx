@@ -4,23 +4,20 @@ import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 
 export default function ListMedia() {
   const infor: IInforAboutUs = {
-    description: `My journey as a photographer has been a lifelong quest to capture
-    the extraordinary in the ordinary, to freeze fleeting moments in
-    time, and to share the world's beauty as I see it. Based in the
-    enchanting landscapes of the USA, I find inspiration in every corner
-    of this diverse and vibrant country. Join me as we embark on a
-    visual odyssey, where each photograph tells a story, and every frame
-    is a piece of my heart.`,
+    description: `GoldStar Media là một đơn vị chuyên chụp ảnh và sản xuất nội dung truyền thông đa dạng tại Việt Nam.
+     Với đội ngũ nhân viên giàu kinh nghiệm và sự sáng tạo không ngừng, GoldStar Media cam kết mang đến những bức ảnh đẹp và nội dung sáng tạo,
+      phản ánh chân thực và ấn tượng. Bằng cách tiếp cận mỗi dự án với tinh thần chuyên nghiệp và cẩn thận,
+     GoldStar Media luôn đặt lợi ích của khách hàng lên hàng đầu, đảm bảo sự hài lòng và thành công trong mỗi sản phẩm mà chúng tôi tạo ra.`,
     contact: {
-      email: "nguyenanhtuan@gmail.com",
-      phone: "+00000000000",
+      email: "goldstarmedia.vn@gmail.com",
+      phone: "088 669 36 88",
     },
-    image: "/images/2197ef21088292b2d8ba67bc7a698f5f.png",
+    image: "/images/img_card_infor.png",
   };
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
       <BasePagination
-        subTitle="Giới thiệu"
+        subTitle="VỀ CHÚNG TÔI"
         title="GIỚI THIỆU GOLDEN STAR MEDIA"
         titleButton="Tìm hiểu thêm"
         showMoreClick={() => {}}

@@ -13,12 +13,13 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "stores/store";
 
 export default function Home() {
-  const { stores } = useDispatch<Dispatch>();
-  const { getServices, getPortfolios } = stores;
+  const { data_store } = useDispatch<Dispatch>();
+  const { getServices, getPortfolios, getClients } = data_store;
 
   useEffect(() => {
     getServices({});
     getPortfolios({});
+    getClients({});
   }, []);
 
   return (

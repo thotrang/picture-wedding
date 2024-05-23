@@ -38,7 +38,7 @@ export const theme = {
       m: ["18px", "27px"],
       xm: ["20px", "30px"],
       l: ["24px", "33px"],
-      xl: ["30px", "41px"],
+      xl: ["32px", "43px"],
       "2xl": ["34px", "46px"],
       "3xl": ["44px", "60px"],
       "4xl": ["48px", "66px"],
@@ -81,8 +81,10 @@ export const theme = {
       'base100': '100px',
       'base120': '120px',
       'base150': '150px',
+    },
+    gridTemplateColumns: {
+      '18': 'repeat(18, minmax(0, 1fr));'
     }
-
   },
 };
 

@@ -8,7 +8,7 @@ export default function BaseSlogan() {
         <BaseText
           tag="span"
           size="L"
-          className="m-0  font-medium"
+          className="m-0  font-bold"
           content="Let`s "
         />
         <ButtonNavigate />
@@ -16,7 +16,7 @@ export default function BaseSlogan() {
       <BaseText
         tag="span"
         size="L"
-        className="m-0  font-medium"
+        className="m-0  font-bold"
         content=" Work Together"
       />
     </div>

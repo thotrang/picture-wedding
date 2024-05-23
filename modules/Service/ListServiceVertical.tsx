@@ -8,7 +8,7 @@ import { RootState } from "stores/store";
 
 export default function ListServiceVertical() {
   const { size } = useScreenSize();
-  const { services } = useSelector((s: RootState) => s.stores);
+  const { services } = useSelector((s: RootState) => s.data_store);
   
   return (
     <BaseLayoutWraper className="2xl:pt-base150 lg:pt-base100 pt-base80">

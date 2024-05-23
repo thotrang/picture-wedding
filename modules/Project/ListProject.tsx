@@ -13,14 +13,14 @@ export default function ListProject() {
     if (size === ESizeScreen.SM || size === ESizeScreen.XS) return 1;
     return 3;
   }, [size]);
-  const { portfolios } = useSelector((s: RootState) => s.stores);
+  const { portfolios } = useSelector((s: RootState) => s.data_store);
 
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
       <BasePagination
-        subTitle="Portfolio"
-        title="Explore My photography work."
-        titleButton="View All Services"
+        subTitle="Sản phẩm"
+        title="Khám phá các tác phẩm"
+        titleButton="Xem tất cả"
         showMoreClick={() => {}}
         nextClick={() => {}}
         preClick={() => {}}

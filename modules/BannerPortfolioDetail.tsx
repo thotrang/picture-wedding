@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 
 export default function BannerPortfolioDetail() {
-  const { portfolioDetail } = useSelector((s: RootState) => s.stores);
+  const { portfolioDetail } = useSelector((s: RootState) => s.data_store);
   const { attributes } = portfolioDetail;
 
   if (!attributes) return <div />;
