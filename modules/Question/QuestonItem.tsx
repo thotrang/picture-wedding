@@ -1,7 +1,8 @@
-import BaseIconButton from "@/components/BaseIconButton";
+import BaseButton from "@/components/BaseButton";
 import BaseText from "@/components/BaseText";
 import { IQuestion } from "@/types/faq";
 import classNames from "classnames";
+import { motion } from "framer-motion";
 import ChevronBottom from "public/icons/ChevronBottom";
 import ChevronTop from "public/icons/ChevronTop";
 import { useState } from "react";
@@ -12,8 +13,13 @@ interface IQuestionItem {
 }
 export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
   const { attributes } = item;
-  
+
   const [openCollap, setOpenCollap] = useState(false);
+
+  const animate = {
+    transition: { type: "tween" },
+    height: openCollap ? "auto" : 0,
+  };
   return (
     <div
       className={classNames(
@@ -25,26 +31,37 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
       )}
     >
       <div className="flex gap-6 flex-col justify-center">
-        <BaseText tag="h1" size="XS" className="font-semibold">
+        <BaseText
+          tag="h1"
+          size="XS"
+          className="font-semibold text-textColorSecond"
+        >
           {attributes.question}
         </BaseText>
-        {openCollap && (
-          <BaseText size="S" className=" font-normal">
-            {attributes.answer}
-          </BaseText>
-        )}
+        <div aria-expanded={openCollap}>
+          <motion.div
+            style={{ overflow: "hidden" }}
+            initial={{ height: 0, opacity: 1 }}
+            animate={animate}
+            exit={{ height: 0, opacity: 1 }}
+          >
+            <BaseText size="S" className="text-textColorSecond font-normal">
+              {attributes.answer}
+            </BaseText>
+          </motion.div>
+        </div>
       </div>
       <div>
-        <BaseIconButton
+        <BaseButton
           onClick={() => setOpenCollap(!openCollap)}
-          className="!bg-background border-borderColor"
+          className="2xl:!h-[60px] !h-[50px] aspect-square flex justify-center items-center !p-0 !rounded-full !bg-background border-borderColor"
         >
           {!openCollap ? (
             <ChevronTop className="2xl:h-8 2xl:w-8 h-7 w-7" />
           ) : (
             <ChevronBottom className="2xl:h-8 2xl:w-8 h-7 w-7" />
           )}
-        </BaseIconButton>
+        </BaseButton>
       </div>
     </div>
   );
