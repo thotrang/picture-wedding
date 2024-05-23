@@ -1,24 +1,15 @@
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import { IService } from "@/types/service";
-import ServiceRepository from "apis/repositories/service";
-import { useEffect, useState } from "react";
 import CardService from "./CardService";
 import classNames from "classnames";
 import BasePagination from "@/components/BasePagination";
 import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
 
 export default function ListServiceVertical() {
   const { size } = useScreenSize();
-  const [listService, setListService] = useState<IService[] | []>([]);
-  const initData = async () => {
-    const res = await ServiceRepository.get({
-      populate: "*",
-    });
-    setListService(res);
-  };
-  useEffect(() => {
-    initData();
-  }, []);
+  const { services } = useSelector((s: RootState) => s.stores);
+  
   return (
     <BaseLayoutWraper className="2xl:pt-base150 lg:pt-base100 pt-base80">
       {[ESizeScreen.XXL, ESizeScreen.XL, ESizeScreen.LG].includes(size) ? (
@@ -27,7 +18,7 @@ export default function ListServiceVertical() {
             "border-0 border-t border-solid border-borderColor"
           )}
         >
-          {listService.map((item, index) => {
+          {services?.map((item, index) => {
             return (
               <div className="2xl:py-base80 lg:py-base40" key={index}>
                 <CardService
@@ -36,6 +27,7 @@ export default function ListServiceVertical() {
                   showButtonNavigate={false}
                   showTextNavigate
                   reverseElement={index % 2 === 0}
+                  largeImage
                 />
               </div>
             );
@@ -49,7 +41,7 @@ export default function ListServiceVertical() {
           showMoreClick={() => {}}
           nextClick={() => {}}
           preClick={() => {}}
-          listItemData={listService}
+          listItemData={services}
           renderItem={(item, index = 0) => (
             <CardService
               item={item}

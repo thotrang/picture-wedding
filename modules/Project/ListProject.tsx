@@ -2,8 +2,9 @@ import BasePagination from "@/components/BasePagination";
 import CardProject from "./CardProject";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
-import { useEffect, useMemo, useState } from "react";
-import PortfolioRepository from "apis/repositories/portfolio";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
 
 export default function ListProject() {
   const { size } = useScreenSize();
@@ -12,16 +13,7 @@ export default function ListProject() {
     if (size === ESizeScreen.SM || size === ESizeScreen.XS) return 1;
     return 3;
   }, [size]);
-  const [portfolios, setPortfolios] = useState<[]>([]);
-  const initData = async () => {
-    const res = await PortfolioRepository.get({
-      populate: "*",
-    });
-    setPortfolios(res);
-  };
-  useEffect(() => {
-    initData();
-  }, []);
+  const { portfolios } = useSelector((s: RootState) => s.stores);
 
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">

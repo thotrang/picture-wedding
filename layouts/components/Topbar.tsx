@@ -12,7 +12,7 @@ export default function Topbar() {
   const itemRoutes = [
     { title: "Trang chủ", link: ERouter.HOME },
     { title: "Về chúng tôi", link: ERouter.ABOUT_US },
-    { title: "Portfolio", link: "" },
+    { title: "Portfolio", link: ERouter.PORTFOLIO },
     { title: "Dịch vụ", link: ERouter.SERVICE },
   ];
   const router = useRouter();

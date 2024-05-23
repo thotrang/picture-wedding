@@ -1,12 +1,11 @@
 import BasePagination from "@/components/BasePagination";
 import CardFeedback from "./CardFeedback";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import BaseWraper from "@/components/BaseWraper";
 
 export default function ListFeedback() {
   return (
     <BaseLayoutWraper>
-      <BaseWraper gutters={[['padding', 200, 'top']]}>
+      <div>
         <BasePagination
           subTitle="Testimonials"
           title="Khách Hàng nói gì về chúng tôi"
@@ -25,7 +24,7 @@ export default function ListFeedback() {
             );
           }}
         ></BasePagination>
-      </BaseWraper>
+      </div>
     </BaseLayoutWraper>
   );
 }

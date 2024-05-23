@@ -8,8 +8,19 @@ import ListProject from "@/modules/Project/ListProject";
 import ListQuestion from "@/modules/Question/ListQuestion";
 import ListService from "@/modules/Service/ListService";
 import Layout from "layouts";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "stores/store";
 
 export default function Home() {
+  const { stores } = useDispatch<Dispatch>();
+  const { getServices, getPortfolios } = stores;
+
+  useEffect(() => {
+    getServices({});
+    getPortfolios({});
+  }, []);
+
   return (
     <Layout>
       <BannerAuthor />

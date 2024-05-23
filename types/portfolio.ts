@@ -1,4 +1,4 @@
-import { IThumbnail, SizeThumbnail } from "./thumbnail";
+import { IThumbnail, SizeThumbnail, Data as DataThumbnail } from "./thumbnail";
 export interface IPortfolio {
   id: number;
   attributes: Attributes;
@@ -11,7 +11,12 @@ export interface Attributes {
   description?: null;
   thumbnail?: IThumbnail;
   gallery?: Gallery;
-  service?: Service;
+  services?: Service[];
+  shortDescription?: string;
+  client?: {
+    name?: string;
+  };
+  year: string;
 }
 
 export interface Formats {
@@ -19,7 +24,7 @@ export interface Formats {
   thumbnail: SizeThumbnail;
 }
 export interface Gallery {
-  data: null;
+  data: DataThumbnail[];
 }
 
 export interface Service {

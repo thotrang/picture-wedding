@@ -1,7 +1,6 @@
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
-import BaseWraper from "@/components/BaseWraper";
 import { IPortfolio } from "@/types/portfolio";
 import { get } from "lodash-es";
 import ArrowRightTop from "public/icons/ArrowRightTop";
@@ -12,7 +11,7 @@ export default function CardProject({ item }: ICardProject) {
   const { attributes } = item;
 
   return (
-    <BaseWraper className="flex flex-col" gutters={[["gap", 20]]}>
+    <div className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3">
       <div>
         <BaseImage
           className="aspect-square object-cover"
@@ -41,6 +40,6 @@ export default function CardProject({ item }: ICardProject) {
           </BaseTextButtonNavigate>
         </div>
       </div>
-    </BaseWraper>
+    </div>
   );
 }

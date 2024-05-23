@@ -68,7 +68,7 @@ export default function BasePagination({
         </div>
         {showButton && (
           <div className="flex items-center lg:gap-6">
-            {size > 1 && (
+            {size >= 1 && (
               <RightLeftButtons
                 className="max-lg:hidden"
                 preClick={() => handleDotClick(1)}
@@ -110,7 +110,7 @@ export default function BasePagination({
           );
         })}
       </Swiper>
-      {showButton && size > 1 && (
+      {showButton && size >= 1 && (
         <div className="lg:hidden mt-10 flex justify-center">
           <RightLeftButtons
             preClick={() => handleDotClick(1)}

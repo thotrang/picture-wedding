@@ -8,11 +8,12 @@ export const Repository = (baseUrl: string) => ({
     });
     return res.data.data;
   },
-  getOne: (id: string, params?: any, options?: any) => {
-    return axios.get(`${baseUrl}/${id}`, {
+  getOne:async (id: string, params?: any, options?: any) => {
+    const res = await axios.get(`${baseUrl}/${id}`, {
       params,
       ...options,
     });
+    return res.data.data;
   },
   post: (data: any, options?: any) => {
     return axios.post(baseUrl, data, options);

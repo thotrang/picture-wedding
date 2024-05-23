@@ -1,21 +1,11 @@
 import BasePagination from "@/components/BasePagination";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import { useEffect, useState } from "react";
 import CardService from "./CardService";
-import { IService } from "@/types/service";
-import ServiceRepository from "apis/repositories/service";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
 
 export default function ListService() {
-  const [listService, setListService] = useState<IService[] | []>([]);
-  const initData = async () => {
-    const res = await ServiceRepository.get({
-      populate: "*",
-    });
-    setListService(res);
-  };
-  useEffect(() => {
-    initData();
-  }, []);
+  const { services } = useSelector((s: RootState) => s.stores);
 
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
@@ -26,7 +16,7 @@ export default function ListService() {
         showMoreClick={() => {}}
         nextClick={() => {}}
         preClick={() => {}}
-        listItemData={listService}
+        listItemData={services}
         renderItem={(item, index) => <CardService item={item} key={index} />}
       ></BasePagination>
     </BaseLayoutWraper>

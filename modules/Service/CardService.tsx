@@ -5,25 +5,37 @@ import { IService } from "@/types/service";
 import StarEightIcon from "public/icons/StarEightIcon";
 import { get } from "lodash-es";
 import classNames from "classnames";
+import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
+import ArrowRightTop from "@/public/icons/ArrowRightTop";
 interface ICardService {
   item: IService;
   showButtonNavigate?: boolean;
   showTextNavigate?: boolean;
   reverseElement?: boolean;
+  largeImage?: boolean;
 }
 export default function CardService({
   item,
   showButtonNavigate = true,
-  // showTextNavigate = false,
+  showTextNavigate = false,
   reverseElement = false,
+  largeImage = false,
 }: ICardService) {
   const { attributes } = item;
 
   return (
-    <div className="grid lg:grid-cols-2 2xl:gap-base50 lg:gap-base40 gap-base30">
+    <div
+      className={classNames(
+        "grid lg:grid-cols-2 2xl:gap-base50 lg:gap-base40 gap-base30",
+        {
+          "2xl:grid-cols-7": largeImage,
+        }
+      )}
+    >
       <div
         className={classNames({
           "order-last": reverseElement,
+          "2xl:col-span-3": largeImage,
         })}
       >
         <div className="pb-3 pt-1">
@@ -52,15 +64,32 @@ export default function CardService({
                 >
                   <StarEightIcon className="fill-textColorSecond" />
                   <BaseText size="S" className="text-textColorSecond ">
-                    {item}
+                    {item.toUpperCase()}
                   </BaseText>
                 </div>
               );
             })}
           </div>
         </div>
+        {showTextNavigate && (
+          <div className="2xl:pt-base50 lg:pt-base40 pt-base30">
+            <BaseTextButtonNavigate
+              className="font-medium flex items-center py-1 gap-2"
+              onClick={() => {}}
+            >
+              <BaseText size="S" tag="span">
+                XEM DỰ ÁN
+              </BaseText>
+              <ArrowRightTop className="h-6 w-6 align-middle" />
+            </BaseTextButtonNavigate>
+          </div>
+        )}
       </div>
-      <div className="max-lg:order-first">
+      <div
+        className={classNames("max-lg:order-first", {
+          "2xl:col-span-4 2xl:h-[80%]": largeImage,
+        })}
+      >
         <BaseImage
           src={get(
             attributes,
@@ -73,6 +102,7 @@ export default function CardService({
             "lg:rounded-bl-[80px]": !reverseElement,
           })}
         />
+        <div className="py-base40"></div>
       </div>
     </div>
   );

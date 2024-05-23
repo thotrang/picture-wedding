@@ -3,4 +3,5 @@ export enum ERouter {
   ABOUT_US = "/about_us",
   SERVICE = "/services",
   PORTFOLIO = "/portfolios",
+  PORTFOLIO_DETAIL = "/portfolio_detail",
 }
