@@ -66,7 +66,7 @@ export const data_store = createModel<RootModel>()({
       }
     },
     async getPortfolios(
-      { params, type }: { params: any; type?: "filter" | "view_more" },
+      { params, type }: { params?: any; type?: "filter" | "view_more" },
       rootState
     ) {
       if (!rootState.data_store.portfolios?.length || !!type) {
