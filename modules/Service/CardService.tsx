@@ -7,12 +7,14 @@ import { get } from "lodash-es";
 import classNames from "classnames";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import ArrowRightTop from "@/public/icons/ArrowRightTop";
+import SliderImage from "@/components/SlideImage";
 interface ICardService {
   item: IService;
   showButtonNavigate?: boolean;
   showTextNavigate?: boolean;
   reverseElement?: boolean;
   largeImage?: boolean;
+  isMultipleImg?: boolean;
 }
 export default function CardService({
   item,
@@ -20,18 +22,51 @@ export default function CardService({
   showTextNavigate = false,
   reverseElement = false,
   largeImage = false,
+  isMultipleImg = false,
 }: ICardService) {
   const { attributes } = item;
 
   return (
     <div
       className={classNames(
-        "grid lg:grid-cols-2 2xl:gap-base50 lg:gap-base40 gap-base30",
+        "lg:grid lg:grid-cols-2 2xl:gap-base50 lg:gap-base40",
         {
           "2xl:grid-cols-7": largeImage,
         }
       )}
     >
+      <div
+        className={classNames(
+          "lg:order-last",
+          "lg:h-full w-full max-lg:aspect-[3/2] max-sm:aspect-square max-lg:pb-base30",
+          {
+            "2xl:col-span-4": largeImage,
+            "!order-first": reverseElement,
+          }
+        )}
+      >
+        {isMultipleImg ? (
+          <SliderImage
+            reverseElement={reverseElement}
+            items={get(attributes, "gallery.data", [])}
+          />
+        ) : (
+          <div className="relative h-full w-full">
+            <BaseImage
+              src={get(
+                attributes,
+                "thumbnail.data.attributes.formats.medium.url",
+                ""
+              )}
+              alt=""
+              className={classNames("h-full object-cover absolute", {
+                "lg:rounded-br-[80px]": reverseElement,
+                "lg:rounded-bl-[80px]": !reverseElement,
+              })}
+            />
+          </div>
+        )}
+      </div>
       <div
         className={classNames({
           "2xl:col-span-3": largeImage,
@@ -83,26 +118,6 @@ export default function CardService({
             </BaseTextButtonNavigate>
           </div>
         )}
-      </div>
-      <div
-        className={classNames("max-lg:order-first", {
-          "2xl:col-span-4 2xl:h-[80%]": largeImage,
-          "order-first": reverseElement,
-        })}
-      >
-        <BaseImage
-          src={get(
-            attributes,
-            "thumbnail.data.attributes.formats.medium.url",
-            ""
-          )}
-          alt=""
-          className={classNames("h-full object-cover", {
-            "lg:rounded-br-[80px]": reverseElement,
-            "lg:rounded-bl-[80px]": !reverseElement,
-          })}
-        />
-        {/* <div className="py-base40"></div> */}
       </div>
     </div>
   );

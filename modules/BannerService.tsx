@@ -17,7 +17,7 @@ export default function BannerService() {
           <BaseImage
             src={data.image}
             alt=""
-            className="absolute h-[110%] w-full lg:!rounded-3xl object-cover"
+            className="absolute !h-[110%] w-full lg:!rounded-3xl object-cover"
           />
         </div>
         <div className="bg-background w-[82%] lg:absolute right-0 top-0 pt-base30 lg:pl-base30 2xl:py-base30 xl:py-base20 lg:py-base10 pb-6 rounded-bl-3xl">

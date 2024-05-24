@@ -15,7 +15,9 @@ export default function ListService() {
         subTitle="Dịch vụ"
         title="Các dịch vụ chụp ảnh"
         titleButton="Xem tất cả dịch vụ"
-        showMoreClick={() => {router.push(ERouter.SERVICE)}}
+        showMoreClick={() => {
+          router.push(ERouter.SERVICE);
+        }}
         nextClick={() => {}}
         preClick={() => {}}
         listItemData={services}

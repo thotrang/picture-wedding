@@ -1,23 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import QuestionItem from "./QuestonItem";
 import classNames from "classnames";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseText from "@/components/BaseText";
-import QuestionRepository from "apis/repositories/question";
 import { IQuestion } from "@/types/faq";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
 
 export default function ListQuestion() {
-  const [questions, setQuestions] = useState<IQuestion[] | []>([]);
-  const initData = async () => {
-    const res = await QuestionRepository.get({
-      populate: "*",
-    });
-    setQuestions(res);
-  };
-  useEffect(() => {
-    initData();
-  }, []);
-  
+  const { questions } = useSelector((s: RootState) => s.data_store);
+
   const questionConvertToShow = useMemo(() => {
     const list: {
       [key: string]: IQuestion[];
@@ -31,7 +23,7 @@ export default function ListQuestion() {
     });
     return list;
   }, [questions]);
-  
+
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s 2xl:pb-">
       <div className="2xl:pb-base50 lg:pb-base40 pb-base20">

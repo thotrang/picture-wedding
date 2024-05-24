@@ -7,7 +7,7 @@ import { PropsWithChildren, useRef } from "react";
 import RightLeftButtons from "./RightLeftButtons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 interface IBasePagination extends PropsWithChildren {
   titleButton?: string;
@@ -20,6 +20,7 @@ interface IBasePagination extends PropsWithChildren {
   preClick?: (index: number) => void;
   slidesPerView?: number;
   showButton?: boolean;
+  disableSwiper?: boolean;
 }
 export default function BasePagination({
   subTitle,
@@ -32,17 +33,25 @@ export default function BasePagination({
   renderItem = () => <div />,
   slidesPerView = 1,
   showButton = true,
+  disableSwiper,
 }: IBasePagination) {
   const swiperRef = useRef<any>(null);
-  
-  const handleDotClick = (num: number) => {
+
+  const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      const index = swiperRef.current.swiper.activeIndex + num;
-      swiperRef.current.swiper.slideTo(index);
-      num > 0 ? nextClick(index) : preClick(index);
+      swiperRef.current.swiper.slideNext();
+      nextClick(swiperRef.current.swiper.activeIndex + 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+      preClick(swiperRef.current.swiper.activeIndex - 1);
     }
   };
   const size = listItemData.length - slidesPerView;
+
   return (
     <div>
       <div
@@ -71,8 +80,8 @@ export default function BasePagination({
             {size >= 1 && (
               <RightLeftButtons
                 className="max-lg:hidden"
-                preClick={() => handleDotClick(1)}
-                nextClick={() => handleDotClick(-1)}
+                preClick={() => handlePrev()}
+                nextClick={() => handleNext()}
               />
             )}
             {titleButton && (
@@ -97,7 +106,9 @@ export default function BasePagination({
           delay: 10000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay]}
+        allowTouchMove={!disableSwiper}
+        simulateTouch={!disableSwiper}
+        modules={[Autoplay, Navigation]}
         spaceBetween={50}
         slidesPerView={slidesPerView}
         ref={swiperRef}
@@ -113,8 +124,8 @@ export default function BasePagination({
       {showButton && size >= 1 && (
         <div className="lg:hidden mt-10 flex justify-center">
           <RightLeftButtons
-            preClick={() => handleDotClick(1)}
-            nextClick={() => handleDotClick(-1)}
+            preClick={() => handlePrev()}
+            nextClick={() => handleNext()}
           />
         </div>
       )}

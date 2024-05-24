@@ -1,4 +1,4 @@
-import { IThumbnail } from "./thumbnail";
+import { IThumbnail, Data as DataThumbnail } from "./thumbnail";
 
 export interface IService {
   id: number;
@@ -12,6 +12,9 @@ export interface Attributes {
   createdAt: string;
   updatedAt: string;
   thumbnail?: IThumbnail;
+  gallery: {
+    data: DataThumbnail[]
+  }
 }
 
 export interface Highlight {

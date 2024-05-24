@@ -9,7 +9,7 @@ import { RootState } from "stores/store";
 export default function ListServiceVertical() {
   const { size } = useScreenSize();
   const { services } = useSelector((s: RootState) => s.data_store);
-  
+
   return (
     <BaseLayoutWraper className="2xl:pt-base150 lg:pt-base100 pt-base80">
       {[ESizeScreen.XXL, ESizeScreen.XL, ESizeScreen.LG].includes(size) ? (
@@ -28,6 +28,7 @@ export default function ListServiceVertical() {
                   showTextNavigate
                   reverseElement={index % 2 === 0}
                   largeImage
+                  isMultipleImg
                 />
               </div>
             );
@@ -42,12 +43,14 @@ export default function ListServiceVertical() {
           nextClick={() => {}}
           preClick={() => {}}
           listItemData={services}
+          disableSwiper
           renderItem={(item, index = 0) => (
             <CardService
               item={item}
               key={index}
               showButtonNavigate={false}
               showTextNavigate
+              isMultipleImg
             />
           )}
         ></BasePagination>

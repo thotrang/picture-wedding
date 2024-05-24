@@ -19,6 +19,7 @@ export const theme = {
     colors: {
       buttonColor: "#1C1C21",
       buttonNavigate: "#CA9200",
+      buttonFilter: "#232329",
       borderColor: "#1C1C21",
       background: "#131316",
       backgroundSecond: "#0E0E10",
@@ -26,6 +27,7 @@ export const theme = {
       textColor: "white",
       textColorSecond: "#AFB0B6",
       textNavigate: "#D8B55B",
+      textShadow: "#797C86",
     },
     borderWidth: {
       12: "12px",
@@ -89,6 +91,9 @@ export const theme = {
     },
     gridTemplateColumns: {
       "18": "repeat(18, minmax(0, 1fr));",
+    },
+    boxShadow: {
+      action: "inset 0px 0px 12px -4px #FFFFFF",
     },
   },
 };
