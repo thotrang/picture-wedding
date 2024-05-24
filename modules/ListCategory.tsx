@@ -4,7 +4,6 @@ import "swiper/css/free-mode";
 import BaseTextButton from "@/components/BaseTextButton";
 import Dot from "public/icons/Dot";
 import BaseHorizontalScroll from "@/components/BaseHorizontalScroll";
-import AutoScroll from "@/components/AutoScroll";
 interface IListCategory {}
 export default function ListCategory({}: IListCategory) {
   const categores = [
