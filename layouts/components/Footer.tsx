@@ -22,6 +22,7 @@ function ListItemFooter({ items }: { items?: any[] }) {
         if (index === 0)
           return (
             <BaseTextButtonNavigate
+              key={index}
               size="XS"
               className="text-textColorSecond mb-6"
               onClick={() => router.push(item.link)}
@@ -116,7 +117,7 @@ export default function Footer() {
               <LinkSocialNetwork />
             </div>
             <BaseText size="S" className="text-textColorSecond max-lg:pb-2">
-              © 2024 Damien Braun Photography. All rights reserved.
+              © 2024 GoldStar Media Photography. All rights reserved.
             </BaseText>
             <div className="lg:hidden">
               <LinkSocialNetwork />

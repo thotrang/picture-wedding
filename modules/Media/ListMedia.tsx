@@ -1,8 +1,11 @@
 import BasePagination from "@/components/BasePagination";
 import CardMedia from "./CardMedia";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import { useRouter } from "next/router";
+import { ERouter } from "routers";
 
 export default function ListMedia() {
+  const router = useRouter();
   const infor: IInforAboutUs = {
     description: `GoldStar Media là một đơn vị chuyên chụp ảnh và sản xuất nội dung truyền thông đa dạng tại Việt Nam.
      Với đội ngũ nhân viên giàu kinh nghiệm và sự sáng tạo không ngừng, GoldStar Media cam kết mang đến những bức ảnh đẹp và nội dung sáng tạo,
@@ -20,7 +23,7 @@ export default function ListMedia() {
         subTitle="VỀ CHÚNG TÔI"
         title="GIỚI THIỆU GOLDEN STAR MEDIA"
         titleButton="Tìm hiểu thêm"
-        showMoreClick={() => {}}
+        showMoreClick={() => {router.push(ERouter.ABOUT_US)}}
         renderItem={() => {
           return <CardMedia infor={infor} />;
         }}

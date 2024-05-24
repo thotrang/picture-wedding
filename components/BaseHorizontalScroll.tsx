@@ -37,10 +37,30 @@ export default function BaseHorizontalScroll({
   }, []);
 
   return (
-    <div className={classNames("w-full text-center", className)}>
+    <div
+      className={classNames(
+        "w-full inline-flex flex-nowrap text-center overflow-hidden",
+        className
+      )}
+    >
       <div
         ref={scrollRef}
-        className={classNames("overflow-auto none-scrollbar whitespace-nowrap")}
+        className={classNames(
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+        )}
+      >
+        {(listItemData ?? []).map((item: any, i: number) => {
+          return (
+            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+              {renderItem(item, i)}
+            </div>
+          );
+        })}
+      </div>
+      <div
+        className={classNames(
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+        )}
       >
         {(listItemData ?? []).map((item: any, i: number) => {
           return (

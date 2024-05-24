@@ -9,7 +9,7 @@ export default function BaseSlogan() {
           tag="span"
           size="L"
           className="m-0  font-bold"
-          content="Let`s "
+          content="Let's "
         />
         <ButtonNavigate />
       </div>

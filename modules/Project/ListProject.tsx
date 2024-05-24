@@ -5,6 +5,8 @@ import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
+import { useRouter } from "next/router";
+import { ERouter } from "routers";
 
 export default function ListProject() {
   const { size } = useScreenSize();
@@ -14,14 +16,14 @@ export default function ListProject() {
     return 3;
   }, [size]);
   const { portfolios } = useSelector((s: RootState) => s.data_store);
-
+  const router = useRouter();
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
       <BasePagination
         subTitle="Sản phẩm"
         title="Khám phá các tác phẩm"
         titleButton="Xem tất cả"
-        showMoreClick={() => {}}
+        showMoreClick={() => {router.push(ERouter.PORTFOLIO)}}
         nextClick={() => {}}
         preClick={() => {}}
         listItemData={portfolios}

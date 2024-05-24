@@ -57,8 +57,8 @@ export default function ListCustomer() {
             ""
           );
           return (
-            <div className="lg:py-base20 lg:px-base30 p-base10" key={index}>
-              <BaseImage src={img} alt="" className="!h-9 lg:h-16 2xl:h-20" />
+            <div className="lg:py-base20 p-base10" key={index}>
+              <BaseImage src={img} alt="" className="!h-9 lg:h-16 2xl:h-20 w-full" />
             </div>
           );
         }}
