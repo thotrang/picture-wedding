@@ -19,13 +19,19 @@ export default function ListPortfolio() {
 
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base40 pb-base100">
-      {portfolios.map((item, index) => {
-        return (
-          <div key={index} className="2xl:pb-base50 pb-base30 ">
-            <CardPortfolio item={item} />
-          </div>
-        );
-      })}
+      {portfolios.length > 0 ? (
+        portfolios.map((item, index) => {
+          return (
+            <div key={index} className="2xl:pb-base50 pb-base30 ">
+              <CardPortfolio item={item} />
+            </div>
+          );
+        })
+      ) : (
+        <div>
+          <BaseText className="text-center text-textColorSecond" size="S" >Hiện tại không có sản phẩm</BaseText>
+        </div>
+      )}
 
       {showMoreButton && (
         <div className="text-center">

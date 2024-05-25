@@ -31,13 +31,13 @@ export default function ListQuestion() {
           tag="span"
           size="XS"
           className="font-semibold text-textColorSecond"
-          content="FAQ’s"
+          content="FAQ’S"
         ></BaseText>
         <BaseText
           tag="h1"
           size="L"
           className="font-semibold  pt-2"
-          content="Câu hỏi thường gặp"
+          content="CÂU HỎI THƯỜNG GẶP"
         ></BaseText>
       </div>
       <div

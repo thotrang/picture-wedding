@@ -41,7 +41,7 @@ export default function BannerImages() {
             ></ImageGrid>
           </div>
           <div className="grid col-span-3 grid-rows-12 2xl:gap-4 lg:gap-3 gap-1.5">
-            <ImageGrid src={images[3] ?? ""} className="row-span-8"></ImageGrid>
+            <ImageGrid src={images[3] ?? ""} className="row-span-8" imageClass=''></ImageGrid>
             <ImageGrid src={images[4] ?? ""} className="row-span-4"></ImageGrid>
           </div>
         </div>
