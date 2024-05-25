@@ -37,13 +37,6 @@ export default function ListCustomer() {
               content="KHÁCH HÀNG CỦA CHÚNG TÔI"
             ></BaseText>
           </div>
-          {/* <div className="flex items-center lg:gap-6">
-            <RightLeftButtons
-              className="max-lg:hidden"
-              preClick={() => scrollHandle("next")}
-              nextClick={() => scrollHandle("previos")}
-            />
-          </div> */}
         </div>
       </BaseLayoutWraper>
       <BaseHorizontalScroll
@@ -57,7 +50,7 @@ export default function ListCustomer() {
             ""
           );
           return (
-            <div className="lg:py-base20 p-base10" key={index}>
+            <div className="lg:py-base20 p-base10 w-full" key={index}>
               <BaseImage src={img} alt="" className="!h-9 lg:h-16 2xl:h-20 w-full" />
             </div>
           );

@@ -44,7 +44,13 @@ export default function ContactForm({ className }: IContactForm) {
     });
   };
   return (
-    <form className={className} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={classNames(
+        "grid md:grid-cols-2 grid-cols-1 2xl:gap-base50 lg:gap-base40 gap-base30",
+        className
+      )}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="md:col-span-2 relative">
         <BaseInput
           id="name"
@@ -161,10 +167,10 @@ export default function ContactForm({ className }: IContactForm) {
           onClick={() => {}}
           className="flex items-center gap-3"
         >
-          <BaseText tag="span" size="XM">
+          <BaseText tag="span" size="XM" className="lg:!text-l !text-xm">
             GỬI THÔNG TIN
           </BaseText>
-          <ArrowRightTop className="w-9 h-9" />
+          <ArrowRightTop className="2xl:w-9 2xl:h-9 lg:w-7 lg:h-7" />
         </BaseButton>
       </div>
     </form>

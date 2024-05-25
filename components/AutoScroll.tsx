@@ -1,52 +1,55 @@
-import React, { PropsWithChildren, useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
+import "swiper/css";
+import "swiper/css/free-mode";
 
-const AutoScroll = ({ children }: PropsWithChildren) => {
-  const containerRef = useRef(null);
-  const controls = useAnimation();
+import classNames from "classnames";
 
-  useEffect(() => {
-    const startScrolling = async () => {
-      while (true) {
-        await controls.start({
-          x: ["0%", "-100%"],
-          transition: {
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 100,
-              ease: "linear",
-            },
-          },
-        });
-      }
-    };
-
-    startScrolling();
-  }, [controls]);
-
+interface IAutoScroll {
+  listItemData: any;
+  renderItem: (data?: any, index?: number) => JSX.Element;
+  className?: string;
+  scrollX?: number;
+  classItem?: string;
+}
+export default function AutoScroll({
+  listItemData,
+  renderItem = () => <div />,
+  className,
+}: IAutoScroll) {
   return (
     <div
-      className=""
-      ref={containerRef}
-      style={{
-        overflow: "hidden",
-        whiteSpace: "nowrap",
-        position: "relative",
-      }}
+      className={classNames(
+        {
+          "w-full inline-flex flex-nowrap text-center overflow-hidden": true,
+        },
+        className
+      )}
     >
-      <motion.div
-        style={{
-          display: "inline-block",
-          position: "absolute",
-          whiteSpace: "nowrap",
-        }}
-        animate={controls}
+      <div
+        className={classNames(
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+        )}
       >
-        {children}
-      </motion.div>
+        {(listItemData ?? []).map((item: any, i: number) => {
+          return (
+            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+              {renderItem(item, i)}
+            </div>
+          );
+        })}
+      </div>
+      <div
+        className={classNames(
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+        )}
+      >
+        {(listItemData ?? []).map((item: any, i: number) => {
+          return (
+            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+              {renderItem(item, i)}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
-};
-
-export default AutoScroll;
+}

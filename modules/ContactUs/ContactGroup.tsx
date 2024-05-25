@@ -47,7 +47,7 @@ function ContactFormGroup() {
             <LinkSocialNetwork />
           </div>
         </div>
-        <ContactForm className="grow grid md:grid-cols-2 grid-cols-1 w-full 2xl:gap-base50 lg:gap-base40 gap-base30" />
+        <ContactForm className="grow w-full" />
       </div>
     </BaseLayoutWraper>
   );

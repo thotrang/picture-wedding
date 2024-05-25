@@ -33,6 +33,7 @@ export default function BaseText({
           "2xl:text-[48px] lg:text-[40px] text-[28px]": size === "XXM",
           "2xl:text-5xl lg:text-4xl text-xl": size === "L",
           "2xl:text-3max lg:text-2max text-max": size === "XL",
+          
         },
         className
       )}
