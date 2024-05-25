@@ -54,14 +54,13 @@ export default function Footer() {
         { title: "TRANG CHỦ", link: ERouter.HOME },
         { title: "VỀ CHÚNG TÔI", link: ERouter.ABOUT_US },
         { title: "PORTFOLIO", link: ERouter.PORTFOLIO },
-        { title: "LIÊN HỆ", link: null },
       ],
       1: [
         { title: "DỊCH VỤ", link: ERouter.SERVICE },
         ...(services ?? []).map((item: IService) => {
           return {
             title: get(item, "attributes.title", ""),
-            link: null, // item.id
+            link: ERouter.PORTFOLIO + `?serviceId=${item.id}`,
           };
         }),
       ],

@@ -31,8 +31,6 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
   useEffect(() => {
     if (serviceId) {
       setSelected(serviceId as string);
-      console.log(serviceId);
-      
     }
   }, [serviceId]);
 
@@ -45,7 +43,7 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
           <BaseButton
             key={index}
             className={classNames(" bg-buttonFilter text-textShadow", {
-              "!shadow-action !text-textColor": item.id === selected,
+              "!shadow-action !text-textColor": item.id == selected,
             })}
             onClick={() => {
               setSelected(item.id);

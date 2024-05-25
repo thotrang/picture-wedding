@@ -10,7 +10,11 @@ export default function Layout({ children }: PropsWithChildren) {
       <Head>
         <title>GOLDSTAR MEDIA</title>
         <link rel="icon" href="../public/favicon.ico" />
-        <link rel="icon" type="image/x-icon" href="../public/favicon.ico"></link>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="../public/favicon.ico"
+        ></link>
       </Head>
       <div className="bg-background">
         <div className="w-full min-h-screen max-w-screen-3xl mx-auto">
@@ -23,12 +27,14 @@ export default function Layout({ children }: PropsWithChildren) {
           <Footer />
         </div>
       </div>
-      <dialog id="modal_contact" className="modal">
-        <div className="modal-box w-10/12 max-w-5xl bg-backgroundSecond">
+      <dialog id="modal_contact" className="modal border-none">
+        <div className="modal-box w-10/12 max-w-5xl bg-backgroundSecond border border-solid border-borderColor">
           <ContactForm />
         </div>
         <form method="dialog" className="modal-backdrop">
-          <button className="bg-transparent !border-none !p-0 !m-0">close</button>
+          <button className="bg-transparent !border-none !p-0 !m-0">
+            close
+          </button>
         </form>
       </dialog>
     </div>
