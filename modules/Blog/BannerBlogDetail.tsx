@@ -21,6 +21,7 @@ export default function BannerBlogDetail() {
         src={get(attributes, "thumbnail.data.attributes.url", "")}
         className="absolute h-full w-full !rounded-none"
       ></BaseImage>
+      <div className="absolute z-5 bg-gradient-to-b from-white/50 via-black/50 to-black h-full w-full" />
       <div className="lg:absolute z-10 left-0 bottom-0 w-full">
         <BaseLayoutWraper className="2xl:pb-base50 lg:pb-base25 pb-5">
           <BaseText tag="h1" size="XXM" className="font-semibold">

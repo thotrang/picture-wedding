@@ -39,7 +39,7 @@ export default function ContentBlogDetail() {
         </div>
         <div
           className={classNames(
-            "col-span-9 2xl:pr-base80 lg:pr-base60",
+            "col-span-9 2xl:pr-base80 lg:pr-base60 pt-base20",
             "border-0 border-solid border-borderColor border-r"
           )}
         >
