@@ -9,12 +9,6 @@ export default function Layout({ children }: PropsWithChildren) {
     <div>
       <Head>
         <title>GOLDSTAR MEDIA</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="../public/favicon.ico"
-        ></link>
       </Head>
       <div className="bg-background">
         <div className="w-full min-h-screen max-w-screen-3xl mx-auto">
