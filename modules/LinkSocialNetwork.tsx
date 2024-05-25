@@ -8,7 +8,7 @@ export default function LinkSocialNetwork() {
     <div className="inline-block">
       <div
         className={classNames(
-          "border-solid border-borderColor border rounded-full bg-backgroundSecond p-2 flex gap-2"
+          "border-solid border-borderColor border rounded-full bg-backgroundSecond lg:p-2 flex lg:gap-2 p-1 gap-1"
         )}
       >
         <BaseButton
