@@ -6,24 +6,28 @@ export interface IBaseButton extends PropsWithChildren {
   className?: string;
   onClick: () => void;
   disabled?: boolean;
+  type?: any;
 }
 export default function BaseButton({
   className,
   onClick,
   children,
   disabled = false,
+  type,
   ...props
 }: IBaseButton) {
   return (
     <motion.button
+      type={type}
       disabled={disabled}
-      whileHover={!disabled ? { scale: 1.03, opacity: 0.9 }: {}}
-      whileTap={!disabled ? { scale: 0.95, opacity: 0.3 }: {}}
+      whileHover={!disabled ? { scale: 1.03, opacity: 0.9 } : {}}
+      whileTap={!disabled ? { scale: 0.95, opacity: 0.3 } : {}}
       className={classNames(
-        'shadow-white',
+        "shadow-white",
         "text-white cursor-pointer bg-buttonColor py-4 px-6 border-solid border border-black/30 overflow-hidden border-gradient-to-br rounded-xl text-base",
-        className, {
-          'cursor-not-allowed opacity-50 bg-slate-900': disabled
+        className,
+        {
+          "cursor-not-allowed opacity-50 bg-slate-900": disabled,
         }
       )}
       onClick={onClick}

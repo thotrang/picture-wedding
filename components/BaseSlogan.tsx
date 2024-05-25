@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
 import BaseText from "./BaseText";
 import ButtonNavigate from "./ButtonNavigate";
+import { ERouter } from "routers";
 
 export default function BaseSlogan() {
+  const router = useRouter();
   return (
     <div>
       <div>
@@ -11,7 +14,11 @@ export default function BaseSlogan() {
           className="m-0  font-bold"
           content="Let's "
         />
-        <ButtonNavigate />
+        <ButtonNavigate
+          onClick={() => {
+            router.push(ERouter.SERVICE);
+          }}
+        />
       </div>
       <BaseText
         tag="span"

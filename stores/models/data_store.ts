@@ -5,6 +5,7 @@ import { IPortfolio } from "@/types/portfolio";
 import { IService } from "@/types/service";
 import { createModel } from "@rematch/core";
 import ClientRepository from "apis/repositories/client";
+import ContactRepository from "apis/repositories/contact";
 import PortfolioRepository from "apis/repositories/portfolio";
 import QuestionRepository from "apis/repositories/question";
 import ServiceRepository from "apis/repositories/service";
@@ -106,6 +107,9 @@ export const data_store = createModel<RootModel>()({
         dispatch.data_store.setQuestions(res.data);
         return res;
       }
+    },
+    submitContact(data) {
+      return ContactRepository.post(data);
     },
   }),
 });

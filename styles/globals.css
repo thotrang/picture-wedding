@@ -22,6 +22,9 @@
     height: 0px;
   }
   .shadow-button {
-    box-shadow: inset 14px 14px 30px -24px #2F2F37;
-  } 
+    box-shadow: inset 14px 14px 30px -24px #2f2f37;
+  }
+  input:focus {
+    outline: none;
+  }
 }

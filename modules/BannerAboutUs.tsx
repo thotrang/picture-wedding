@@ -22,7 +22,11 @@ export default function BannerAboutUs() {
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base60">
       <div className="relative">
         <div className="w-full z-0 aspect-[2/1]">
-          <BaseImage src={image} alt="" className="h-full w-full !rounded-[60px]" />
+          <BaseImage
+            src={image}
+            alt=""
+            className="h-full w-full !rounded-[60px]"
+          />
         </div>
         <div className="lg:absolute top-0 bg-background w-full pb-10 max-lg:pt-base30">
           <div className="2xl:pb-base30 pb-6">
@@ -45,6 +49,7 @@ export default function BannerAboutUs() {
             {statistics.map((item, index) => {
               return (
                 <div
+                  key={index}
                   className={classNames(
                     "bg-backgroundSecond rounded-xl 2xl:px-base30 2xl:py-6 lg:px-6 lg:py-base20 flex flex-col py-base20 px-3",
                     "max-lg:text-center",

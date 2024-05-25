@@ -15,8 +15,9 @@ export const Repository = (baseUrl: string) => ({
     });
     return res.data;
   },
-  post: (data: any, options?: any) => {
-    return axios.post(baseUrl, data, options);
+  post: async (data: any, options?: any) => {
+    const res = await axios.post(baseUrl, data, options);
+    return res.data
   },
   put: (id: string, data: any, option?: any) => {
     return axios.put(`${baseUrl}/${id}`, data, option);

@@ -5,8 +5,10 @@ import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseTextButton from "@/components/BaseTextButton";
 import classNames from "classnames";
 import { motion } from "framer-motion";
+import useOutSideClick from "hooks/useOutSideClick";
 import { useRouter } from "next/router";
 import Menu from "public/icons/Menu";
+import { useRef, useState } from "react";
 import { ERouter } from "routers";
 
 export default function Topbar() {
@@ -17,7 +19,33 @@ export default function Topbar() {
     { title: "Portfolio", link: ERouter.PORTFOLIO },
     { title: "Blog", link: ERouter.BLOG },
   ];
+  const [showDropdown, setShowDropdown] = useState(false);
   const router = useRouter();
+  const subMenuAnimate = {
+    enter: {
+      opacity: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.5,
+      },
+      display: "block",
+    },
+    exit: {
+      opacity: 0,
+      rotateX: -15,
+      transition: {
+        duration: 0.5,
+      },
+      transitionEnd: {
+        display: "none",
+      },
+    },
+  };
+  const menuRef = useRef<any>();
+
+  useOutSideClick(() => {
+    setShowDropdown(false);
+  }, menuRef);
 
   return (
     <div className="bg-background border-solid border-borderColor border-x-0 border-t-0 border-b px-4">
@@ -65,10 +93,45 @@ export default function Topbar() {
             Liên hệ
           </BaseButton>
         </div>
-        <div className="absolute right-0 bottom-0 lg:hidden border border-solid border-r-0 border-b-0 border-borderColor h-3/4 aspect-square rounded-tl-3xl flex justify-center items-center">
-          <BaseIconButton className="!bg-background" onClick={() => {}}>
+        <div
+          ref={menuRef}
+          className="absolute right-0 bottom-0 lg:hidden border border-solid border-r-0 border-b-0 border-borderColor h-3/4 aspect-square rounded-tl-3xl flex justify-center items-center"
+        >
+          <BaseIconButton
+            className="!bg-background"
+            onClick={() => {
+              setShowDropdown(!showDropdown);
+            }}
+          >
             <Menu className="fill-white text-white w-7 h-7 " />
           </BaseIconButton>
+          <motion.div
+            className={classNames(
+              "absolute top-base80 right-0",
+              "border border-solid border-borderColor rounded-lg z-50 bg-backgroundSecond"
+            )}
+            initial="exit"
+            animate={showDropdown ? "enter" : "exit"}
+            variants={subMenuAnimate}
+          >
+            {itemRoutes.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="border-0 border-solid border-borderColor border-b w-[200px] p-4 last:border-b-0"
+                >
+                  <BaseTextButton
+                    className=" whitespace-nowrap text-textColorSecond font-medium"
+                    tag="p"
+                    size="XS"
+                    onClick={() => router.push(item.link)}
+                  >
+                    {item.title}
+                  </BaseTextButton>
+                </div>
+              );
+            })}
+          </motion.div>
         </div>
       </BaseLayoutWraper>
     </div>

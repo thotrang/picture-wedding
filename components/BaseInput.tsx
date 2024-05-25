@@ -8,6 +8,7 @@ interface IBaseInput
     HTMLInputElement
   > {
   subTitle: string;
+  register?: any;
 }
 export default function BaseInput({
   subTitle,
@@ -15,6 +16,7 @@ export default function BaseInput({
   value,
   onChange,
   name,
+  register,
 }: IBaseInput) {
   return (
     <div className="h-full w-full">
@@ -25,13 +27,14 @@ export default function BaseInput({
         className={classNames(
           "py-3 bg-transparent w-full mt-base10",
           "border-0 border-b border-solid border-borderColor",
-          'text-textColor 2xl:text-m lg:text-xs text-s',
-          'border-0 focus:!border-b border-solid focus:border-white'
+          "text-textColor 2xl:text-m lg:text-xs text-s",
+          "border-0 focus:!border-b border-solid focus:border-white"
         )}
         value={value}
         type="text"
         name={name}
         placeholder={placeholder}
+        {...register}
         onChange={onChange}
       />
     </div>
