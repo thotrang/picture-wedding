@@ -41,7 +41,7 @@ export default function ListCustomer() {
       </BaseLayoutWraper>
       <BaseHorizontalScroll
         horizontalScrollRef={horizontalScrollRef}
-        className="bg-backgroundGray"
+        className="bg-backgroundGray 2xl:py-base20 lg:py-base10"
         listItemData={clients}
         renderItem={(client: IClient, index) => {
           const img = get(
@@ -50,8 +50,8 @@ export default function ListCustomer() {
             ""
           );
           return (
-            <div className="lg:py-base20 p-base10 w-full" key={index}>
-              <BaseImage src={img} alt="" className="!h-9 lg:h-16 2xl:h-20 w-full" />
+            <div className="mx-base10 w-full h-full" key={index}>
+              <BaseImage src={img} alt="" className="max-lg:!h-9 lg:h-16 2xl:h-[70px] rounded-none" />
             </div>
           );
         }}

@@ -50,7 +50,7 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
               itemTap(item.id);
             }}
           >
-            {item.title} {item.id}
+            {item.title}
           </BaseButton>
         );
       }}

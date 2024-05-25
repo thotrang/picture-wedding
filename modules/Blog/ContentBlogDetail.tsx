@@ -1,14 +1,17 @@
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import BaseText from "@/components/BaseText";
 import classNames from "classnames";
+import convertDate from "helper/functions";
+import { get } from "lodash-es";
 import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 
 export default function ContentBlogDetail() {
   const { blogDetail } = useSelector((s: RootState) => s.data_store);
   const { attributes } = blogDetail;
-  console.log(blogDetail);
 
+  const { time1 } = convertDate(attributes?.createdAt);
+  if (!attributes) return <div />;
   return (
     <div
       className={classNames(
@@ -22,7 +25,7 @@ export default function ContentBlogDetail() {
               Ngày đăng
             </BaseText>
             <BaseText size="S" tag="p" className="pt-base10">
-              23/12/2000
+              {time1}
             </BaseText>
           </div>
           <div>
@@ -30,7 +33,7 @@ export default function ContentBlogDetail() {
               Hạng mục
             </BaseText>
             <BaseText size="S" tag="p" className="pt-base10">
-              chụp ảnh các kiểu
+              {get(attributes, "service.data.attributes.title", "")}
             </BaseText>
           </div>
         </div>

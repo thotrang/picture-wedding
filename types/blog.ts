@@ -1,3 +1,4 @@
+import { IService } from "./service";
 import { IThumbnail } from "./thumbnail";
 
 export interface IBLog {
@@ -12,4 +13,7 @@ export interface Attributes {
   content?: string;
   thumbnail?: IThumbnail;
   topic?: string;
+  service?: {
+    data: IService
+  };
 }

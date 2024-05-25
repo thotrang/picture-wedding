@@ -79,7 +79,7 @@ export default function CardService({
             className="inline font-semibold text-textColorSecond pr-3"
             size="XM"
           >
-            {attributes.title}
+            {attributes.title.toUpperCase()}
           </BaseText>
           {showButtonNavigate && (
             <ButtonNavigate
@@ -94,7 +94,7 @@ export default function CardService({
         </BaseText>
         <div className="2xl:pt-base50 lg:pt-base40 pt-base30">
           <BaseText size="XS" className="font-medium pb-2 text-textColorSecond">
-            Service Highlights
+            Điểm nổi bật
           </BaseText>
           <div>
             {attributes.highlight.description.map((item, index) => {
