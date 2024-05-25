@@ -68,7 +68,7 @@ export const data_store = createModel<RootModel>()({
       return {
         ...state,
         pagiBlogs,
-        blogs: [...state.portfolios, ...blogs],
+        blogs: [...state.blogs, ...blogs],
       };
     },
   },
