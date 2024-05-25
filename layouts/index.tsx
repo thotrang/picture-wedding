@@ -28,7 +28,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <ContactForm />
         </div>
         <form method="dialog" className="modal-backdrop">
-          <button className="bg-transparent">close</button>
+          <button className="bg-transparent !border-none !p-0 !m-0">close</button>
         </form>
       </dialog>
     </div>

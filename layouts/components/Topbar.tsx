@@ -70,7 +70,7 @@ export default function Topbar({ handleContact }: { handleContact: () => void })
                   router.push(item.link);
                 }}
                 className={classNames(
-                  "h-full border-x border-y-0 border-l-0 border-solid border-borderColor flex justify-center items-center 2xl:!w-[185px] xl:!w-[145px] lg:w-[110px]",
+                  "h-full border-x border-y-0 border-l-0 border-solid border-borderColor flex justify-center items-center 2xl:!w-[185px] xl:!w-[145px] lg:w-[110px] cursor-pointer",
                   {
                     "border-r-0": index === itemRoutes.length - 1,
                     "bg-buttonColor": router.pathname === item.link,

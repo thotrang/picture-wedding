@@ -1,18 +1,17 @@
 import classNames from "classnames";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import BaseButton from "./BaseButton";
 import BaseHorizontalScroll from "./BaseHorizontalScroll";
 import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
+import { useRouter } from "next/router";
 interface IBaseFilter {
   itemTap: (id: number) => void;
 }
 export default function BaseFilter({ itemTap }: IBaseFilter) {
-  const [selected, setSelected] = useState<null | number>(null);
-  const { services } = useSelector(
-    (s: RootState) => s.data_store
-  );
-  
+  const [selected, setSelected] = useState<null | number | string>(null);
+  const { services } = useSelector((s: RootState) => s.data_store);
+
   const categories = useMemo(() => {
     return [
       {
@@ -27,6 +26,16 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
       }),
     ];
   }, [services]);
+  const router = useRouter();
+  const serviceId = router.query.serviceId;
+  useEffect(() => {
+    if (serviceId) {
+      setSelected(serviceId as string);
+      console.log(serviceId);
+      
+    }
+  }, [serviceId]);
+
   return (
     <BaseHorizontalScroll
       listItemData={categories}
@@ -43,7 +52,7 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
               itemTap(item.id);
             }}
           >
-            {item.title}
+            {item.title} {item.id}
           </BaseButton>
         );
       }}

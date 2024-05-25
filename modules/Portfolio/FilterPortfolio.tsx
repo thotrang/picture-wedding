@@ -31,8 +31,9 @@ export default function FilterPortfolio() {
   };
 
   useEffect(() => {
-    if (serviceId) handleSearch(serviceId as string);
-    else getPortfolios({})
+    if (serviceId) {
+      handleSearch(serviceId as string);
+    } else getPortfolios({});
   }, [serviceId]);
 
   return (
