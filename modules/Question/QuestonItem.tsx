@@ -24,7 +24,7 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
     <div
       className={classNames(
         "border border-solid border-x-0 border-t-0 border-borderColor flex justify-between",
-        "2xl:px-base50 2xl:py-base30 2xl:gap-base30 lg:px-base40 lg:py-base20 lg:gap-base20 px-base30 py-4 gap-4",
+        "2xl:px-base50 2xl:py-base30 2xl:gap-base30 lg:px-base40 lg:py-base20 lg:gap-base20 py-4 gap-4",
         {
           "border-b-0": !showBottomLine,
         }

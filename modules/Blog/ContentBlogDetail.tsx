@@ -28,7 +28,7 @@ export default function ContentBlogDetail() {
               {time1}
             </BaseText>
           </div>
-          <div>
+          <div className="pb-base20">
             <BaseText size="S" tag="p" className="text-textColorSecond">
               Hạng mục
             </BaseText>
@@ -36,15 +36,27 @@ export default function ContentBlogDetail() {
               {get(attributes, "service.data.attributes.title", "")}
             </BaseText>
           </div>
+          <div>
+            <BaseText size="S" tag="p" className="text-textColorSecond">
+              Tags
+            </BaseText>
+            {attributes.tags.data.map((item, index) => {
+              return (
+                <BaseText size="S" tag="p" className="pt-base10" key={index}>
+                  {item.attributes.title}
+                </BaseText>
+              );
+            })}
+          </div>
         </div>
         <div
           className={classNames(
-            "col-span-9 2xl:pr-base80 lg:pr-base60 pt-base20",
+            "col-span-9 2xl:pr-base80 lg:pr-base60 py-base20",
             "border-0 border-solid border-borderColor border-r"
           )}
         >
           <div
-            className="image_in_html text-textColorSecond"
+            className="image_in_html !text-textColorSecond"
             dangerouslySetInnerHTML={{ __html: attributes?.content ?? "" }}
           ></div>
         </div>

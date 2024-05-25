@@ -1,4 +1,7 @@
+
+
 import { IService } from "./service";
+import { ITag } from "./tags";
 import { IThumbnail } from "./thumbnail";
 
 export interface IBLog {
@@ -16,4 +19,7 @@ export interface Attributes {
   service?: {
     data: IService
   };
+  tags: {
+    data: ITag[]
+  }
 }

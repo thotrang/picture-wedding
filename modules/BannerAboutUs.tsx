@@ -25,7 +25,7 @@ export default function BannerAboutUs() {
           <BaseImage
             src={image}
             alt=""
-            className="h-full w-full !rounded-[60px]"
+            className="h-full w-full lg:!rounded-[60px]"
           />
         </div>
         <div className="lg:absolute top-0 bg-background w-full pb-10 max-lg:pt-base30">

@@ -18,7 +18,7 @@ export default function CardPortfolio({ item }: ICardPortfolio) {
     <div
       className={classNames(
         "grid 2xl:grid-cols-3 grid-cols-1 2xl:gap-base50 lg:gap-base40 gap-base20 lg:grid-cols-5",
-        "2xl:p-base50 lg:p-base40 p-base20 border border-solid border-borderColor rounded-xl"
+        "2xl:p-base50 lg:p-base40 py-base20 border border-solid border-borderColor max-lg:border-0 rounded-xl"
       )}
     >
       <div className="2xl:col-span-1 lg:col-span-2 col-span-1 relative">
@@ -62,7 +62,7 @@ export default function CardPortfolio({ item }: ICardPortfolio) {
             "grid md:grid-cols-2 grid-cols-1 2xl:gap-base40 lg:gap-base40 gap-base20 relative overflow-hidden"
           )}
         >
-        <div className="absolute h-full w-full z-[-10] bg-gradient-to-tr from-[#808080]/5 via-background to-white/5"></div>
+          <div className="absolute h-full w-full z-[-10] bg-gradient-to-tr from-[#808080]/5 via-background to-white/5"></div>
 
           <div className="flex flex-col gap-1">
             <BaseText tag="span" className="text-textColorSecond">
@@ -76,13 +76,20 @@ export default function CardPortfolio({ item }: ICardPortfolio) {
             </BaseText>
             <BaseText tag="span">2023</BaseText>
           </div>
-          <div className="lg:col-span-2 flex flex-col gap-2">
+          <div className="col-span-2 flex flex-col gap-2">
             <BaseText tag="span" className="text-textColorSecond">
               Dịch vụ
             </BaseText>
-            <div>
-              <BaseTag className="line-clamp-1">Quảng cáo doanh nghiệp</BaseTag>
-              <BaseTag className="line-clamp-1">Nội thất</BaseTag>
+            <div className="">
+              {(attributes.services?.data ?? []).map((item) => {
+                return (
+                  <div className="inline-block mr-3 mb-3">
+                    <BaseTag className="line-clamp-1" classWrapper="max-lg:!p-0 max-lg:!border-0" key={item.id}>
+                      {item.attributes.title}
+                    </BaseTag>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

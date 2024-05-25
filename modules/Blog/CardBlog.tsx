@@ -16,6 +16,8 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
   const { attributes } = item ?? {};
   const { time1 } = convertDate(attributes?.createdAt);
   const router = useRouter();
+  console.log(attributes);
+  
   if (!attributes) return <div />;
   return (
     <div className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3">
@@ -29,7 +31,7 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
           src={get(attributes, "thumbnail.data.attributes.url", "")}
         ></BaseImage>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-2">
         <div className="">
           <BaseText size="XS" className=" font-medium" tag="span">
             {attributes.title}

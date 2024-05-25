@@ -20,9 +20,9 @@ export default function CardMedia({
           className="h-full w-full absolute object-cover"
         />
       </div>
-      <div className="flex flex-col justify-center">
-        <div className="border-solid border rounded-xl border-borderColor">
-          <div className="border-solid border-borderColor border-x-0 border-t-0 border-b 2xl:p-base40 lg:p-base30 p-base20">
+      <div className="flex flex-col justify-center max-lg:pt-4">
+        <div className="border-solid border rounded-xl border-borderColor max-lg:border-0">
+          <div className="border-solid border-borderColor border-x-0 border-t-0 border-b 2xl:p-base40 lg:p-base30 md:p-base20 pb-base20">
             <div className="flex items-center 2xl:gap-base10 lg:gap-2 gap-1 2xl:pb-base10 lg:pb-2 pb-1">
               <StarFourIcon className="fill-textNavigate text-textNavigate" />
               <BaseText tag="span" size="M" className="font-semibold">
@@ -36,7 +36,7 @@ export default function CardMedia({
               {infor.description}
             </BaseText>
           </div>
-          <div className="2xl:p-base40 lg:p-base30 p-base20 flex flex-col justify-between">
+          <div className="2xl:p-base40 lg:p-base30 md:p-base20 pt-base20 flex flex-col justify-between">
             <div className="flex items-center 2xl:gap-base10 lg:gap-2 gap-1 2xl:pb-base40 lg:pb-base30 pb-base20">
               <StarFourIcon className="fill-textNavigate text-textNavigate" />
               <BaseText tag="span" size="M" className="font-semibold">

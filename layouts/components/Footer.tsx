@@ -24,7 +24,7 @@ function ListItemFooter({ items }: { items?: any[] }) {
             <BaseTextButtonNavigate
               key={index}
               size="XS"
-              className="text-textColorSecond mb-6"
+              className="text-textColorSecond mb-6 whitespace-nowrap"
               onClick={() => router.push(item.link)}
             >
               {item.title}
@@ -34,7 +34,7 @@ function ListItemFooter({ items }: { items?: any[] }) {
           <div key={index}>
             <BaseTextButtonNavigate
               size="XS"
-              className="mb-3 text-left"
+              className="mb-3 text-left max-md:text-[12px] whitespace-nowrap"
               onClick={() => item.link && router.push(item.link)}
             >
               {item.title.toUpperCase()}
@@ -71,8 +71,8 @@ export default function Footer() {
   return (
     <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
       <BaseLayoutWraper>
-        <div className="flex max-md:flex-col border-solid border-x border-y-0 border-borderColor">
-          <motion.div className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor 2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 px-base20">
+        <div className="flex max-md:flex-col border-solid border-x border-y-0 border-borderColor max-md:!border-0">
+          <motion.div className="border-solid border-l-0 border-r border-y-0 max-lg:border-b border-borderColor 2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 md:px-base20 max-md:border-r-0">
             <motion.div
               whileTap={{ scale: 0.95, opacity: 0.3 }}
               onClick={() => router.push(ERouter.HOME)}
@@ -87,14 +87,14 @@ export default function Footer() {
           </motion.div>
           <div
             className={classNames(
-              "grid lg:grid-cols-3 grid-cols-2 grow justify-between",
-              "2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 px-base20"
+              "grid grid-cols-3 grow justify-between",
+              "2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 md:px-base20"
             )}
           >
             <div className="col-span-1">
               <ListItemFooter items={routers[0]} />
             </div>
-            <div className="lg:col-span-2">
+            <div className="col-span-2">
               <ListItemFooter items={routers[1]} />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import BannerAuthor from "@/modules/BanerAuthor";
+import BannerAuthor from "@/modules/BannerAuthor";
 import BannerImages from "@/modules/BannerImages";
 import ListCategory from "@/modules/ListCategory";
 import ListCustomer from "@/modules/ListCustomer";

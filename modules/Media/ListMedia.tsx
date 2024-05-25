@@ -21,7 +21,7 @@ export default function ListMedia({ handleContact }: any) {
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
       <BasePagination
         subTitle="VỀ CHÚNG TÔI"
-        title="GIỚI THIỆU GOLDEN STAR MEDIA"
+        title="GIỚI THIỆU GOLDSTAR MEDIA"
         titleButton="Tìm hiểu thêm"
         showMoreClick={() => {
           router.push(ERouter.ABOUT_US);

@@ -21,7 +21,7 @@ function ContactFormGroup() {
           "2xl:my-base120 lg:my-base100"
         )}
       >
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <BaseText
             size="XM"
             tag="h1"

@@ -1,3 +1,4 @@
+import { IService } from "./service";
 import { IThumbnail, SizeThumbnail, Data as DataThumbnail } from "./thumbnail";
 export interface IPortfolio {
   id: number;
@@ -11,7 +12,7 @@ export interface Attributes {
   description?: null;
   thumbnail?: IThumbnail;
   gallery?: Gallery;
-  services?: Service[];
+  services?: Service;
   shortDescription?: string;
   client?: {
     name?: string;
@@ -28,5 +29,5 @@ export interface Gallery {
 }
 
 export interface Service {
-  data: null;
+  data: IService[];
 }
