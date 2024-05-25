@@ -26,6 +26,7 @@ function ListItemFooter({ items }: { items?: any[] }) {
               size="XS"
               className="text-textColorSecond mb-6 whitespace-nowrap"
               onClick={() => router.push(item.link)}
+              classButton="max-md:!p-0"
             >
               {item.title}
             </BaseTextButtonNavigate>
@@ -35,6 +36,7 @@ function ListItemFooter({ items }: { items?: any[] }) {
             <BaseTextButtonNavigate
               size="XS"
               className="mb-3 text-left max-md:text-[12px] whitespace-nowrap"
+              classButton="max-md:!p-0"
               onClick={() => item.link && router.push(item.link)}
             >
               {item.title.toUpperCase()}
@@ -87,7 +89,7 @@ export default function Footer() {
           </motion.div>
           <div
             className={classNames(
-              "grid grid-cols-3 grow justify-between",
+              "grid grid-cols-3 grow justify-between max-md:gap-2",
               "2xl:py-base90 2xl:px-base80 lg:py-base80 lg:px-base60 py-base40 md:px-base20"
             )}
           >
@@ -101,24 +103,12 @@ export default function Footer() {
         </div>
       </BaseLayoutWraper>
       <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
-        <BaseLayoutWraper className="relative">
+        <BaseLayoutWraper>
           <div className="flex justify-between items-center py-3 max-lg:flex-col">
-            <span className="flex items-center max-lg:pb-2">
-              <BaseText size="S" className="text-textColorSecond" tag="span">
-                Terms & Conditions
-              </BaseText>
-              <div className="h-6 mx-2 w-[2px] bg-buttonColor inline-block"></div>
-              <BaseText size="S" className="text-textColorSecond" tag="span">
-                Privacy Policy
-              </BaseText>
-            </span>
-            <div className="max-lg:hidden">
-              <LinkSocialNetwork />
-            </div>
-            <BaseText size="S" className="text-textColorSecond max-lg:pb-2">
+            <BaseText size="S" className="text-textColorSecond max-lg:pb-2 whitespace-nowrap">
               © 2024 GoldStar Media Photography. All rights reserved.
             </BaseText>
-            <div className="lg:hidden">
+            <div className="">
               <LinkSocialNetwork />
             </div>
           </div>

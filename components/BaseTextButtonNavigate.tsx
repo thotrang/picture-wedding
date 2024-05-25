@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import classNames from "classnames";
 export interface IBaseTextButtonNavigate extends PropsWithChildren, IBaseText {
   className?: string;
+  classButton?: string;
   onClick: () => void;
 }
 export default function BaseTextButtonNavigate({
   children,
   onClick,
   className,
+  classButton,
   ...props
 }: IBaseTextButtonNavigate) {
   return (
@@ -17,7 +19,7 @@ export default function BaseTextButtonNavigate({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95, opacity: 0.3 }}
       onClick={onClick}
-      className={`border-0 bg-transparent cursor-pointer`}
+      className={classNames(`border-0 bg-transparent cursor-pointer`, classButton)}
     >
       <BaseText
         className={classNames(

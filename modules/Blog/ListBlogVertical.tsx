@@ -20,7 +20,7 @@ export default function ListBlogVertical() {
       <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-base30 md:gap-base20">
         {blogs.map((item, index) => {
           return (
-            <div key={index} className="col-span-1">
+            <div key={index} className="col-span-1 pb-base40 last:pb-0">
               <CardBlog item={item} />
             </div>
           );
