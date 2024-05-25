@@ -58,7 +58,7 @@ export default function Topbar({ handleContact }: { handleContact: () => void })
           <BaseImage
             src="/images/Logo.png"
             alt=""
-            className="2xl:h-logo-l lg:h-logo-m h-logo-s w-auto !rounded-none"
+            className="2xl:h-logo-l lg:h-logo-m h-logo-s !w-auto !rounded-none"
           />
         </motion.div>
         <div className="hidden h-3/4 lg:flex flex-row rounded-t-xl border-x border-t border-b-0 border-solid border-borderColor border-collapse overflow-hidden">
