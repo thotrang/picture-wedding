@@ -14,12 +14,13 @@ import { Dispatch } from "stores/store";
 
 export default function Home() {
   const { data_store } = useDispatch<Dispatch>();
-  const { getServices, getPortfolios, getClients } = data_store;
+  const { getServices, getPortfolios, getClients, getQuestions } = data_store;
 
   useEffect(() => {
     getServices({});
     getPortfolios({});
     getClients({});
+    getQuestions({});
   }, []);
 
   return (
@@ -27,7 +28,11 @@ export default function Home() {
       <BannerAuthor />
       <ListCategory />
       <BannerImages />
-      <ListMedia />
+      <ListMedia
+        handleContact={() =>
+          (document.getElementById("modal_contact") as any).showModal()
+        }
+      />
       <ListService />
       <ListProject />
       <ListCustomer />

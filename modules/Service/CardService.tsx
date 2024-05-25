@@ -2,12 +2,13 @@ import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import ButtonNavigate from "@/components/ButtonNavigate";
 import { IService } from "@/types/service";
-import StarEightIcon from "public/icons/StarEightIcon";
 import { get } from "lodash-es";
 import classNames from "classnames";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import ArrowRightTop from "@/public/icons/ArrowRightTop";
 import SliderImage from "@/components/SlideImage";
+import { useRouter } from "next/router";
+import { ERouter } from "routers";
 interface ICardService {
   item: IService;
   showButtonNavigate?: boolean;
@@ -25,7 +26,7 @@ export default function CardService({
   isMultipleImg = false,
 }: ICardService) {
   const { attributes } = item;
-
+  const router = useRouter();
   return (
     <div
       className={classNames(
@@ -80,7 +81,13 @@ export default function CardService({
           >
             {attributes.title}
           </BaseText>
-          {showButtonNavigate && <ButtonNavigate />}
+          {showButtonNavigate && (
+            <ButtonNavigate
+              onClick={() =>
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`)
+              }
+            />
+          )}
         </div>
         <BaseText size="S" className="text-textColorSecond line-clamp-4">
           {attributes.description}
@@ -96,8 +103,16 @@ export default function CardService({
                   className="border-solid border rounded-xl border-borderColor gap-3 flex items-center mt-2 2xl:p-base20 lg:p-4 p-3"
                   key={index}
                 >
-                  <StarEightIcon className="fill-textColorSecond" />
-                  <BaseText size="S" className="text-textColorSecond ">
+                  {/* <StarFourIcon className="fill-textColorSecond text-textColorSecond !h-6 !w-6" /> */}
+                  <BaseImage
+                    src="/images/chervon_right_icon_2.png"
+                    alt=""
+                    className="!h-7 !w-7"
+                  />
+                  <BaseText
+                    size="S"
+                    className="text-textColorSecond whitespace-nowrap"
+                  >
                     {item.toUpperCase()}
                   </BaseText>
                 </div>
@@ -109,7 +124,9 @@ export default function CardService({
           <div className="2xl:pt-base50 lg:pt-base40 pt-base30">
             <BaseTextButtonNavigate
               className="font-medium flex items-center py-1 gap-2"
-              onClick={() => {}}
+              onClick={() => {
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`);
+              }}
             >
               <BaseText size="S" tag="span">
                 XEM DỰ ÁN

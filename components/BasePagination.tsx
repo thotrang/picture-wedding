@@ -3,7 +3,7 @@ import "swiper/css";
 import ArrowRight from "public/icons/ArrowRight";
 import BaseButton from "./BaseButton";
 import BaseText from "./BaseText";
-import { PropsWithChildren, useRef } from "react";
+import { PropsWithChildren, useRef, useState } from "react";
 import RightLeftButtons from "./RightLeftButtons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
@@ -36,22 +36,27 @@ export default function BasePagination({
   disableSwiper,
 }: IBasePagination) {
   const swiperRef = useRef<any>(null);
+  const activeIndex = swiperRef.current?.swiper?.activeIndex ?? 0;
+
+  const [currentIndex, setCurrentIdx] = useState(activeIndex);
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
-      nextClick(swiperRef.current.swiper.activeIndex + 1);
+      nextClick(activeIndex + 1);
+      setCurrentIdx(activeIndex + 1);
     }
   };
 
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
-      preClick(swiperRef.current.swiper.activeIndex - 1);
+      preClick(activeIndex - 1);
+      setCurrentIdx(activeIndex - 1);
     }
   };
   const size = listItemData.length - slidesPerView;
-
+  
   return (
     <div>
       <div
@@ -82,6 +87,8 @@ export default function BasePagination({
                 className="max-lg:hidden"
                 preClick={() => handlePrev()}
                 nextClick={() => handleNext()}
+                disableLeftBtn={currentIndex <= 0}
+                disableRightBtn={currentIndex >= size}
               />
             )}
             {titleButton && (
@@ -112,6 +119,7 @@ export default function BasePagination({
         spaceBetween={50}
         slidesPerView={slidesPerView}
         ref={swiperRef}
+        onSlideChange={(data) => setCurrentIdx(data.realIndex)}
       >
         {(listItemData ?? [])?.map((item: any, i: number) => {
           return (
@@ -124,6 +132,8 @@ export default function BasePagination({
       {showButton && size >= 1 && (
         <div className="lg:hidden mt-10 flex justify-center">
           <RightLeftButtons
+            disableLeftBtn={currentIndex <= 0}
+            disableRightBtn={currentIndex >= size}
             preClick={() => handlePrev()}
             nextClick={() => handleNext()}
           />

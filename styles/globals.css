@@ -27,4 +27,8 @@
   input:focus {
     outline: none;
   }
+  .image_in_html * {
+    max-width: 100%;
+    height: auto
+  }
 }

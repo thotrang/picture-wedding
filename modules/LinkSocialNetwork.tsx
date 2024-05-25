@@ -12,13 +12,17 @@ export default function LinkSocialNetwork() {
         )}
       >
         <BaseButton
-          onClick={() => {}}
+          onClick={() => {
+            window.open('https://www.facebook.com/goldstarmedia.vn')
+          }}
           className="2xl:!h-[50px] lg:!h-[40px] aspect-square flex justify-center items-center !p-0 !rounded-full"
         >
           <FacebookIcon className="h-7 w-7" />
         </BaseButton>
         <BaseButton
-          onClick={() => {}}
+          onClick={() => {
+            window.open('https://www.youtube.com/@goldstarmediaHN')
+          }}
           className="2xl:!h-[50px] lg:!h-[40px] aspect-square flex justify-center items-center !p-0 !rounded-full"
         >
           <Youtube className="h-7 w-7" />

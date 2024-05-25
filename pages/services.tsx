@@ -1,6 +1,6 @@
 import Layout from "../layouts";
 import BannerService from "@/modules/BannerService";
-import ContactForm from "@/modules/ContactUs/ContactForm";
+import ContactFormGroup from "@/modules/ContactUs/ContactGroup";
 import ListServiceVertical from "@/modules/Service/ListServiceVertical";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -18,7 +18,7 @@ export default function Services() {
     <Layout>
       <BannerService />
       <ListServiceVertical />
-      <ContactForm />
+      <ContactFormGroup />
     </Layout>
   );
 }

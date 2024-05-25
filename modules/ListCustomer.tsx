@@ -37,13 +37,13 @@ export default function ListCustomer() {
               content="KHÁCH HÀNG CỦA CHÚNG TÔI"
             ></BaseText>
           </div>
-          <div className="flex items-center lg:gap-6">
+          {/* <div className="flex items-center lg:gap-6">
             <RightLeftButtons
               className="max-lg:hidden"
               preClick={() => scrollHandle("next")}
               nextClick={() => scrollHandle("previos")}
             />
-          </div>
+          </div> */}
         </div>
       </BaseLayoutWraper>
       <BaseHorizontalScroll

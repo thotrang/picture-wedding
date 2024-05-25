@@ -8,7 +8,7 @@ export const darkMode = ["class", '[data-mode="dark"]'];
 export const theme = {
   extend: {
     animation: {
-      "infinite-scroll": "infinite-scroll 25s linear infinite",
+      "infinite-scroll": "infinite-scroll 60s linear infinite",
     },
     keyframes: {
       "infinite-scroll": {
@@ -79,6 +79,7 @@ export const theme = {
 
       base10: "10px",
       base20: "20px",
+      base25: "25px",
       base30: "30px",
       base40: "40px",
       base50: "50px",

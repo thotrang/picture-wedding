@@ -11,7 +11,7 @@ import Menu from "public/icons/Menu";
 import { useRef, useState } from "react";
 import { ERouter } from "routers";
 
-export default function Topbar() {
+export default function Topbar({ handleContact }: { handleContact: () => void }) {
   const itemRoutes = [
     { title: "Trang chủ", link: ERouter.HOME },
     { title: "Về chúng tôi", link: ERouter.ABOUT_US },
@@ -85,13 +85,7 @@ export default function Topbar() {
           })}
         </div>
         <div className="max-lg:hidden absolute right-0 mx-4 h-full flex justify-center items-center">
-          <BaseButton
-            onClick={() => {
-              console.log("lien he");
-            }}
-          >
-            Liên hệ
-          </BaseButton>
+          <BaseButton onClick={handleContact}>Liên hệ</BaseButton>
         </div>
         <div
           ref={menuRef}

@@ -12,7 +12,7 @@ const StarFourIcon = ({ ...props }: React.SVGProps<SVGSVGElement>) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M16 0.5C16 9.33656 8.83656 16.5 0 16.5C8.83656 16.5 16 23.6634 16 32.5C16 23.6634 23.1634 16.5 32 16.5C23.1634 16.5 16 9.33656 16 0.5Z"
-        fill="#D8B55B"
+        fill="currentColor"
       />
     </svg>
   );

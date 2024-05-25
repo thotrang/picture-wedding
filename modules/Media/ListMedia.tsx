@@ -4,7 +4,7 @@ import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import { useRouter } from "next/router";
 import { ERouter } from "routers";
 
-export default function ListMedia() {
+export default function ListMedia({ handleContact }: any) {
   const router = useRouter();
   const infor: IInforAboutUs = {
     description: `GoldStar Media là một đơn vị chuyên chụp ảnh và sản xuất nội dung truyền thông đa dạng tại Việt Nam.
@@ -23,9 +23,11 @@ export default function ListMedia() {
         subTitle="VỀ CHÚNG TÔI"
         title="GIỚI THIỆU GOLDEN STAR MEDIA"
         titleButton="Tìm hiểu thêm"
-        showMoreClick={() => {router.push(ERouter.ABOUT_US)}}
+        showMoreClick={() => {
+          router.push(ERouter.ABOUT_US);
+        }}
         renderItem={() => {
-          return <CardMedia infor={infor} />;
+          return <CardMedia infor={infor} handleContact={handleContact} />;
         }}
         listItemData={[1]}
       ></BasePagination>

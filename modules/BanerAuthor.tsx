@@ -18,7 +18,7 @@ export default function BannerAuthor() {
             <BaseText
               size="XL"
               className="m-0 font-semibold"
-              content="GOLDENSTAR MEDIA"
+              content="GOLDSTAR MEDIA"
             ></BaseText>
           </div>
           <div className="z-10">

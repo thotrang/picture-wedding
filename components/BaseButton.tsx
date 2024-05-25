@@ -27,7 +27,7 @@ export default function BaseButton({
         "text-white cursor-pointer bg-buttonColor py-4 px-6 border-solid border border-black/30 overflow-hidden border-gradient-to-br rounded-xl text-base",
         className,
         {
-          "cursor-not-allowed opacity-50 bg-slate-900": disabled,
+          "cursor-not-allowed !opacity-50 ": disabled,
         }
       )}
       onClick={onClick}

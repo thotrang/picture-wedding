@@ -6,12 +6,17 @@ interface IRightLeftButtons {
   nextClick: () => void;
   preClick: () => void;
   className?: string;
+  disableLeftBtn?: boolean;
+  disableRightBtn?: boolean;
 }
 export default function RightLeftButtons({
   nextClick,
   preClick,
   className,
+  disableLeftBtn,
+  disableRightBtn,
 }: IRightLeftButtons) {
+  
   return (
     <div className="inline-block">
       <div
@@ -21,12 +26,14 @@ export default function RightLeftButtons({
         )}
       >
         <BaseButton
+          disabled={disableLeftBtn}
           onClick={nextClick}
           className="2xl:!h-[60px] !h-[50px] aspect-square flex justify-center items-center !p-0 !rounded-full"
         >
           <ChevronLeft className="2xl:h-9 2xl:w-9 h-7 w-7 " />
         </BaseButton>
         <BaseButton
+          disabled={disableRightBtn}
           onClick={preClick}
           className="2xl:!h-[60px] !h-[50px] aspect-square flex justify-center items-center !p-0 !rounded-full"
         >

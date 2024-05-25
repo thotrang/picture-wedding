@@ -9,9 +9,9 @@ import FilterPortfolio from "@/modules/Portfolio/FilterPortfolio";
 
 export default function Portfolios() {
   const { data_store } = useDispatch<Dispatch>();
-  const { getPortfolios, getServices } = data_store;
+  const { getServices } = data_store;
   useEffect(() => {
-    getPortfolios({});
+    // getPortfolios({});
     getServices({});
   }, []);
   return (

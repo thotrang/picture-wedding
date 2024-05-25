@@ -1,9 +1,11 @@
+import { IBLog } from "@/types/blog";
 import { IClient } from "@/types/client";
 import { IQuestion } from "@/types/faq";
 import { IPagination } from "@/types/pagination";
 import { IPortfolio } from "@/types/portfolio";
 import { IService } from "@/types/service";
 import { createModel } from "@rematch/core";
+import BlogsRepository from "apis/repositories/blog";
 import ClientRepository from "apis/repositories/client";
 import ContactRepository from "apis/repositories/contact";
 import PortfolioRepository from "apis/repositories/portfolio";
@@ -17,7 +19,9 @@ interface IState {
   clients: IClient[];
   pagiPortfolios: IPagination;
   questions: IQuestion[];
-  currentCountPortfolios: number;
+  blogs: IBLog[];
+  blogDetail: IBLog;
+  pagiBlogs: IPagination;
 }
 export const data_store = createModel<RootModel>()({
   state: {
@@ -27,7 +31,9 @@ export const data_store = createModel<RootModel>()({
     clients: [],
     questions: [],
     pagiPortfolios: {} as IPagination,
-    currentCountPortfolios: 0,
+    blogs: [],
+    blogDetail: {} as IBLog,
+    pagiBlogs: {} as IPagination,
   } as IState,
   reducers: {
     setServices(state, services: IService[]) {
@@ -52,8 +58,18 @@ export const data_store = createModel<RootModel>()({
         portfolios: [...state.portfolios, ...portfolios],
       };
     },
-    setcurrentCountPortfolios(state, currentCountPortfolios) {
-      return { ...state, currentCountPortfolios };
+    setBlog(state, blogDetail) {
+      return { ...state, blogDetail };
+    },
+    setBlogs(state, blogs, pagiBlogs) {
+      return { ...state, blogs, pagiBlogs };
+    },
+    viewMoreBlogs(state, blogs: IBLog[], pagiBlogs) {
+      return {
+        ...state,
+        pagiBlogs,
+        blogs: [...state.portfolios, ...blogs],
+      };
     },
   },
   effects: (dispatch) => ({
@@ -82,6 +98,30 @@ export const data_store = createModel<RootModel>()({
         }
         return res;
       }
+    },
+    async getBlogs(
+      { params, type }: { params?: any; type?: "filter" | "view_more" },
+      rootState
+    ) {
+      if (!rootState.data_store.blogs?.length || !!type) {
+        const res = await BlogsRepository.get({
+          populate: "*",
+          ...params,
+        });
+        if (type === "view_more") {
+          dispatch.data_store.viewMoreBlogs(res.data, res.meta.pagination);
+        } else {
+          dispatch.data_store.setBlogs(res.data, res.meta.pagination);
+        }
+        return res;
+      }
+    },
+    async getBlog(id) {
+      const res = await BlogsRepository.getOne(id, {
+        populate: "*",
+      });
+      dispatch.data_store.setBlog(res.data);
+      return res;
     },
     async getPortfolio(id) {
       const res = await PortfolioRepository.getOne(id, {

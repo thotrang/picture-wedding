@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import Layout from "../../layouts";
 import ListCategory from "@/modules/ListCategory";
-import ContactForm from "@/modules/ContactUs/ContactForm";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "stores/store";
 import { useRouter } from "next/router";
 import BannerPortfolioDetail from "@/modules/BannerPortfolioDetail";
 import GridImagePortfolio from "@/modules/Portfolio/GridImagePortfolio";
+import ContactFormGroup from "@/modules/ContactUs/ContactGroup";
 
 export default function PortfolioDetail() {
   const { data_store } = useDispatch<Dispatch>();
@@ -20,7 +20,7 @@ export default function PortfolioDetail() {
     <Layout>
       <BannerPortfolioDetail />
       <GridImagePortfolio />
-      <ContactForm />
+      <ContactFormGroup />
       <ListCategory />
     </Layout>
   );
