@@ -9,7 +9,7 @@ export default function Layout({ children }: PropsWithChildren) {
     <div>
       <Head>
         <title>GOLDSTAR MEDIA</title>
-        <link rel="icon" href="../public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="icon"
           type="image/x-icon"
