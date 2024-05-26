@@ -1,5 +1,5 @@
+import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
-import StarFourIcon from "@/public/icons/StarFour";
 import { get } from "lodash-es";
 import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
@@ -12,7 +12,12 @@ export default function InforPortfolio() {
     <div className="2xl:pt-base80 lg:pt-base40 pt-6 flex justify-between max-md:flex-col">
       <div className="md:w-2/3 max-md:pb-6">
         <div className="flex items-center 2xl:gap-base10 lg:gap-2 gap-1 2xl:pb-base10 lg:pb-2 pb-1">
-          <StarFourIcon className="fill-textNavigate" />
+          {/* <StarFourIcon className="fill-textNavigate" /> */}
+          <BaseImage
+            src="/images/chervon_right_icon_2.png"
+            alt=""
+            className="!h-7 !w-7"
+          />
           <BaseText
             tag="span"
             size="M"
@@ -21,7 +26,7 @@ export default function InforPortfolio() {
             Giới thiệu dự án
           </BaseText>
         </div>
-        <BaseText size="S" className="text-textColorSecond line-clamp-4">
+        <BaseText size="S" className="text-textColorSecond">
           {attributes?.description}
         </BaseText>
       </div>
@@ -48,14 +53,22 @@ export default function InforPortfolio() {
           <BaseText tag="span" className="pb-[6px]">
             Khách hàng
           </BaseText>
-          <BaseText tag="span" size="S" className="text-textColorSecond pb-3 whitespace-nowrap">
+          <BaseText
+            tag="span"
+            size="S"
+            className="text-textColorSecond pb-3 whitespace-nowrap"
+          >
             {get(attributes, "client.data.attributes.name")}
           </BaseText>
 
           <BaseText tag="span" className="pb-[6px]">
             Năm
           </BaseText>
-          <BaseText tag="span" size="S" className="text-textColorSecond whitespace-nowrap">
+          <BaseText
+            tag="span"
+            size="S"
+            className="text-textColorSecond whitespace-nowrap"
+          >
             {attributes?.year}
           </BaseText>
         </div>

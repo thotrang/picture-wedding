@@ -105,7 +105,7 @@ export default function Footer() {
       <div className="max-w-screen-3xl border-solid border-x-0 border-b-0 border-t border-borderColor">
         <BaseLayoutWraper>
           <div className="flex justify-between items-center py-3 max-lg:flex-col">
-            <BaseText size="S" className="text-textColorSecond max-lg:pb-2 whitespace-nowrap">
+            <BaseText size="S" className="text-textColorSecond max-lg:pb-2 min-[380px]:whitespace-nowrap">
               © 2024 GoldStar Media Photography. All rights reserved.
             </BaseText>
             <div className="">

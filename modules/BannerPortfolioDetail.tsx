@@ -22,7 +22,7 @@ export default function BannerPortfolioDetail() {
           ></BaseImage>
         </div>
         <div className="lg:absolute z-10 left-0 bottom-0 w-full">
-          <BaseLayoutWraper className="lg:pb-base60 pb-6 max-lg:!px-0">
+          <BaseLayoutWraper className="lg:pb-base60 pb-6 max-lg:!px-3">
             <BaseText tag="h2" size="XM" className="font-bold">
               {attributes.title}
             </BaseText>

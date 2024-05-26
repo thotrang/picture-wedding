@@ -48,6 +48,7 @@ function ImageGrid({ src, classname }: any) {
           "w-full h-full object-cover !rounded-none",
           classname
         )}
+        showViewer
       />
     );
   return null;
