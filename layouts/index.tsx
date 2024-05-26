@@ -23,7 +23,16 @@ export default function Layout({ children }: PropsWithChildren) {
       </div>
       <dialog id="modal_contact" className="modal border-none">
         <div className="modal-box w-10/12 max-w-5xl bg-backgroundSecond border border-solid border-borderColor">
-          <ContactForm />
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-textColor">
+              ✕
+            </button>
+          </form>
+          <ContactForm
+            handleAfterSubmit={() => {
+              (document.getElementById("modal_contact") as any).close();
+            }}
+          />
         </div>
         <form method="dialog" className="modal-backdrop">
           <button className="bg-transparent !border-none !p-0 !m-0">

@@ -13,8 +13,12 @@ import ArrowRightTop from "@/public/icons/ArrowRightTop";
 import BaseImage from "@/components/BaseImage";
 interface IContactForm {
   className?: string;
+  handleAfterSubmit?: () => void;
 }
-export default function ContactForm({ className }: IContactForm) {
+export default function ContactForm({
+  className,
+  handleAfterSubmit = () => {},
+}: IContactForm) {
   const { services } = useSelector((s: RootState) => s.data_store);
   const { data_store } = useDispatch<Dispatch>();
   const formMethods = useForm();
@@ -35,6 +39,7 @@ export default function ContactForm({ className }: IContactForm) {
       service: Object.values(serviceSelected).join(", "),
     };
     data_store.submitContact({ data: value });
+    handleAfterSubmit();
     reset();
     toast.success("Liên hệ thành công!", {
       hideProgressBar: true,
