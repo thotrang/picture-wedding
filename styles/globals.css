@@ -32,3 +32,11 @@
     height: auto
   }
 }
+.ReactGridGallery_tile {
+  background: transparent !important;
+}
+.ReactGridGallery_tile-viewport {
+  border-radius:6px;
+  background: transparent
+
+}
