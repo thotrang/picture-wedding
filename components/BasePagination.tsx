@@ -110,7 +110,7 @@ export default function BasePagination({
       </div>
       <Swiper
         autoplay={{
-          delay: 10000,
+          delay: 8000,
           disableOnInteraction: false,
         }}
         allowTouchMove={!disableSwiper}

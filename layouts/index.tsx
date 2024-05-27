@@ -1,10 +1,22 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import Topbar from "./components/Topbar";
 import Footer from "./components/Footer";
 import ContactForm from "@/modules/ContactUs/ContactForm";
 import Head from "next/head";
 
 export default function Layout({ children }: PropsWithChildren) {
+  useEffect(() => {
+    const handleContextMenu = (event: any) => {
+      event.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
+
   return (
     <div>
       <Head>

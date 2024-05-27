@@ -2,7 +2,7 @@ import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import { IPortfolio } from "@/types/portfolio";
-import convertDate from "helper/functions";
+import convertDate, { convertText } from "helper/functions";
 import { get } from "lodash-es";
 import { useRouter } from "next/router";
 import ArrowRightTop from "public/icons/ArrowRightTop";
@@ -36,7 +36,13 @@ export default function CardProject({ item }: ICardProject) {
           <BaseTextButtonNavigate
             className="font-medium flex items-center py-1 gap-2"
             onClick={() =>
-              router.push(ERouter.PORTFOLIO_DETAIL + "/" + item.id)
+              router.push(
+                ERouter.PORTFOLIO_DETAIL +
+                  "/" +
+                  convertText(attributes.title) +
+                  "/" +
+                  item.id
+              )
             }
           >
             <BaseText size="S" tag="span" className="whitespace-nowrap">

@@ -3,34 +3,35 @@ import "swiper/css/free-mode";
 
 import Dot from "public/icons/Dot";
 import AutoScroll from "@/components/AutoScroll";
-import BaseText from "@/components/BaseText";
+import { useSelector } from "react-redux";
+import { RootState } from "stores/store";
+import { get } from "lodash-es";
+import { IService } from "@/types/service";
+import BaseTextButton from "@/components/BaseTextButton";
+import { useRouter } from "next/router";
+import { ERouter } from "routers";
 interface IListCategory {}
 export default function ListCategory({}: IListCategory) {
-  const categores = [
-    "Event Photography",
-    "Comercial Photography",
-    "Product Photography",
-    "Wedding Photography",
-    "Landscape Photography",
-    "Branding Photography",
-    "Portrait  Photography",
-  ];
-
+  const { services } = useSelector((s: RootState) => s.data_store);
+  const router = useRouter();
   return (
     <AutoScroll
       className=" bg-backgroundSecond border-solid border-y border-x-0 border-borderColor"
-      listItemData={categores}
-      renderItem={(item, i) => {
+      listItemData={services}
+      renderItem={(item: IService, i) => {
         return (
           <div key={i}>
-            <BaseText
+            <BaseTextButton
               tag="span"
               className="!text-textNavigate pl-2 flex justify-center items-center gap-8"
               size="S"
+              onClick={() => {
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`);
+              }}
             >
               <Dot />
-              {item.toUpperCase()}
-            </BaseText>
+              {get(item, "attributes.title", "").toUpperCase()}
+            </BaseTextButton>
           </div>
         );
       }}

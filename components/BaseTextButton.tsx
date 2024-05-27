@@ -17,7 +17,7 @@ export default function BaseTextButton({
 }: ButtonProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.95, opacity: 0.3 }}
     >
       <BaseText

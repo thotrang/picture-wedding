@@ -2,6 +2,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 import classNames from "classnames";
+import { useState } from "react";
 
 interface IAutoScroll {
   listItemData: any;
@@ -15,6 +16,7 @@ export default function AutoScroll({
   renderItem = () => <div />,
   className,
 }: IAutoScroll) {
+  const [scroll] = useState(true);
   return (
     <div
       className={classNames(
@@ -26,12 +28,20 @@ export default function AutoScroll({
     >
       <div
         className={classNames(
-          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none whitespace-nowrap none-scrollbar",
+          {
+            " animate-infinite-scroll": scroll,
+          }
         )}
       >
         {(listItemData ?? []).map((item: any, i: number) => {
           return (
-            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+            <div
+              className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block"
+              key={i}
+              // onMouseEnter={() => setScroll(false)}
+              // onMouseLeave={() => setScroll(true)}
+            >
               {renderItem(item, i)}
             </div>
           );
@@ -39,12 +49,20 @@ export default function AutoScroll({
       </div>
       <div
         className={classNames(
-          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll whitespace-nowrap none-scrollbar"
+          "flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none whitespace-nowrap none-scrollbar",
+          {
+            " animate-infinite-scroll": scroll,
+          }
         )}
       >
         {(listItemData ?? []).map((item: any, i: number) => {
           return (
-            <div className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block" key={i}>
+            <div
+              className="2xl:py-5 py-4 2xl:px-5 px-4 inline-block"
+              key={i}
+              // onMouseEnter={() => setScroll(false)}
+              // onMouseLeave={() => setScroll(true)}
+            >
               {renderItem(item, i)}
             </div>
           );

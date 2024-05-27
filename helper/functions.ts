@@ -52,3 +52,10 @@ export default function convertDate(string: string) {
   const time1 = `Ngày ${day} ${month} năm ${year}`;
   return { time1, time2 };
 }
+export function convertText(text?: string) {
+  if(!text) return ''
+  return text
+    .replace(/ /g, "_")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
