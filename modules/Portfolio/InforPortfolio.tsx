@@ -62,6 +62,24 @@ export default function InforPortfolio() {
             >
               {get(attributes, "client.data.attributes.name")}
             </BaseText>
+
+            <BaseText tag="span" className="pb-[6px]">
+              Tags
+            </BaseText>
+            <div className="pb-3">
+              {get(attributes, "tags.data", [])?.map((item: any, i) => {
+                return (
+                  <BaseText
+                    key={i}
+                    tag="p"
+                    size="S"
+                    className="text-textColorSecond whitespace-nowrap"
+                  >
+                    # {item.attributes?.title}
+                  </BaseText>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

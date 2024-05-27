@@ -9,6 +9,7 @@ export const theme = {
   extend: {
     animation: {
       "infinite-scroll": "infinite-scroll 60s linear infinite",
+      "stop-scroll": "infinite-scroll 0s linear infinite",
     },
     keyframes: {
       "infinite-scroll": {

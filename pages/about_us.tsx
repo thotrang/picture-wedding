@@ -8,10 +8,11 @@ import { Dispatch } from "stores/store";
 
 export default function AboutUs() {
   const { data_store } = useDispatch<Dispatch>();
-  const { getClients } = data_store;
+  const { getClients, getServices } = data_store;
 
   useEffect(() => {
     getClients({});
+    getServices({});
   }, []);
   return (
     <Layout>

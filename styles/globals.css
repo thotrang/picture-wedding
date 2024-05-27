@@ -29,14 +29,16 @@
   }
   .image_in_html * {
     max-width: 100%;
-    height: auto
+    height: auto;
+  }
+  .hover-animate-paused:hover * {
+      animation-play-state: paused !important;
   }
 }
 .ReactGridGallery_tile {
   background: transparent !important;
 }
 .ReactGridGallery_tile-viewport {
-  border-radius:6px;
-  background: transparent
-
+  border-radius: 6px;
+  background: transparent;
 }

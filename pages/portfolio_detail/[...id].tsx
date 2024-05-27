@@ -12,13 +12,14 @@ import NextPortfolios from "@/modules/Portfolio/NextPortfolios";
 
 export default function PortfolioDetail() {
   const { data_store } = useDispatch<Dispatch>();
-  const { getPortfolio, getPortfolios } = data_store;
+  const { getPortfolio, getPortfolios, getServices } = data_store;
   const router = useRouter();
-  const portfolioId = router.query.id?.[1];
+  const portfolioId = router.query.id;
 
   useEffect(() => {
     if (portfolioId) getPortfolio(portfolioId);
-    getPortfolios({})
+    getPortfolios({});
+    getServices({});
   }, [portfolioId]);
   return (
     <Layout>

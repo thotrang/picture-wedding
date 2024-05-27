@@ -117,17 +117,19 @@ export const data_store = createModel<RootModel>()({
       }
     },
     async getBlog(id) {
-      const res = await BlogsRepository.getOne(id, {
+      const res = await BlogsRepository.get({
         populate: "*",
+        "filters[slug]": id,
       });
-      dispatch.data_store.setBlog(res.data);
+      dispatch.data_store.setBlog(res.data[0]);
       return res;
     },
     async getPortfolio(id) {
-      const res = await PortfolioRepository.getOne(id, {
+      const res = await PortfolioRepository.get({
         populate: "*",
+        "filters[slug]": id,
       });
-      dispatch.data_store.setPortfolio(res.data);
+      dispatch.data_store.setPortfolio(res.data[0]);
       return res;
     },
     async getClients(_, rootState) {

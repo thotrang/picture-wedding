@@ -19,7 +19,7 @@ export default function ContentBlogDetail() {
       )}
     >
       <BaseLayoutWraper className="lg:grid grid-cols-12">
-        <div className="col-span-3 2xl:pl-base80 lg:pl-base60 order-last 2xl:pt-base40 lg:pt-6 max-lg:pt-base40 max-lg:grid grid-cols-2">
+        <div className="col-span-3 2xl:pl-base80 lg:pl-base60 order-last 2xl:py-base40 lg:py-6 max-lg:py-base40 max-lg:grid grid-cols-2">
           <div className="pb-base20">
             <BaseText size="S" tag="p" className="text-textColorSecond">
               Ngày đăng

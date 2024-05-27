@@ -16,7 +16,6 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
   const { attributes } = item ?? {};
   const { time1 } = convertDate(attributes?.createdAt);
   const router = useRouter();
-  console.log(attributes);
   
   if (!attributes) return <div />;
   return (
@@ -43,7 +42,7 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
         <div className="">
           <BaseTextButtonNavigate
             className="font-medium flex items-center py-1 gap-2"
-            onClick={() => router.push(ERouter.BLOG_DETAIL + "/" + item.id)}
+            onClick={() => router.push(ERouter.BLOG_DETAIL + "/" + item.attributes.slug)}
           >
             <BaseText size="S" tag="span" className="whitespace-nowrap">
               XEM CHI TIẾT

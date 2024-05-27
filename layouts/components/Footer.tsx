@@ -62,7 +62,7 @@ export default function Footer() {
         ...(services ?? []).map((item: IService) => {
           return {
             title: get(item, "attributes.title", ""),
-            link: ERouter.PORTFOLIO + `?serviceId=${item.id}`,
+            link: ERouter.PORTFOLIO + `?serviceId=${item.attributes.slug}`,
           };
         }),
       ],

@@ -19,7 +19,7 @@ export default function BannerBlogDetail() {
       <BaseImage
         alt=""
         src={get(attributes, "thumbnail.data.attributes.url", "")}
-        className="absolute h-full w-full !rounded-none"
+        className="absolute h-full w-full !rounded-none object-cover"
       ></BaseImage>
       <div className="absolute z-5 bg-gradient-to-b from-white/50 via-black/50 to-black h-full w-full" />
       <div className="lg:absolute z-10 left-0 bottom-0 w-full">

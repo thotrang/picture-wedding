@@ -15,6 +15,7 @@ export interface Attributes {
   title?: string;
   content?: string;
   thumbnail?: IThumbnail;
+  slug: string;
   topic?: string;
   service?: {
     data: IService

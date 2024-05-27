@@ -20,7 +20,7 @@ export default function BaseButton({
     <motion.button
       type={type}
       disabled={disabled}
-      whileHover={!disabled ? { scale: 1.03, opacity: 0.9 } : {}}
+      whileHover={!disabled ? { scale: 1.03, opacity: 0.9, transition: { duration: 0.2 } } : {}}
       whileTap={!disabled ? { scale: 0.95, opacity: 0.3 } : {}}
       className={classNames(
         "shadow-white",

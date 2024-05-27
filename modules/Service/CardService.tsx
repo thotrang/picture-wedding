@@ -84,7 +84,7 @@ export default function CardService({
           {showButtonNavigate && (
             <ButtonNavigate
               onClick={() =>
-                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`)
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.attributes.slug}`)
               }
             />
           )}
@@ -125,7 +125,7 @@ export default function CardService({
             <BaseTextButtonNavigate
               className="font-medium flex items-center py-1 gap-2"
               onClick={() => {
-                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`);
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.attributes.slug}`);
               }}
             >
               <BaseText size="S" tag="span">

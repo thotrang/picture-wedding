@@ -14,6 +14,7 @@ export interface Attributes {
   gallery?: Gallery;
   services?: Service;
   shortDescription?: string;
+  slug: string;
   client?: {
     name?: string;
   };

@@ -26,7 +26,7 @@ export default function ListCategory({}: IListCategory) {
               className="!text-textNavigate pl-2 flex justify-center items-center gap-8"
               size="S"
               onClick={() => {
-                router.push(ERouter.PORTFOLIO + `?serviceId=${item.id}`);
+                router.push(ERouter.PORTFOLIO + `?serviceId=${item.attributes.slug}`);
               }}
             >
               <Dot />

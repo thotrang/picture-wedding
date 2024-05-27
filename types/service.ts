@@ -12,6 +12,7 @@ export interface Attributes {
   createdAt: string;
   updatedAt: string;
   thumbnail?: IThumbnail;
+  slug?: string;
   gallery: {
     data: DataThumbnail[]
   }
