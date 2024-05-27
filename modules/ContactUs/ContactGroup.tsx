@@ -12,7 +12,7 @@ function ContactFormGroup() {
   };
 
   return (
-    <BaseLayoutWraper>
+    <BaseLayoutWraper className="!px-8">
       <div
         className={classNames(
           "border-0 border-t border-solid border-borderColor",

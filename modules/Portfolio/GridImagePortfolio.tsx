@@ -5,6 +5,9 @@ import { RootState } from "stores/store";
 import { Gallery } from "react-grid-gallery";
 import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
 import BaseImage from "@/components/BaseImage";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import classNames from "classnames";
 interface IGridImagePortfolio {}
 
 export default function GridImagePortfolio({}: IGridImagePortfolio) {
@@ -27,6 +30,36 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
   }, [size]);
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base60">
+      <div className="md:aspect-[5/2] aspect-[3/2] px-3 pb-3 max-md:px-0 max-md:pb-6">
+        <Swiper
+          className="absolute h-full w-full"
+          spaceBetween={12}
+          autoplay={{
+            delay: 12000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+        >
+          {(listImages ?? []).map((item, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className="relative w-full h-full">
+                  <BaseImage
+                    className={classNames(
+                      "absolute h-full w-full object-cover"
+                    )}
+                    src={item.src}
+                    alt={""}
+                    showViewer
+                  />
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
       {rowHeight ? (
         <Gallery
           images={listImages}

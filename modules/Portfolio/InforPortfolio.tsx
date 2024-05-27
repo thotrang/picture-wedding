@@ -10,7 +10,7 @@ export default function InforPortfolio() {
   const { attributes } = portfolioDetail;
 
   return (
-    <BaseLayoutWraper>
+    <BaseLayoutWraper className="!px-8">
       <div className="2xl:pt-base80 lg:pt-base40 pt-6 flex justify-between max-md:flex-col">
         <div className="md:w-2/3 max-md:pb-6">
           <div className="flex items-center 2xl:gap-base10 lg:gap-2 gap-1 2xl:pb-base10 lg:pb-2 pb-1">
