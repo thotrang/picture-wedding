@@ -47,6 +47,8 @@ function BaseImage({
             setOpenViewer(true);
             setTimeout(() => {
               viewerRef.current.zoomInBtn.current.click();
+            }, 100);
+            setTimeout(() => {
               viewerRef.current.zoomOutBtn.current.click();
             }, 100);
           }
