@@ -20,7 +20,7 @@ export default function FilterBlog() {
           getBlogs({
             params: id
               ? {
-                  "filters[service][slug][$eq]": id,
+                  "filters[service][id][$eq]": id,
                   "pagination[page]": pagiBlogs.page,
                   "pagination[pageSize]": pagiBlogs.pageSize,
                 }

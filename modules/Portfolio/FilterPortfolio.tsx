@@ -18,7 +18,7 @@ export default function FilterPortfolio() {
     getPortfolios({
       params: id
         ? {
-            "filters[services][slug][$eq]": id,
+            "filters[services][id][$eq]": id,
             "pagination[page]": pagiPortfolios.page,
             "pagination[pageSize]": pagiPortfolios.pageSize,
           }

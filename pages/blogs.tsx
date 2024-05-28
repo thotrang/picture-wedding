@@ -23,9 +23,11 @@ export default function Blogs() {
     <Layout>
       <HeaderBlogs />
       <FilterBlog />
-      <BaseLayoutWraper className="2xl:py-base80 lg:py-base60 py-base30">
-        <CardBlog item={blogs[1] ?? {} as IBLog} smallImage />
-      </BaseLayoutWraper>
+      {blogs[0] && (
+        <BaseLayoutWraper className="2xl:py-base80 lg:py-base60 py-base30">
+          <CardBlog item={blogs[0] ?? ({} as IBLog)} smallImage />
+        </BaseLayoutWraper>
+      )}
       <ListBlogVertical />
       <ListCategory />
     </Layout>
