@@ -1,5 +1,5 @@
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 import { Gallery } from "react-grid-gallery";
@@ -8,6 +8,10 @@ import BaseImage from "@/components/BaseImage";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import classNames from "classnames";
+import Lightbox from "react-image-lightbox";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+
 interface IGridImagePortfolio {}
 
 export default function GridImagePortfolio({}: IGridImagePortfolio) {
@@ -28,9 +32,32 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
     if (size === ESizeScreen.SM || size === ESizeScreen.XS) return null;
     return 600;
   }, [size]);
+
+  const [index, setIndex] = useState(-1);
+  const currentImage = listImages[index];
+  const nextIndex = (index + 1) % listImages.length;
+  const nextImage = listImages[nextIndex] || currentImage;
+  const prevIndex = (index + listImages.length - 1) % listImages.length;
+  const prevImage = listImages[prevIndex] || currentImage;
+
+  const viewerRef = useRef<any>();
+
+  const handleClick = (index: number) => {
+    setIndex(index);
+    setTimeout(() => {
+      viewerRef.current.zoomInBtn.current.click();
+    }, 150);
+    setTimeout(() => {
+      viewerRef.current.zoomOutBtn.current.click();
+    }, 160);
+  };
+  const handleClose = () => setIndex(-1);
+  const handleMovePrev = () => setIndex(prevIndex);
+  const handleMoveNext = () => setIndex(nextIndex);
+
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base60">
-      <div className="md:aspect-[5/2] aspect-[3/2] px-3 pb-3 max-md:px-0 max-md:pb-6">
+      <div className="swiper-custom md:aspect-[5/2] aspect-[3/2] px-3 pb-3 max-md:px-0 max-md:pb-6">
         <Swiper
           className="absolute h-full w-full"
           spaceBetween={12}
@@ -38,13 +65,16 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
             delay: 12000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
+          modules={[Autoplay, Navigation]}
           slidesPerView={1}
           pagination={{ clickable: true }}
+          navigation
+          navigation-next-el=".custom-next-button"
+          navigation-prev-el=".custom-prev-button"
         >
           {(listImages ?? []).map((item, index) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} onClick={() => handleClick(index)}>
                 <div className="relative w-full h-full">
                   <BaseImage
                     className={classNames(
@@ -52,7 +82,6 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
                     )}
                     src={item.src}
                     alt={""}
-                    showViewer
                   />
                 </div>
               </SwiperSlide>
@@ -67,13 +96,13 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
           rowHeight={rowHeight}
           enableImageSelection={false}
           thumbnailStyle={{}}
+          onClick={handleClick}
           thumbnailImageComponent={(show) => {
             return (
               <BaseImage
                 src={show.imageProps.src}
                 alt=""
                 className="w-full h-full object-cover"
-                showViewer
               />
             );
           }}
@@ -87,11 +116,22 @@ export default function GridImagePortfolio({}: IGridImagePortfolio) {
                 src={item.src}
                 alt=""
                 className="w-full h-full object-cover"
-                showViewer
               />
             );
           })}
         </div>
+      )}
+      {!!currentImage && (
+        /* @ts-ignore */
+        <Lightbox
+          ref={viewerRef}
+          mainSrc={currentImage.src}
+          nextSrc={nextImage?.src}
+          prevSrc={prevImage?.src}
+          onCloseRequest={handleClose}
+          onMovePrevRequest={handleMovePrev}
+          onMoveNextRequest={handleMoveNext}
+        />
       )}
     </BaseLayoutWraper>
   );

@@ -89,7 +89,7 @@ export default function CardService({
             />
           )}
         </div>
-        <BaseText size="S" className="text-textColorSecond line-clamp-4">
+        <BaseText size="S" className="text-textColorSecond line-clamp-4 text-justify">
           {attributes.description}
         </BaseText>
         <div className="2xl:pt-base50 lg:pt-base40 pt-base30">

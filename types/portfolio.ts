@@ -15,6 +15,7 @@ export interface Attributes {
   services?: Service;
   shortDescription?: string;
   slug: string;
+  hightlight?: boolean;
   client?: {
     name?: string;
   };

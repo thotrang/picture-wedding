@@ -17,7 +17,7 @@ export default function ListBlogVertical() {
 
   return (
     <BaseLayoutWraper className="2xl:pt-base100 lg:pt-base80 pt-base40 pb-base100">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-base30 md:gap-base20">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-base30">
         {blogs.map((item, index) => {
           return (
             <div key={index} className="col-span-1 pb-base40 last:pb-0">

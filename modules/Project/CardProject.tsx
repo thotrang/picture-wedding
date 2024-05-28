@@ -1,8 +1,8 @@
+import BaseCard from "@/components/BaseCard";
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import { IPortfolio } from "@/types/portfolio";
-import convertDate from "helper/functions";
 import { get } from "lodash-es";
 import { useRouter } from "next/router";
 import ArrowRightTop from "public/icons/ArrowRightTop";
@@ -12,10 +12,14 @@ interface ICardProject {
 }
 export default function CardProject({ item }: ICardProject) {
   const { attributes } = item;
-  const { time1 } = convertDate(attributes.createdAt);
   const router = useRouter();
   return (
-    <div className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3">
+    <BaseCard
+      onClick={() => {
+        router.push(ERouter.PORTFOLIO_DETAIL + "/" + attributes.slug);
+      }}
+      className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3"
+    >
       <div>
         <BaseImage
           className="aspect-square object-cover"
@@ -28,16 +32,12 @@ export default function CardProject({ item }: ICardProject) {
           <BaseText size="XS" className=" font-medium" tag="span">
             {attributes.title}
           </BaseText>
-          <BaseText size="S" className=" text-textColorSecond pt-2">
-            {time1}
-          </BaseText>
         </div>
         <div className="">
           <BaseTextButtonNavigate
+            isHover={false}
             className="font-medium flex items-center py-1 gap-2"
-            onClick={() =>
-              router.push(ERouter.PORTFOLIO_DETAIL + "/" + attributes.slug)
-            }
+            onClick={() => {}}
           >
             <BaseText size="S" tag="span" className="whitespace-nowrap">
               XEM CHI TIẾT
@@ -46,6 +46,6 @@ export default function CardProject({ item }: ICardProject) {
           </BaseTextButtonNavigate>
         </div>
       </div>
-    </div>
+    </BaseCard>
   );
 }

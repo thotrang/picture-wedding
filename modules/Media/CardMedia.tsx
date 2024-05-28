@@ -31,7 +31,7 @@ export default function CardMedia({
             </div>
             <BaseText
               size="S"
-              className="text-textColorSecond xl:line-clamp-none md:line-clamp-4"
+              className="text-textColorSecond xl:line-clamp-none md:line-clamp-4 text-justify"
             >
               {infor.description}
             </BaseText>

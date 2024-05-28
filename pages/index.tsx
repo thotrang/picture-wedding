@@ -14,13 +14,20 @@ import { Dispatch } from "stores/store";
 
 export default function Home() {
   const { data_store } = useDispatch<Dispatch>();
-  const { getServices, getPortfolios, getClients, getQuestions } = data_store;
+  const {
+    getServices,
+    getPortfolios,
+    getClients,
+    getQuestions,
+    getPortfolioHighLights,
+  } = data_store;
 
   useEffect(() => {
     getServices({});
     getPortfolios({});
     getClients({});
     getQuestions({});
+    getPortfolioHighLights({});
   }, []);
 
   return (

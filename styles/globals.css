@@ -32,7 +32,13 @@
     height: auto;
   }
   .hover-animate-paused:hover * {
-      animation-play-state: paused !important;
+    animation-play-state: paused !important;
+  }
+  .swiper-custom .swiper .swiper-button-prev {
+    color: white;
+  }
+  .swiper-custom .swiper .swiper-button-next {
+    color: white;
   }
 }
 .ReactGridGallery_tile {

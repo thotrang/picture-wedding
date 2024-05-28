@@ -21,6 +21,8 @@ interface IBasePagination extends PropsWithChildren {
   slidesPerView?: number;
   showButton?: boolean;
   disableSwiper?: boolean;
+  titleStyle?: string;
+  spaceBetween?: number
 }
 export default function BasePagination({
   subTitle,
@@ -34,6 +36,8 @@ export default function BasePagination({
   slidesPerView = 1,
   showButton = true,
   disableSwiper,
+  titleStyle,
+  spaceBetween = 50
 }: IBasePagination) {
   const swiperRef = useRef<any>(null);
   const activeIndex = swiperRef.current?.swiper?.activeIndex ?? 0;
@@ -76,7 +80,7 @@ export default function BasePagination({
           <BaseText
             tag="h1"
             size="L"
-            className="font-semibold  pt-2"
+            className={classNames("font-semibold  pt-2", titleStyle)}
             content={title.toUpperCase()}
           ></BaseText>
         </div>
@@ -116,7 +120,7 @@ export default function BasePagination({
         allowTouchMove={!disableSwiper}
         simulateTouch={!disableSwiper}
         modules={[Autoplay, Navigation]}
-        spaceBetween={50}
+        spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         ref={swiperRef}
         onSlideChange={(data) => setCurrentIdx(data.realIndex)}

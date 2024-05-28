@@ -29,10 +29,12 @@ export default function NextPortfolios() {
   return (
     <BaseLayoutWraper className="2xl:py-base100 lg:py-base80 py-base60 !px-8">
       <BasePagination
-        title={listData[0]?.attributes.title?.toUpperCase() ?? ""}
-        subTitle="DỰ ÁN TIẾP THEO"
+        title="DỰ ÁN KHÁC"
+        subTitle="Xem thêm"
+        titleStyle="!text-2xl"
         listItemData={listData}
         slidesPerView={slidesPerView}
+        spaceBetween={30}
         renderItem={(item, index) => {
           return <CardPortfolio item={item} key={index} />;
         }}

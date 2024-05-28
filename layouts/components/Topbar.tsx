@@ -2,6 +2,7 @@ import BaseButton from "@/components/BaseButton";
 import BaseIconButton from "@/components/BaseIconButton";
 import BaseImage from "@/components/BaseImage";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
+import BaseText from "@/components/BaseText";
 import BaseTextButton from "@/components/BaseTextButton";
 import classNames from "classnames";
 import { motion } from "framer-motion";
@@ -11,7 +12,11 @@ import Menu from "public/icons/Menu";
 import { useRef, useState } from "react";
 import { ERouter } from "routers";
 
-export default function Topbar({ handleContact }: { handleContact: () => void }) {
+export default function Topbar({
+  handleContact,
+}: {
+  handleContact: () => void;
+}) {
   const itemRoutes = [
     { title: "Trang chủ", link: ERouter.HOME },
     { title: "Về chúng tôi", link: ERouter.ABOUT_US },
@@ -52,7 +57,7 @@ export default function Topbar({ handleContact }: { handleContact: () => void })
       <BaseLayoutWraper className="flex justify-center items-end relative  border-solid border-borderColor border-x border-y-0 px-4 2xl:h-topbar-l lg:h-topbar-m h-topbar-s">
         <motion.div
           whileTap={{ scale: 0.95, opacity: 0.3 }}
-          className="absolute h-full left-0 items-center flex mx-4 cursor-pointer"
+          className="absolute h-3/4 left-0 items-center flex mx-4 cursor-pointer"
           onClick={() => router.push(ERouter.HOME)}
         >
           <BaseImage
@@ -84,8 +89,10 @@ export default function Topbar({ handleContact }: { handleContact: () => void })
             );
           })}
         </div>
-        <div className="max-lg:hidden absolute right-0 mx-4 h-full flex justify-center items-center">
-          <BaseButton onClick={handleContact}>Liên hệ</BaseButton>
+        <div className="h-3/4 max-lg:hidden absolute right-0 mx-4 flex justify-center items-center">
+          <BaseButton onClick={handleContact}>
+            <BaseText size="S">Liên hệ</BaseText>
+          </BaseButton>
         </div>
         <div
           ref={menuRef}

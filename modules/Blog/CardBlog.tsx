@@ -1,9 +1,9 @@
+import BaseCard from "@/components/BaseCard";
 import BaseImage from "@/components/BaseImage";
 import BaseText from "@/components/BaseText";
 import BaseTextButtonNavigate from "@/components/BaseTextButtonNavigate";
 import { IBLog } from "@/types/blog";
 import classNames from "classnames";
-import convertDate from "helper/functions";
 import { get } from "lodash-es";
 import { useRouter } from "next/router";
 import ArrowRightTop from "public/icons/ArrowRightTop";
@@ -14,12 +14,16 @@ interface ICardBlog {
 }
 export default function CardBlog({ item, smallImage }: ICardBlog) {
   const { attributes } = item ?? {};
-  const { time1 } = convertDate(attributes?.createdAt);
   const router = useRouter();
-  
+
   if (!attributes) return <div />;
   return (
-    <div className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3">
+    <BaseCard
+      onClick={() =>
+        router.push(ERouter.BLOG_DETAIL + "/" + item.attributes.slug)
+      }
+      className="flex flex-col 2xl:gap-base20 lg:gap-4 gap-3"
+    >
       <div>
         <BaseImage
           className={classNames("object-cover", {
@@ -35,14 +39,12 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
           <BaseText size="XS" className=" font-medium" tag="span">
             {attributes.title}
           </BaseText>
-          <BaseText size="S" className=" text-textColorSecond pt-2">
-            {time1}
-          </BaseText>
         </div>
         <div className="">
           <BaseTextButtonNavigate
             className="font-medium flex items-center py-1 gap-2"
-            onClick={() => router.push(ERouter.BLOG_DETAIL + "/" + item.attributes.slug)}
+            onClick={() => {}}
+            isHover={false}
           >
             <BaseText size="S" tag="span" className="whitespace-nowrap">
               XEM CHI TIẾT
@@ -51,6 +53,6 @@ export default function CardBlog({ item, smallImage }: ICardBlog) {
           </BaseTextButtonNavigate>
         </div>
       </div>
-    </div>
+    </BaseCard>
   );
 }

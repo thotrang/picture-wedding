@@ -1,11 +1,14 @@
 import BaseButton from "@/components/BaseButton";
 import BaseText from "@/components/BaseText";
+import BaseTextButton from "@/components/BaseTextButton";
 import { IQuestion } from "@/types/faq";
 import classNames from "classnames";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import ChevronBottom from "public/icons/ChevronBottom";
 import ChevronTop from "public/icons/ChevronTop";
 import { useState } from "react";
+import { ERouter } from "routers";
 
 interface IQuestionItem {
   item: IQuestion;
@@ -20,6 +23,8 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
     transition: { type: "tween" },
     height: openCollap ? "auto" : 0,
   };
+
+  const router = useRouter()
   return (
     <div
       className={classNames(
@@ -31,13 +36,19 @@ export default function QuestionItem({ item, showBottomLine }: IQuestionItem) {
       )}
     >
       <div className="flex gap-6 flex-col justify-center">
-        <BaseText
+        <BaseTextButton
+          onClick={()=> {
+            const blogSlug = attributes.blog?.data?.attributes.slug
+            if(blogSlug) {
+              router.push(ERouter.BLOG_DETAIL + "/" + blogSlug)
+            }
+          }}
           tag="h1"
           size="XS"
           className="font-semibold text-textColorSecond"
         >
           {attributes.question}
-        </BaseText>
+        </BaseTextButton>
         <div aria-expanded={openCollap}>
           <motion.div
             style={{ overflow: "hidden" }}

@@ -1,3 +1,5 @@
+import { IBLog } from "./blog";
+
 export interface IQuestion {
   id: number;
   attributes: Attributes;
@@ -8,4 +10,8 @@ export interface Attributes {
   answer: null;
   createdAt: string;
   updatedAt: string;
+  link?: string;
+  blog?: {
+    data?: IBLog;
+  };
 }

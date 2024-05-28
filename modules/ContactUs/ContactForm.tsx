@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import BaseButton from "@/components/BaseButton";
 import ArrowRightTop from "@/public/icons/ArrowRightTop";
 import BaseImage from "@/components/BaseImage";
+import LinkSocialNetwork from "../LinkSocialNetwork";
 interface IContactForm {
   className?: string;
   handleAfterSubmit?: () => void;
@@ -167,16 +168,24 @@ export default function ContactForm({
         />
       </div>
       <div>
-        <BaseButton
-          type="submit"
-          onClick={() => {}}
-          className="flex items-center gap-3"
-        >
-          <BaseText tag="span" size="XM" className="lg:!text-l !text-xm">
-            GỬI THÔNG TIN
-          </BaseText>
-          <ArrowRightTop className="2xl:w-9 2xl:h-9 lg:w-7 lg:h-7" />
-        </BaseButton>
+        <div className="flex gap-base20 items-center">
+          <BaseText size="S">Hotline: 0886.693.688</BaseText>
+          <LinkSocialNetwork />
+        </div>
+      </div>
+      <div className="text-end">
+        <div className="inline-block">
+          <BaseButton
+            type="submit"
+            onClick={() => {}}
+            className="flex items-center gap-3"
+          >
+            <BaseText tag="span" size="XM" className="lg:!text-l !text-xm">
+              GỬI THÔNG TIN
+            </BaseText>
+            <ArrowRightTop className="2xl:w-9 2xl:h-9 lg:w-7 lg:h-7" />
+          </BaseButton>
+        </div>
       </div>
     </form>
   );

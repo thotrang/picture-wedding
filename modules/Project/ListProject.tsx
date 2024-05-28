@@ -1,5 +1,4 @@
 import BasePagination from "@/components/BasePagination";
-import CardProject from "./CardProject";
 import BaseLayoutWraper from "@/components/BaseLayoutWraper";
 import { ESizeScreen, useScreenSize } from "hooks/useWindowSize";
 import { useMemo } from "react";
@@ -7,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 import { useRouter } from "next/router";
 import { ERouter } from "routers";
+import CardPortfolio from "../Portfolio/CardPortfolio";
 
 export default function ListProject() {
   const { size } = useScreenSize();
@@ -15,7 +15,7 @@ export default function ListProject() {
     if (size === ESizeScreen.SM || size === ESizeScreen.XS) return 1;
     return 3;
   }, [size]);
-  const { portfolios } = useSelector((s: RootState) => s.data_store);
+  const { portfolioHighLights } = useSelector((s: RootState) => s.data_store);
   const router = useRouter();
   return (
     <BaseLayoutWraper className="2xl:pt-top-l lg:pt-top-m pt-top-s">
@@ -23,13 +23,16 @@ export default function ListProject() {
         subTitle="Sản phẩm"
         title="Khám phá các tác phẩm"
         titleButton="Xem tất cả"
-        showMoreClick={() => {router.push(ERouter.PORTFOLIO)}}
+        showMoreClick={() => {
+          router.push(ERouter.PORTFOLIO);
+        }}
         nextClick={() => {}}
         preClick={() => {}}
-        listItemData={portfolios}
+        spaceBetween={30}
+        listItemData={portfolioHighLights}
         slidesPerView={slidesPerView}
         renderItem={(item, index) => {
-          return <CardProject item={item} key={index} />;
+          return <CardPortfolio item={item} key={index} />;
         }}
       ></BasePagination>
     </BaseLayoutWraper>

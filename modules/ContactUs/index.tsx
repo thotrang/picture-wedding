@@ -23,7 +23,7 @@ export default function ContactUs() {
           <BaseText
             size="XM"
             tag="h1"
-            className="text-textColorSecond font-semibold"
+            className="text-textColorSecond font-semibold !text-[40px]"
           >
             KẾT NỐI VỚI CHÚNG TÔI
           </BaseText>

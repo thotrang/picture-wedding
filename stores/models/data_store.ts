@@ -14,6 +14,7 @@ import ServiceRepository from "apis/repositories/service";
 import { RootModel } from "stores";
 interface IState {
   services: IService[] | null;
+  portfolioHighLights: IPortfolio[] | null;
   portfolios: IPortfolio[];
   portfolioDetail: IPortfolio;
   clients: IClient[];
@@ -34,10 +35,14 @@ export const data_store = createModel<RootModel>()({
     blogs: [],
     blogDetail: {} as IBLog,
     pagiBlogs: {} as IPagination,
+    portfolioHighLights: [],
   } as IState,
   reducers: {
     setServices(state, services: IService[]) {
       return { ...state, services };
+    },
+    setSPortfolioHighLights(state, portfolioHighLights: IPortfolio[]) {
+      return { ...state, portfolioHighLights };
     },
     setPortfolios(state, portfolios: IPortfolio[], pagiPortfolios) {
       return { ...state, portfolios, pagiPortfolios };
@@ -79,6 +84,16 @@ export const data_store = createModel<RootModel>()({
           populate: "*",
         });
         dispatch.data_store.setServices(res.data);
+        return res;
+      }
+    },
+    async getPortfolioHighLights(_, rootState) {
+      if (!rootState.data_store.portfolioHighLights?.length) {
+        const res = await PortfolioRepository.get({
+          populate: "*",
+          "filters[highlight]": true,
+        });
+        dispatch.data_store.setSPortfolioHighLights(res.data);
         return res;
       }
     },

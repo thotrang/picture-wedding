@@ -82,7 +82,7 @@ export default function Footer() {
               <BaseImage
                 src="/images/Logo.png"
                 alt=""
-                className="2xl:h-logo-l lg:h-logo-m h-logo-s !w-auto !rounded-none 2xl:pb-base60 lg:pb-base40 pb-base20"
+                className="2xl:h-[80px] lg:h-[60px] h-[60px] !w-auto !rounded-none 2xl:pb-base40 lg:pb-base30 pb-base20"
               />
             </motion.div>
             <BaseSlogan />
