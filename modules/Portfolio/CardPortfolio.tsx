@@ -9,7 +9,7 @@ interface ICardPortfolio {
   item: IPortfolio;
 }
 export default function CardPortfolio({ item }: ICardPortfolio) {
-  const { attributes, id } = item;
+  const { attributes } = item;
   const router = useRouter();
   return (
     <motion.div
