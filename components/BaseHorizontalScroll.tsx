@@ -50,7 +50,7 @@ export default function BaseHorizontalScroll({
             return (
               <div
                 className={classNames(
-                  "2xl:py-5 py-4 2xl:px-5 px-4 inline-block",
+                  "py-5 px-base40 inline-block",
                   classItem
                 )}
                 key={i}

@@ -51,7 +51,7 @@ export default function ListCustomer() {
           );
           return (
             <div className="mx-base10 w-full h-full" key={index}>
-              <BaseImage src={img} alt="" className="max-lg:!h-9 lg:h-16 2xl:h-[70px] rounded-none" />
+              <BaseImage src={img} alt="" className="max-lg:!h-12 lg:h-16 2xl:h-[70px] rounded-none" />
             </div>
           );
         }}
