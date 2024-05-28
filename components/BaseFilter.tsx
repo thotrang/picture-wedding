@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "stores/store";
 import { useRouter } from "next/router";
 interface IBaseFilter {
-  itemTap: (id: number) => void;
+  itemTap: (slug: string) => void;
 }
 export default function BaseFilter({ itemTap }: IBaseFilter) {
   const [selected, setSelected] = useState<null | number | string>(null);
@@ -16,12 +16,12 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
     return [
       {
         title: "Tất cả",
-        id: null,
+        slug: null,
       },
       ...(services ?? []).map((item) => {
         return {
           title: item.attributes.title,
-          id: item.id,
+          slug: item.attributes.slug,
         };
       }),
     ];
@@ -43,11 +43,11 @@ export default function BaseFilter({ itemTap }: IBaseFilter) {
           <BaseButton
             key={index}
             className={classNames(" bg-buttonFilter text-textShadow", {
-              "!shadow-action !text-textColor": item.id == selected,
+              "!shadow-action !text-textColor": item.slug == selected,
             })}
             onClick={() => {
-              setSelected(item.id);
-              itemTap(item.id);
+              setSelected(item.slug);
+              itemTap(item.slug);
             }}
           >
             {item.title}

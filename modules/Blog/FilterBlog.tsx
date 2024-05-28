@@ -16,11 +16,11 @@ export default function FilterBlog() {
       )}
     >
       <BaseFilter
-        itemTap={(id) => {
+        itemTap={(slug) => {
           getBlogs({
-            params: id
+            params: slug
               ? {
-                  "filters[service][id][$eq]": id,
+                  "filters[service][slug][$eq]": slug,
                   "pagination[page]": pagiBlogs.page,
                   "pagination[pageSize]": pagiBlogs.pageSize,
                 }

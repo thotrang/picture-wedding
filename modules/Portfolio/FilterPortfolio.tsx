@@ -14,11 +14,11 @@ export default function FilterPortfolio() {
 
   const { pagiPortfolios } = useSelector((s: RootState) => s.data_store);
 
-  const handleSearch = (id: number | string) => {
+  const handleSearch = (slug: number | string) => {
     getPortfolios({
-      params: id
+      params: slug
         ? {
-            "filters[services][id][$eq]": id,
+            "filters[services][slug][$eq]": slug,
             "pagination[page]": pagiPortfolios.page,
             "pagination[pageSize]": pagiPortfolios.pageSize,
           }
